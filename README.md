@@ -4,7 +4,7 @@ FIXME: my new application.
 
 ## Installation
 
-Download from https://github.com/pkoerner/b2eventb
+Download from https://github.com/megajunky/b2eventb
 
 ## Usage
 
