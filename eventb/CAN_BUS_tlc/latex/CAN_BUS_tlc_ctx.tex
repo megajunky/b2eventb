@@ -1,0 +1,43 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{CAN\_BUS\_tlc\_ctx}
+\CONTEXT{CAN\_BUS\_tlc\_ctx}{}{}
+\SETS{
+	\Set{T1state}{}
+	\Set{T2mode}{}
+	\Set{T2state}{}
+	\Set{T3state}{}
+}
+\CONSTANTS{
+	\Constant{NATSET}{}
+	\Constant{T1\_EN}{}
+	\Constant{T1\_CALC}{}
+	\Constant{T1\_SEND}{}
+	\Constant{T1\_WAIT}{}
+	\Constant{T2MODE\_SENSE}{}
+	\Constant{T2MODE\_TRANSMIT}{}
+	\Constant{T2MODE\_RELEASE}{}
+	\Constant{T2\_EN}{}
+	\Constant{T2\_RCV}{}
+	\Constant{T2\_PROC}{}
+	\Constant{T2\_CALC}{}
+	\Constant{T2\_SEND}{}
+	\Constant{T2\_WAIT}{}
+	\Constant{T2\_RELEASE}{}
+	\Constant{T3\_READY}{}
+	\Constant{T3\_WRITE}{}
+	\Constant{T3\_RELEASE}{}
+	\Constant{T3\_READ}{}
+	\Constant{T3\_PROC}{}
+	\Constant{T3\_WAIT}{}
+}
+\AXIOMS{
+	\Axiom{axm0}{false}{$partition(T1state,\{T1\_EN\},\{T1\_CALC\},\{T1\_SEND\},\{T1\_WAIT\})$}{}
+	\Axiom{axm1}{false}{$partition(T2mode,\{T2MODE\_SENSE\},\{T2MODE\_TRANSMIT\},\{T2MODE\_RELEASE\})$}{}
+	\Axiom{axm2}{false}{$partition(T2state,\{T2\_EN\},\{T2\_RCV\},\{T2\_PROC\},\{T2\_CALC\},\{T2\_SEND\},\{T2\_WAIT\},\{T2\_RELEASE\})$}{}
+	\Axiom{axm3}{false}{$partition(T3state,\{T3\_READY\},\{T3\_WRITE\},\{T3\_RELEASE\},\{T3\_READ\},\{T3\_PROC\},\{T3\_WAIT\})$}{}
+	\Axiom{axm4}{false}{$NATSET=0\upto{}5$}{}
+}
+\END
+\end{document}

@@ -1,0 +1,18 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{scheduler\_ctx}
+\CONTEXT{scheduler\_ctx}{}{}
+\SETS{
+	\Set{PID}{}
+}
+\CONSTANTS{
+	\Constant{process1}{}
+	\Constant{process2}{}
+	\Constant{process3}{}
+}
+\AXIOMS{
+	\Axiom{axm0}{false}{$partition(PID,\{process1\},\{process2\},\{process3\})$}{}
+}
+\END
+\end{document}

@@ -1,0 +1,316 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{CAN\_BUS\_tlc}
+\MACHINE{CAN\_BUS\_tlc}{}{CAN\_BUS\_tlc\_ctx}{}
+\VARIABLES{
+	\Variable{BUSpriority}{}
+	\Variable{BUSvalue}{}
+	\Variable{BUSwrite}{}
+	\Variable{T1\_state}{}
+	\Variable{T1\_timer}{}
+	\Variable{T1\_writevalue}{}
+	\Variable{T2\_mode}{}
+	\Variable{T2\_readpriority}{}
+	\Variable{T2\_readvalue}{}
+	\Variable{T2\_state}{}
+	\Variable{T2\_timer}{}
+	\Variable{T2\_writevalue}{}
+	\Variable{T2v}{}
+	\Variable{T3\_enabled}{}
+	\Variable{T3\_evaluated}{}
+	\Variable{T3\_readpriority}{}
+	\Variable{T3\_readvalue}{}
+	\Variable{T3\_state}{}
+}
+\INVARIANTS{
+	\Invariant{inv0}{false}{$T2v\in{}\intg{}$}{}
+	\Invariant{inv1}{false}{$T3\_evaluated\in{}BOOL$}{}
+	\Invariant{inv2}{false}{$T3\_enabled\in{}BOOL$}{}
+	\Invariant{inv3}{false}{$T1\_state\in{}T1state$}{}
+	\Invariant{inv4}{false}{$T2\_state\in{}T2state$}{}
+	\Invariant{inv5}{false}{$T3\_state\in{}T3state$}{}
+	\Invariant{inv6}{false}{$T1\_writevalue\in{}\intg{}$}{}
+	\Invariant{inv7}{false}{$T2\_writevalue\in{}\intg{}$}{}
+	\Invariant{inv8}{false}{$T2\_readvalue\in{}\intg{}$}{}
+	\Invariant{inv9}{false}{$T1\_timer\in{}\nat{}$}{}
+	\Invariant{inv10}{false}{$T2\_timer\in{}\nat{}$}{}
+	\Invariant{inv11}{false}{$T2\_mode\in{}T2mode$}{}
+	\Invariant{inv12}{false}{$BUSvalue\in{}\intg{}$}{}
+	\Invariant{inv13}{false}{$BUSpriority\in{}NATSET$}{}
+	\Invariant{inv14}{false}{$T3\_readvalue\in{}\intg{}$}{}
+	\Invariant{inv15}{false}{$T3\_readpriority\in{}NATSET$}{}
+	\Invariant{inv16}{false}{$T2\_readpriority\in{}NATSET$}{}
+	\Invariant{inv17}{false}{$BUSwrite\in{}NATSET\pfun{}(\intg{})$}{}
+	\Invariant{inv18}{false}{$BUSwrite\in{}FIN(NATSET \cprod{} (\intg{}))$}{}
+	\Invariant{inv19}{false}{$BUSwrite\neq{}\emptyset{}$}{}
+	\Invariant{inv20}{false}{$0\in{}dom(BUSwrite)$}{}
+}
+\EVENTS{
+\EVT{T1Evaluate}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd0}{false}{$T1\_timer=0$}{true}{}
+		\Guard{grd1}{false}{$T1\_state=T1\_EN$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T1\_timer \bcmeq{} 0$}{true}{}
+		\Action{act1}{$T1\_state \bcmeq{} T1\_CALC$}{true}{}
+	}
+}
+\EVT{T1Calculate}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{p}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd0}{false}{$p\in{}-1\upto{}3$}{true}{}
+		\Guard{grd1}{false}{$T1\_state=T1\_CALC$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T1\_writevalue \bcmeq{} p$}{true}{}
+		\Action{act1}{$T1\_state \bcmeq{} T1\_SEND$}{true}{}
+	}
+}
+\EVT{T1SendResult}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{ppriority}{true}{}
+		\Param{pv}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd0}{false}{$pv=T1\_writevalue$}{true}{}
+		\Guard{grd1}{false}{$ppriority=3$}{true}{}
+		\Guard{grd2}{false}{$T1\_state=T1\_SEND$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$BUSwrite \bcmeq{} BUSwrite\ovl{}\{ppriority\mapsto{}pv\}$}{true}{}
+		\Action{act1}{$T1\_state \bcmeq{} T1\_WAIT$}{true}{}
+	}
+}
+\EVT{T1Wait}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{pt}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd0}{false}{$pt=2$}{true}{}
+		\Guard{grd1}{false}{$T1\_state=T1\_WAIT$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T1\_timer \bcmeq{} pt$}{true}{}
+		\Action{act1}{$T1\_state \bcmeq{} T1\_EN$}{true}{}
+	}
+}
+\EVT{T2Evaluate}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd0}{false}{$T2\_timer=0$}{true}{}
+		\Guard{grd1}{false}{$T2\_state=T2\_EN$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T2\_timer \bcmeq{} 0$}{true}{}
+		\Action{act1}{$T2\_state \bcmeq{} T2\_RCV$}{true}{}
+	}
+}
+\EVT{T2ReadBus}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{ppriority}{true}{}
+		\Param{pv}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd0}{false}{$pv=BUSvalue$}{true}{}
+		\Guard{grd1}{false}{$ppriority=BUSpriority$}{true}{}
+		\Guard{grd2}{false}{$T2\_state=T2\_RCV$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T2\_readvalue \bcmeq{} pv$}{true}{}
+		\Action{act1}{$T2\_readpriority \bcmeq{} ppriority$}{true}{}
+		\Action{act2}{$T2\_state \bcmeq{} T2\_PROC$}{true}{}
+	}
+}
+\EVT{T2Reset}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd0}{false}{$T2\_readpriority=4$}{true}{}
+		\Guard{grd1}{false}{$T2\_state=T2\_PROC$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T2\_writevalue \bcmeq{} T2v$}{true}{}
+		\Action{act1}{$T2v \bcmeq{} 0$}{true}{}
+		\Action{act2}{$T2\_state \bcmeq{} T2\_SEND$}{true}{}
+		\Action{act3}{$T2\_mode \bcmeq{} T2MODE\_TRANSMIT$}{true}{}
+	}
+}
+\EVT{T2Complete}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd0}{false}{$T2\_readpriority=5$}{true}{}
+		\Guard{grd1}{false}{$T2\_state=T2\_PROC$}{true}{}
+		\Guard{grd2}{false}{$T2\_mode=T2MODE\_TRANSMIT$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T2\_state \bcmeq{} T2\_RELEASE$}{true}{}
+		\Action{act1}{$T2\_mode \bcmeq{} T2MODE\_SENSE$}{true}{}
+	}
+}
+\EVT{T2ReleaseBus}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{ppriority}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd0}{false}{$ppriority=T2\_readpriority$}{true}{}
+		\Guard{grd1}{false}{$ppriority\in{}dom(BUSwrite)$}{true}{}
+		\Guard{grd2}{false}{$T2\_state=T2\_RELEASE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$BUSwrite \bcmeq{} \{ppriority\}\domsub{}BUSwrite$}{true}{}
+		\Action{act1}{$T2\_state \bcmeq{} T2\_WAIT$}{true}{}
+	}
+}
+\EVT{T2Calculate}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd0}{false}{$T2\_readpriority=3$}{true}{}
+		\Guard{grd1}{false}{$T2\_state=T2\_PROC$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T2v \bcmeq{} T2\_readvalue$}{true}{}
+		\Action{act1}{$T2\_state \bcmeq{} T2\_WAIT$}{true}{}
+	}
+}
+\EVT{T2WriteBus}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{ppriority}{true}{}
+		\Param{pv}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd0}{false}{$pv=T2\_writevalue$}{true}{}
+		\Guard{grd1}{false}{$ppriority=5$}{true}{}
+		\Guard{grd2}{false}{$T2\_state=T2\_SEND$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$BUSwrite \bcmeq{} BUSwrite\ovl{}\{ppriority\mapsto{}pv\}$}{true}{}
+		\Action{act1}{$T2\_state \bcmeq{} T2\_WAIT$}{true}{}
+	}
+}
+\EVT{T2Wait}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{pt}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd0}{false}{$pt=3$}{true}{}
+		\Guard{grd1}{false}{$T2\_state=T2\_WAIT$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T2\_timer \bcmeq{} pt$}{true}{}
+		\Action{act1}{$T2\_state \bcmeq{} T2\_EN$}{true}{}
+	}
+}
+\EVT{T3Initiate}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd0}{false}{$T3\_state=T3\_READY$}{true}{}
+		\Guard{grd1}{false}{$T3\_evaluated=FALSE$}{true}{}
+		\Guard{grd2}{false}{$T3\_enabled=TRUE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T3\_state \bcmeq{} T3\_WRITE$}{true}{}
+		\Action{act1}{$T3\_enabled \bcmeq{} FALSE$}{true}{}
+	}
+}
+\EVT{T3Evaluate}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd0}{false}{$T3\_state=T3\_READY$}{true}{}
+		\Guard{grd1}{false}{$T3\_evaluated=FALSE$}{true}{}
+		\Guard{grd2}{false}{$T3\_enabled=FALSE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T3\_state \bcmeq{} T3\_READ$}{true}{}
+	}
+}
+\EVT{T3writebus}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{ppriority}{true}{}
+		\Param{pv}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd0}{false}{$pv=0$}{true}{}
+		\Guard{grd1}{false}{$ppriority=4$}{true}{}
+		\Guard{grd2}{false}{$T3\_state=T3\_WRITE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$BUSwrite \bcmeq{} BUSwrite\ovl{}\{ppriority\mapsto{}pv\}$}{true}{}
+		\Action{act1}{$T3\_state \bcmeq{} T3\_WAIT$}{true}{}
+	}
+}
+\EVT{T3Read}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{ppriority}{true}{}
+		\Param{pv}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd0}{false}{$pv=BUSvalue$}{true}{}
+		\Guard{grd1}{false}{$ppriority=BUSpriority$}{true}{}
+		\Guard{grd2}{false}{$T3\_state=T3\_READ$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T3\_readvalue \bcmeq{} pv$}{true}{}
+		\Action{act1}{$T3\_readpriority \bcmeq{} ppriority$}{true}{}
+		\Action{act2}{$T3\_state \bcmeq{} T3\_PROC$}{true}{}
+	}
+}
+\EVT{T3Poll}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd0}{false}{$T3\_readpriority<5$}{true}{}
+		\Guard{grd1}{false}{$T3\_state=T3\_PROC$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T3\_state \bcmeq{} T3\_WAIT$}{true}{}
+	}
+}
+\EVT{T3ReleaseBus}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{ppriority}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd0}{false}{$ppriority=4$}{true}{}
+		\Guard{grd1}{false}{$T3\_readpriority=5$}{true}{}
+		\Guard{grd2}{false}{$T3\_state=T3\_PROC$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$BUSwrite \bcmeq{} \{ppriority\}\domsub{}BUSwrite$}{true}{}
+		\Action{act1}{$T3\_state \bcmeq{} T3\_RELEASE$}{true}{}
+	}
+}
+\EVT{T3Wait}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd0}{false}{$T3\_state=T3\_WAIT$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T3\_state \bcmeq{} T3\_READY$}{true}{}
+		\Action{act1}{$T3\_evaluated \bcmeq{} TRUE$}{true}{}
+	}
+}
+\EVT{T3ReEnableWait}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd0}{false}{$T3\_state=T3\_RELEASE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$T3\_state \bcmeq{} T3\_READY$}{true}{}
+		\Action{act1}{$T3\_evaluated \bcmeq{} TRUE$}{true}{}
+		\Action{act2}{$T3\_enabled \bcmeq{} TRUE$}{true}{}
+	}
+}
+\EVT{Update}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{pmax}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd0}{false}{$pmax=max(dom(BUSwrite))$}{true}{}
+		\Guard{grd1}{false}{$T1\_timer>0$}{true}{}
+		\Guard{grd2}{false}{$T2\_timer>0$}{true}{}
+		\Guard{grd3}{false}{$T3\_enabled=TRUE \lor{} T3\_evaluated=TRUE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act0}{$BUSvalue \bcmeq{} BUSwrite(pmax)$}{true}{}
+		\Action{act1}{$BUSpriority \bcmeq{} pmax$}{true}{}
+		\Action{act2}{$T1\_timer \bcmeq{} T1\_timer-1$}{true}{}
+		\Action{act3}{$T2\_timer \bcmeq{} T2\_timer-1$}{true}{}
+		\Action{act4}{$T3\_evaluated \bcmeq{} FALSE$}{true}{}
+	}
+}
+}
+\END
+\end{document}
