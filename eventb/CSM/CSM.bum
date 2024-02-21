@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<org.eventb.core.machineFile org.eventb.core.configuration='org.eventb.core.fwd' version='5' org.eventb.core.comment=''>
+  <org.eventb.core.seesContext name='n0' org.eventb.core.target='CSM_ctx' />
+  <org.eventb.core.variable name='n1' org.eventb.core.identifier='x0' />
+  <org.eventb.core.variable name='n2' org.eventb.core.identifier='x1' />
+  <org.eventb.core.variable name='n3' org.eventb.core.identifier='x2' />
+  <org.eventb.core.variable name='n4' org.eventb.core.identifier='x3' />
+  <org.eventb.core.variable name='n5' org.eventb.core.identifier='x4' />
+  <org.eventb.core.variable name='n6' org.eventb.core.identifier='x5' />
+  <org.eventb.core.variable name='n7' org.eventb.core.identifier='x6' />
+  <org.eventb.core.variable name='n8' org.eventb.core.identifier='x7' />
+  <org.eventb.core.variable name='n9' org.eventb.core.identifier='x8' />
+  <org.eventb.core.variable name='n10' org.eventb.core.identifier='x9' />
+  <org.eventb.core.variable name='n11' org.eventb.core.identifier='x10' />
+  <org.eventb.core.variable name='n12' org.eventb.core.identifier='x11' />
+  <org.eventb.core.variable name='n13' org.eventb.core.identifier='x12' />
+  <org.eventb.core.variable name='n14' org.eventb.core.identifier='x13' />
+  <org.eventb.core.invariant name='n15' org.eventb.core.label='inv0' org.eventb.core.predicate='x0∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n16' org.eventb.core.label='inv1' org.eventb.core.predicate='x1∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n17' org.eventb.core.label='inv2' org.eventb.core.predicate='x2∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n18' org.eventb.core.label='inv3' org.eventb.core.predicate='x3∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n19' org.eventb.core.label='inv4' org.eventb.core.predicate='x4∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n20' org.eventb.core.label='inv5' org.eventb.core.predicate='x5∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n21' org.eventb.core.label='inv6' org.eventb.core.predicate='x6∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n22' org.eventb.core.label='inv7' org.eventb.core.predicate='x7∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n23' org.eventb.core.label='inv8' org.eventb.core.predicate='x8∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n24' org.eventb.core.label='inv9' org.eventb.core.predicate='x9∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n25' org.eventb.core.label='inv10' org.eventb.core.predicate='x10∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n26' org.eventb.core.label='inv11' org.eventb.core.predicate='x11∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n27' org.eventb.core.label='inv12' org.eventb.core.predicate='x12∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n28' org.eventb.core.label='inv13' org.eventb.core.predicate='x13∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n29' org.eventb.core.label='inv14' org.eventb.core.predicate='x9&lt;2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n30' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t0' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n31' org.eventb.core.label='grd0' org.eventb.core.predicate='x0≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n32' org.eventb.core.assignment='x0 ≔ x0−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n33' org.eventb.core.assignment='x1 ≔ x1+1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n34' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t1' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n35' org.eventb.core.label='grd0' org.eventb.core.predicate='x4≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n36' org.eventb.core.label='grd1' org.eventb.core.predicate='x9≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n37' org.eventb.core.assignment='x0 ≔ x0+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n38' org.eventb.core.assignment='x2 ≔ x2+1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n39' org.eventb.core.assignment='x4 ≔ x4−1' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n40' org.eventb.core.assignment='x9 ≔ x9−1' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n41' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t2' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n42' org.eventb.core.label='grd0' org.eventb.core.predicate='x4≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n43' org.eventb.core.label='grd1' org.eventb.core.predicate='x6≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n44' org.eventb.core.assignment='x0 ≔ x0+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n45' org.eventb.core.assignment='x3 ≔ x3+1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n46' org.eventb.core.assignment='x4 ≔ x4−1' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n47' org.eventb.core.assignment='x6 ≔ x6−1' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n48' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t3' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n49' org.eventb.core.label='grd0' org.eventb.core.predicate='x1≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n50' org.eventb.core.label='grd1' org.eventb.core.predicate='x3≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n51' org.eventb.core.assignment='x1 ≔ x1−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n52' org.eventb.core.assignment='x3 ≔ x3−1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n53' org.eventb.core.assignment='x5 ≔ x5+1' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n54' org.eventb.core.assignment='x6 ≔ x6+1' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n55' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t4' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n56' org.eventb.core.label='grd0' org.eventb.core.predicate='x1≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n57' org.eventb.core.label='grd1' org.eventb.core.predicate='x2≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n58' org.eventb.core.assignment='x1 ≔ x1−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n59' org.eventb.core.assignment='x2 ≔ x2−1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n60' org.eventb.core.assignment='x5 ≔ x5+1' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n61' org.eventb.core.assignment='x9 ≔ x9+1' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n62' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t5' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n63' org.eventb.core.label='grd0' org.eventb.core.predicate='x5≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n64' org.eventb.core.assignment='x4 ≔ x4+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n65' org.eventb.core.assignment='x5 ≔ x5−1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n66' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t6' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n67' org.eventb.core.label='grd0' org.eventb.core.predicate='x10≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n68' org.eventb.core.assignment='x7 ≔ x7+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n69' org.eventb.core.assignment='x10 ≔ x10−1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n70' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t7' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n71' org.eventb.core.label='grd0' org.eventb.core.predicate='x7≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n72' org.eventb.core.assignment='x7 ≔ x7−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n73' org.eventb.core.assignment='x8 ≔ x8+1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n74' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t8' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n75' org.eventb.core.label='grd0' org.eventb.core.predicate='x6≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n76' org.eventb.core.label='grd1' org.eventb.core.predicate='x8≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n77' org.eventb.core.assignment='x6 ≔ x6−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n78' org.eventb.core.assignment='x8 ≔ x8−1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n79' org.eventb.core.assignment='x9 ≔ x9+1' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n80' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t9' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n81' org.eventb.core.label='grd0' org.eventb.core.predicate='x9≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n82' org.eventb.core.assignment='x6 ≔ x6+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n83' org.eventb.core.assignment='x9 ≔ x9−1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n84' org.eventb.core.assignment='x10 ≔ x10+1' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n85' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t10' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n86' org.eventb.core.label='grd0' org.eventb.core.predicate='x10≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n87' org.eventb.core.assignment='x10 ≔ x10−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n88' org.eventb.core.assignment='x12 ≔ x12+1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n89' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t11' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n90' org.eventb.core.label='grd0' org.eventb.core.predicate='x11≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n91' org.eventb.core.assignment='x8 ≔ x8+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n92' org.eventb.core.assignment='x11 ≔ x11−1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n93' org.eventb.core.assignment='x13 ≔ x13+1' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n94' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='t12' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n95' org.eventb.core.label='grd0' org.eventb.core.predicate='x12≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n96' org.eventb.core.label='grd1' org.eventb.core.predicate='x13≥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n97' org.eventb.core.assignment='x11 ≔ x11+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n98' org.eventb.core.assignment='x12 ≔ x12−1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n99' org.eventb.core.assignment='x13 ≔ x13−1' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+</org.eventb.core.machineFile>

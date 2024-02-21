@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<org.eventb.core.contextFile org.eventb.core.configuration='org.eventb.core.fwd' version='3' org.eventb.core.comment=''>
+  <org.eventb.core.carrierSet name='n38' org.eventb.core.identifier='Name' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n39' org.eventb.core.identifier='Code' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n40' org.eventb.core.identifier='c1' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n41' org.eventb.core.identifier='c2' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n42' org.eventb.core.identifier='c3' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n43' org.eventb.core.identifier='c4' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n44' org.eventb.core.label='axm0' org.eventb.core.predicate='partition(Code,{c1},{c2},{c3},{c4})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+</org.eventb.core.contextFile>

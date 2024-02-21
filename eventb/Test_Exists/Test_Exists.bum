@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<org.eventb.core.machineFile org.eventb.core.configuration='org.eventb.core.fwd' version='5' org.eventb.core.comment=''>
+  <org.eventb.core.seesContext name='n0' org.eventb.core.target='Test_Exists_ctx' />
+  <org.eventb.core.variable name='n1' org.eventb.core.identifier='xx' />
+  <org.eventb.core.invariant name='n2' org.eventb.core.label='inv0' org.eventb.core.predicate='xx∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n3' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Set' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n4' org.eventb.core.identifier='yy' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n5' org.eventb.core.label='grd0' org.eventb.core.predicate='yy∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n6' org.eventb.core.label='grd1' org.eventb.core.predicate='∃rr·rr∈ID∧rr=yy' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n7' org.eventb.core.assignment='xx ≔ yy' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n8' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Set_fail' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n9' org.eventb.core.identifier='yy' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n10' org.eventb.core.label='grd0' org.eventb.core.predicate='yy∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n11' org.eventb.core.label='grd1' org.eventb.core.predicate='∃rr·rr∈ID∧rr≠yy∧rr=yy' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n12' org.eventb.core.assignment='xx ≔ yy' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n13' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Set_true' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n14' org.eventb.core.identifier='yy' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n15' org.eventb.core.label='grd0' org.eventb.core.predicate='yy∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n16' org.eventb.core.label='grd1' org.eventb.core.predicate='¬(∃rr·rr∈ID∧rr≠yy∧rr=yy)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n17' org.eventb.core.assignment='xx ≔ yy' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+</org.eventb.core.machineFile>

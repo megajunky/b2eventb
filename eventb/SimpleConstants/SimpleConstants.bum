@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<org.eventb.core.machineFile org.eventb.core.configuration='org.eventb.core.fwd' version='5' org.eventb.core.comment=''>
+  <org.eventb.core.seesContext name='n0' org.eventb.core.target='SimpleConstants_ctx' />
+  <org.eventb.core.variable name='n1' org.eventb.core.identifier='nn' />
+  <org.eventb.core.invariant name='n2' org.eventb.core.label='inv0' org.eventb.core.predicate='nn∈mynumbers' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n3' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='get' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n4' org.eventb.core.assignment='cc ≔ nn' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+</org.eventb.core.machineFile>

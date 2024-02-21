@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<org.eventb.core.contextFile org.eventb.core.configuration='org.eventb.core.fwd' version='3' org.eventb.core.comment=''>
+  <org.eventb.core.carrierSet name='n234' org.eventb.core.identifier='USER' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n235' org.eventb.core.identifier='SESSION' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n236' org.eventb.core.identifier='SESSION_REQUEST' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n237' org.eventb.core.identifier='SESSION_STATE' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n238' org.eventb.core.identifier='HOTEL' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n239' org.eventb.core.identifier='CAR_RENT' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n240' org.eventb.core.identifier='CARD' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n241' org.eventb.core.identifier='ROOM' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n242' org.eventb.core.identifier='CAR' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n243' org.eventb.core.identifier='RESP' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n244' org.eventb.core.identifier='user1' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n245' org.eventb.core.identifier='user2' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n246' org.eventb.core.identifier='sess1' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n247' org.eventb.core.identifier='sess2' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n248' org.eventb.core.identifier='sess3' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n249' org.eventb.core.identifier='bc' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n250' org.eventb.core.identifier='br' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n251' org.eventb.core.identifier='uc' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n252' org.eventb.core.identifier='ur' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n253' org.eventb.core.identifier='none' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n254' org.eventb.core.identifier='s0' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n255' org.eventb.core.identifier='s1' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n256' org.eventb.core.identifier='s2' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n257' org.eventb.core.identifier='s3' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n258' org.eventb.core.identifier='s4' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n259' org.eventb.core.identifier='s5' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n260' org.eventb.core.identifier='s6' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n261' org.eventb.core.identifier='s7' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n262' org.eventb.core.identifier='h1' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n263' org.eventb.core.identifier='h2' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n264' org.eventb.core.identifier='noHotel' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n265' org.eventb.core.identifier='c1' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n266' org.eventb.core.identifier='c2' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n267' org.eventb.core.identifier='noCarRent' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n268' org.eventb.core.identifier='valid' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n269' org.eventb.core.identifier='wrong' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n270' org.eventb.core.identifier='unknown' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n271' org.eventb.core.identifier='h1a' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n272' org.eventb.core.identifier='h1b' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n273' org.eventb.core.identifier='h2a' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n274' org.eventb.core.identifier='h2b' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n275' org.eventb.core.identifier='c1a' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n276' org.eventb.core.identifier='c1b' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n277' org.eventb.core.identifier='c2a' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n278' org.eventb.core.identifier='c2b' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n279' org.eventb.core.identifier='done' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n280' org.eventb.core.identifier='impossible' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n281' org.eventb.core.identifier='undef' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n282' org.eventb.core.label='axm0' org.eventb.core.predicate='partition(USER,{user1},{user2})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n283' org.eventb.core.label='axm1' org.eventb.core.predicate='partition(SESSION,{sess1},{sess2},{sess3})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n284' org.eventb.core.label='axm2' org.eventb.core.predicate='partition(SESSION_REQUEST,{bc},{br},{uc},{ur},{none})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n285' org.eventb.core.label='axm3' org.eventb.core.predicate='partition(SESSION_STATE,{s0},{s1},{s2},{s3},{s4},{s5},{s6},{s7})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n286' org.eventb.core.label='axm4' org.eventb.core.predicate='partition(HOTEL,{h1},{h2},{noHotel})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n287' org.eventb.core.label='axm5' org.eventb.core.predicate='partition(CAR_RENT,{c1},{c2},{noCarRent})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n288' org.eventb.core.label='axm6' org.eventb.core.predicate='partition(CARD,{valid},{wrong},{unknown})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n289' org.eventb.core.label='axm7' org.eventb.core.predicate='partition(ROOM,{h1a},{h1b},{h2a},{h2b})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n290' org.eventb.core.label='axm8' org.eventb.core.predicate='partition(CAR,{c1a},{c1b},{c2a},{c2b})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n291' org.eventb.core.label='axm9' org.eventb.core.predicate='partition(RESP,{done},{impossible},{undef})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+</org.eventb.core.contextFile>
