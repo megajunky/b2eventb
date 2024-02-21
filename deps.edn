@@ -1,0 +1,16 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.11.1"}
+        org.slf4j/slf4j-nop {:mvn/version "RELEASE"} ;; suppress "No SLF4J providers were found"
+        org.clojars.pkoerner/lisb {:local/root "../lisb"}}
+ :aliases
+ {:run-m {:main-opts ["-m" "b2eventb.main"]}
+  :run-x {:ns-default b2eventb.main
+          :exec-fn greet
+          :exec-args {:name "Clojure"}}
+  :build {:deps {io.github.clojure/tools.build
+                 {:mvn/version "0.9.6"}}
+          :ns-default build}
+  :test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
+                      io.github.cognitect-labs/test-runner
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}}}}
