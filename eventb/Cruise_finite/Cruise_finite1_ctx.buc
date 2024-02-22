@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<org.eventb.core.contextFile org.eventb.core.configuration='org.eventb.core.fwd' version='3' org.eventb.core.comment=''>
+  <org.eventb.core.carrierSet name='n238' org.eventb.core.identifier='RSset' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n239' org.eventb.core.identifier='ODset' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n240' org.eventb.core.identifier='RSnone' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n241' org.eventb.core.identifier='RSpos' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n242' org.eventb.core.identifier='RSneg' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n243' org.eventb.core.identifier='RSequal' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n244' org.eventb.core.identifier='ODnone' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n245' org.eventb.core.identifier='ODclose' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n246' org.eventb.core.identifier='ODveryclose' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n247' org.eventb.core.label='axm0' org.eventb.core.predicate='partition(RSset,{RSnone},{RSpos},{RSneg},{RSequal})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n248' org.eventb.core.label='axm1' org.eventb.core.predicate='partition(ODset,{ODnone},{ODclose},{ODveryclose})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+</org.eventb.core.contextFile>

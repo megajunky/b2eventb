@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<org.eventb.core.contextFile org.eventb.core.configuration='org.eventb.core.fwd' version='3' org.eventb.core.comment=''>
+  <org.eventb.core.carrierSet name='n248' org.eventb.core.identifier='COLOURS' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n249' org.eventb.core.identifier='STATUS' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n250' org.eventb.core.identifier='PAGENAMES' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n251' org.eventb.core.identifier='red' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n252' org.eventb.core.identifier='white' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n253' org.eventb.core.identifier='lightgrey' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n254' org.eventb.core.identifier='DEFINED' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n255' org.eventb.core.identifier='UNDEFINED' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n256' org.eventb.core.identifier='blank' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n257' org.eventb.core.identifier='p1' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n258' org.eventb.core.identifier='p2' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n259' org.eventb.core.identifier='p3' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n260' org.eventb.core.identifier='p4' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n261' org.eventb.core.identifier='p5' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n262' org.eventb.core.identifier='p6' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n263' org.eventb.core.identifier='p7' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n264' org.eventb.core.identifier='p8' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n265' org.eventb.core.identifier='p9' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n266' org.eventb.core.identifier='p10' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n267' org.eventb.core.identifier='p11' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n268' org.eventb.core.identifier='p12' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n269' org.eventb.core.identifier='p13' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n270' org.eventb.core.identifier='p14' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n271' org.eventb.core.identifier='p15' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n272' org.eventb.core.label='axm0' org.eventb.core.predicate='partition(COLOURS,{red},{white},{lightgrey})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n273' org.eventb.core.label='axm1' org.eventb.core.predicate='partition(STATUS,{DEFINED},{UNDEFINED})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n274' org.eventb.core.label='axm2' org.eventb.core.predicate='partition(PAGENAMES,{blank},{p1},{p2},{p3},{p4},{p5},{p6},{p7},{p8},{p9},{p10},{p11},{p12},{p13},{p14},{p15})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+</org.eventb.core.contextFile>

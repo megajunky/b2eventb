@@ -1,7 +1,8 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure {:mvn/version "1.11.1"}
+        org.clojure/tools.cli {:mvn/version "1.1.230"}
         org.slf4j/slf4j-nop {:mvn/version "RELEASE"} ;; suppress "No SLF4J providers were found"
-        org.clojars.pkoerner/lisb {:local/root "../lisb"}}
+        org.clojars.pkoerner/lisb {:mvn/version "0.0.5-SNAPSHOT"}}
  :aliases
  {:run-m {:main-opts ["-m" "b2eventb.main"]}
   :run-x {:ns-default b2eventb.main

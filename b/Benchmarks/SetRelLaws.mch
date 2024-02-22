@@ -7,7 +7,7 @@ VARIABLES
     SS, TT, VV
 
 DEFINITIONS
-  setX == (X*Y);
+  setX == (X**Y);
   law1 ==  (SS \/ SS = SS  &  SS = SS \/ {}  &  SS = SS /\ SS  &  SS = SS \ {});
   law2 == (SS /\ {} = {} & {} = SS \ SS &  ({} \ SS = {}));
   law3 == (SS \/ TT = TT \/ SS   &  SS /\ TT = TT /\ SS); 
