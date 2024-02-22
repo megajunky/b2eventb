@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<org.eventb.core.machineFile org.eventb.core.configuration='org.eventb.core.fwd' version='5' org.eventb.core.comment=''>
+  <org.eventb.core.seesContext name='n0' org.eventb.core.target='Cruise_finite1_ctx' />
+  <org.eventb.core.variable name='n1' org.eventb.core.identifier='CruiseAllowed' />
+  <org.eventb.core.variable name='n2' org.eventb.core.identifier='CruiseActive' />
+  <org.eventb.core.variable name='n3' org.eventb.core.identifier='VehicleAtCruiseSpeed' />
+  <org.eventb.core.variable name='n4' org.eventb.core.identifier='VehicleCanKeepSpeed' />
+  <org.eventb.core.variable name='n5' org.eventb.core.identifier='VehicleTryKeepSpeed' />
+  <org.eventb.core.variable name='n6' org.eventb.core.identifier='SpeedAboveMax' />
+  <org.eventb.core.variable name='n7' org.eventb.core.identifier='VehicleTryKeepTimeGap' />
+  <org.eventb.core.variable name='n8' org.eventb.core.identifier='CruiseSpeedAtMax' />
+  <org.eventb.core.variable name='n9' org.eventb.core.identifier='ObstaclePresent' />
+  <org.eventb.core.variable name='n10' org.eventb.core.identifier='ObstacleDistance' />
+  <org.eventb.core.variable name='n11' org.eventb.core.identifier='ObstacleRelativeSpeed' />
+  <org.eventb.core.variable name='n12' org.eventb.core.identifier='ObstacleStatusJustChanged' />
+  <org.eventb.core.variable name='n13' org.eventb.core.identifier='CCInitialisationInProgress' />
+  <org.eventb.core.variable name='n14' org.eventb.core.identifier='CruiseSpeedChangeInProgress' />
+  <org.eventb.core.variable name='n15' org.eventb.core.identifier='NumberOfSetCruise' />
+  <org.eventb.core.invariant name='n16' org.eventb.core.label='inv0' org.eventb.core.predicate='CruiseAllowed∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n17' org.eventb.core.label='inv1' org.eventb.core.predicate='CruiseActive∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n18' org.eventb.core.label='inv2' org.eventb.core.predicate='VehicleAtCruiseSpeed∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n19' org.eventb.core.label='inv3' org.eventb.core.predicate='VehicleCanKeepSpeed∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n20' org.eventb.core.label='inv4' org.eventb.core.predicate='VehicleTryKeepSpeed∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n21' org.eventb.core.label='inv5' org.eventb.core.predicate='SpeedAboveMax∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n22' org.eventb.core.label='inv6' org.eventb.core.predicate='VehicleTryKeepTimeGap∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n23' org.eventb.core.label='inv7' org.eventb.core.predicate='CruiseSpeedAtMax∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n24' org.eventb.core.label='inv8' org.eventb.core.predicate='NumberOfSetCruise∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n25' org.eventb.core.label='inv9' org.eventb.core.predicate='NumberOfSetCruise∈0‥1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n26' org.eventb.core.label='inv10' org.eventb.core.predicate='ObstaclePresent∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n27' org.eventb.core.label='inv11' org.eventb.core.predicate='ObstacleDistance∈ODset' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n28' org.eventb.core.label='inv12' org.eventb.core.predicate='ObstacleRelativeSpeed∈RSset' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n29' org.eventb.core.label='inv13' org.eventb.core.predicate='ObstacleStatusJustChanged∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n30' org.eventb.core.label='inv14' org.eventb.core.predicate='CCInitialisationInProgress∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n31' org.eventb.core.label='inv15' org.eventb.core.predicate='CruiseSpeedChangeInProgress∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n32' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='CruiseBecomesNotAllowed' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n33' org.eventb.core.label='grd0' org.eventb.core.predicate='CruiseAllowed=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n34' org.eventb.core.assignment='CruiseAllowed ≔ FALSE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n35' org.eventb.core.assignment='CruiseActive ≔ FALSE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n36' org.eventb.core.assignment='VehicleCanKeepSpeed ≔ FALSE' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n37' org.eventb.core.assignment='VehicleTryKeepSpeed ≔ FALSE' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n38' org.eventb.core.assignment='VehicleAtCruiseSpeed ≔ FALSE' org.eventb.core.label='act4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n39' org.eventb.core.assignment='VehicleTryKeepTimeGap ≔ FALSE' org.eventb.core.label='act5' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n40' org.eventb.core.assignment='CruiseSpeedAtMax ≔ FALSE' org.eventb.core.label='act6' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n41' org.eventb.core.assignment='ObstacleDistance ≔ ODnone' org.eventb.core.label='act7' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n42' org.eventb.core.assignment='NumberOfSetCruise ≔ 0' org.eventb.core.label='act8' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n43' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ FALSE' org.eventb.core.label='act9' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n44' org.eventb.core.assignment='CCInitialisationInProgress ≔ FALSE' org.eventb.core.label='act10' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n45' org.eventb.core.assignment='CruiseSpeedChangeInProgress ≔ FALSE' org.eventb.core.label='act11' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n46' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='CruiseBecomesAllowed' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n47' org.eventb.core.label='grd0' org.eventb.core.predicate='CruiseAllowed=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n48' org.eventb.core.assignment='CruiseAllowed ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n49' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SetCruiseSpeed_then_then_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n50' org.eventb.core.label='grd0' org.eventb.core.predicate='CruiseAllowed=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n51' org.eventb.core.label='grd1' org.eventb.core.predicate='SpeedAboveMax=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n52' org.eventb.core.label='grd2' org.eventb.core.predicate='CruiseActive=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n53' org.eventb.core.label='grd3' org.eventb.core.predicate='NumberOfSetCruise&lt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n54' org.eventb.core.assignment='CruiseActive ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n55' org.eventb.core.assignment='VehicleCanKeepSpeed :∈ BOOL' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n56' org.eventb.core.assignment='VehicleAtCruiseSpeed ≔ TRUE' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n57' org.eventb.core.assignment='CruiseSpeedAtMax :∈ BOOL' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n58' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n59' org.eventb.core.assignment='CruiseSpeedChangeInProgress ≔ TRUE' org.eventb.core.label='act5' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n60' org.eventb.core.assignment='NumberOfSetCruise ≔ NumberOfSetCruise+1' org.eventb.core.label='act6' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n61' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SetCruiseSpeed_then_else_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n62' org.eventb.core.label='grd0' org.eventb.core.predicate='CruiseAllowed=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n63' org.eventb.core.label='grd1' org.eventb.core.predicate='SpeedAboveMax=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n64' org.eventb.core.label='grd2' org.eventb.core.predicate='¬(CruiseActive=TRUE)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n65' org.eventb.core.label='grd3' org.eventb.core.predicate='NumberOfSetCruise&lt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n66' org.eventb.core.assignment='CruiseActive ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n67' org.eventb.core.assignment='VehicleCanKeepSpeed :∈ BOOL' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n68' org.eventb.core.assignment='VehicleAtCruiseSpeed ≔ TRUE' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n69' org.eventb.core.assignment='CruiseSpeedAtMax :∈ BOOL' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n70' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n71' org.eventb.core.assignment='CCInitialisationInProgress ≔ TRUE' org.eventb.core.label='act5' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n72' org.eventb.core.assignment='NumberOfSetCruise ≔ NumberOfSetCruise+1' org.eventb.core.label='act6' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n73' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SetCruiseSpeed_else_then_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n74' org.eventb.core.label='grd0' org.eventb.core.predicate='CruiseAllowed=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n75' org.eventb.core.label='grd1' org.eventb.core.predicate='¬(SpeedAboveMax=FALSE)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n76' org.eventb.core.label='grd2' org.eventb.core.predicate='CruiseActive=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n77' org.eventb.core.label='grd3' org.eventb.core.predicate='NumberOfSetCruise&lt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n78' org.eventb.core.assignment='CruiseActive ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n79' org.eventb.core.assignment='VehicleCanKeepSpeed :∈ BOOL' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n80' org.eventb.core.assignment='CruiseSpeedAtMax ≔ TRUE' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n81' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n82' org.eventb.core.assignment='CruiseSpeedChangeInProgress ≔ TRUE' org.eventb.core.label='act4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n83' org.eventb.core.assignment='NumberOfSetCruise ≔ NumberOfSetCruise+1' org.eventb.core.label='act5' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n84' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SetCruiseSpeed_else_else_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n85' org.eventb.core.label='grd0' org.eventb.core.predicate='CruiseAllowed=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n86' org.eventb.core.label='grd1' org.eventb.core.predicate='¬(SpeedAboveMax=FALSE)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n87' org.eventb.core.label='grd2' org.eventb.core.predicate='¬(CruiseActive=TRUE)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n88' org.eventb.core.label='grd3' org.eventb.core.predicate='NumberOfSetCruise&lt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n89' org.eventb.core.assignment='CruiseActive ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n90' org.eventb.core.assignment='VehicleCanKeepSpeed :∈ BOOL' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n91' org.eventb.core.assignment='CruiseSpeedAtMax ≔ TRUE' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n92' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n93' org.eventb.core.assignment='CCInitialisationInProgress ≔ TRUE' org.eventb.core.label='act4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n94' org.eventb.core.assignment='NumberOfSetCruise ≔ NumberOfSetCruise+1' org.eventb.core.label='act5' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n95' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='CCInitialisationFinished' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n96' org.eventb.core.identifier='vtks' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n97' org.eventb.core.identifier='vtktg' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n98' org.eventb.core.label='grd0' org.eventb.core.predicate='CCInitialisationInProgress=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n99' org.eventb.core.label='grd1' org.eventb.core.predicate='vtks∈BOOL∧vtktg∈BOOL∧vtks=TRUE ∨ vtktg=TRUE ∨ ObstacleStatusJustChanged=TRUE ∨ CruiseSpeedChangeInProgress=TRUE∧ObstaclePresent=FALSE⇒vtktg=FALSE∧ObstacleDistance=ODnone⇒vtks=TRUE∧ObstacleDistance=ODclose∧ObstacleRelativeSpeed≠RSpos∧ObstacleStatusJustChanged=FALSE∧CruiseSpeedChangeInProgress=FALSE⇒vtktg=TRUE∧ObstacleDistance=ODveryclose∧ObstacleStatusJustChanged=FALSE∧CruiseSpeedChangeInProgress=FALSE⇒vtktg=TRUE∧ObstacleRelativeSpeed=RSpos∧ObstacleDistance≠ODveryclose∧ObstacleStatusJustChanged=FALSE∧CruiseSpeedChangeInProgress=FALSE⇒vtks=TRUE∧ObstacleRelativeSpeed=RSequal∧ObstacleDistance=ODnone⇒vtktg=FALSE∧ObstacleRelativeSpeed=RSneg∧ObstacleDistance=ODnone⇒vtktg=FALSE∧ObstacleRelativeSpeed=RSpos∧ObstacleDistance≠ODveryclose⇒vtktg=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n100' org.eventb.core.assignment='VehicleTryKeepTimeGap ≔ vtktg' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n101' org.eventb.core.assignment='VehicleTryKeepSpeed ≔ vtks' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n102' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='CCInitialisationDelayFinished' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n103' org.eventb.core.label='grd0' org.eventb.core.predicate='CCInitialisationInProgress=TRUE∧VehicleTryKeepSpeed=TRUE ∨ VehicleTryKeepTimeGap=TRUE ∨ ObstacleStatusJustChanged=TRUE ∨ CruiseSpeedChangeInProgress=TRUE∧ObstacleDistance=ODnone⇒VehicleTryKeepSpeed=TRUE∧ObstacleDistance=ODclose∧ObstacleRelativeSpeed≠RSpos∧ObstacleStatusJustChanged=FALSE∧CruiseSpeedChangeInProgress=FALSE⇒VehicleTryKeepTimeGap=TRUE∧ObstacleDistance=ODveryclose∧ObstacleStatusJustChanged=FALSE∧CruiseSpeedChangeInProgress=FALSE⇒VehicleTryKeepTimeGap=TRUE∧ObstacleRelativeSpeed=RSpos∧ObstacleDistance≠ODveryclose∧ObstacleStatusJustChanged=FALSE∧CruiseSpeedChangeInProgress=FALSE⇒VehicleTryKeepSpeed=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n104' org.eventb.core.assignment='CCInitialisationInProgress ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n105' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='CruiseSpeedChangeFinished' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n106' org.eventb.core.identifier='vtks' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n107' org.eventb.core.identifier='vtktg' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n108' org.eventb.core.label='grd0' org.eventb.core.predicate='CruiseSpeedChangeInProgress=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n109' org.eventb.core.label='grd1' org.eventb.core.predicate='vtks∈BOOL∧vtktg∈BOOL∧vtks=TRUE ∨ vtktg=TRUE ∨ ObstacleStatusJustChanged=TRUE ∨ CCInitialisationInProgress=TRUE∧ObstaclePresent=FALSE⇒vtktg=FALSE∧ObstacleDistance=ODnone⇒vtks=TRUE∧ObstacleDistance=ODclose∧ObstacleRelativeSpeed≠RSpos∧ObstacleStatusJustChanged=FALSE∧CCInitialisationInProgress=FALSE⇒vtktg=TRUE∧ObstacleDistance=ODveryclose∧ObstacleStatusJustChanged=FALSE∧CCInitialisationInProgress=FALSE⇒vtktg=TRUE∧ObstacleRelativeSpeed=RSpos∧ObstacleDistance≠ODveryclose∧ObstacleStatusJustChanged=FALSE∧CCInitialisationInProgress=FALSE⇒vtks=TRUE∧ObstacleRelativeSpeed=RSequal∧ObstacleDistance=ODnone⇒vtktg=FALSE∧ObstacleRelativeSpeed=RSneg∧ObstacleDistance=ODnone⇒vtktg=FALSE∧ObstacleRelativeSpeed=RSpos∧ObstacleDistance≠ODveryclose⇒vtktg=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n110' org.eventb.core.assignment='VehicleTryKeepTimeGap ≔ vtktg' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n111' org.eventb.core.assignment='VehicleTryKeepSpeed ≔ vtks' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n112' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='CruiseSpeedChangeDelayFinished' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n113' org.eventb.core.label='grd0' org.eventb.core.predicate='CruiseSpeedChangeInProgress=TRUE∧VehicleTryKeepSpeed=TRUE ∨ VehicleTryKeepTimeGap=TRUE ∨ ObstacleStatusJustChanged=TRUE ∨ CCInitialisationInProgress=TRUE∧ObstacleDistance=ODnone⇒VehicleTryKeepSpeed=TRUE∧ObstacleDistance=ODclose∧ObstacleRelativeSpeed≠RSpos∧ObstacleStatusJustChanged=FALSE∧CCInitialisationInProgress=FALSE⇒VehicleTryKeepTimeGap=TRUE∧ObstacleDistance=ODveryclose∧ObstacleStatusJustChanged=FALSE∧CCInitialisationInProgress=FALSE⇒VehicleTryKeepTimeGap=TRUE∧ObstacleRelativeSpeed=RSpos∧ObstacleDistance≠ODveryclose∧ObstacleStatusJustChanged=FALSE∧CCInitialisationInProgress=FALSE⇒VehicleTryKeepSpeed=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n114' org.eventb.core.assignment='CruiseSpeedChangeInProgress ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n115' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='CruiseOff' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n116' org.eventb.core.label='grd0' org.eventb.core.predicate='CruiseActive=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n117' org.eventb.core.assignment='CruiseActive ≔ FALSE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n118' org.eventb.core.assignment='VehicleCanKeepSpeed ≔ FALSE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n119' org.eventb.core.assignment='VehicleTryKeepSpeed ≔ FALSE' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n120' org.eventb.core.assignment='VehicleAtCruiseSpeed ≔ FALSE' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n121' org.eventb.core.assignment='VehicleTryKeepTimeGap ≔ FALSE' org.eventb.core.label='act4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n122' org.eventb.core.assignment='CruiseSpeedAtMax ≔ FALSE' org.eventb.core.label='act5' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n123' org.eventb.core.assignment='ObstacleDistance ≔ ODnone' org.eventb.core.label='act6' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n124' org.eventb.core.assignment='NumberOfSetCruise ≔ 0' org.eventb.core.label='act7' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n125' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ FALSE' org.eventb.core.label='act8' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n126' org.eventb.core.assignment='CCInitialisationInProgress ≔ FALSE' org.eventb.core.label='act9' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n127' org.eventb.core.assignment='CruiseSpeedChangeInProgress ≔ FALSE' org.eventb.core.label='act10' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n128' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ExternalForcesBecomesExtreme' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n129' org.eventb.core.label='grd0' org.eventb.core.predicate='VehicleCanKeepSpeed=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n130' org.eventb.core.assignment='VehicleCanKeepSpeed ≔ FALSE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n131' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ExternalForcesBecomesNormal' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n132' org.eventb.core.label='grd0' org.eventb.core.predicate='CruiseActive=TRUE∧VehicleCanKeepSpeed=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n133' org.eventb.core.assignment='VehicleCanKeepSpeed ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n134' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='VehicleLeavesCruiseSpeed' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n135' org.eventb.core.label='grd0' org.eventb.core.predicate='VehicleAtCruiseSpeed=TRUE∧VehicleCanKeepSpeed=FALSE∧VehicleTryKeepSpeed=TRUE ∨ VehicleTryKeepSpeed=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n136' org.eventb.core.assignment='VehicleAtCruiseSpeed ≔ FALSE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n137' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='VehicleReachesCruiseSpeed' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n138' org.eventb.core.label='grd0' org.eventb.core.predicate='CruiseActive=TRUE∧VehicleAtCruiseSpeed=FALSE∧SpeedAboveMax=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n139' org.eventb.core.assignment='VehicleAtCruiseSpeed ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n140' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='VehicleExceedsMaxCruiseSpeed' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n141' org.eventb.core.label='grd0' org.eventb.core.predicate='SpeedAboveMax=FALSE∧CruiseActive=FALSE ∨ VehicleCanKeepSpeed=FALSE ∨ ¬(ObstacleStatusJustChanged=FALSE∧CCInitialisationInProgress=FALSE∧CruiseSpeedChangeInProgress=FALSE)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n142' org.eventb.core.assignment='SpeedAboveMax ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n143' org.eventb.core.assignment='VehicleAtCruiseSpeed ≔ FALSE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n144' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='VehicleFallsBelowMaxCruiseSpeed_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n145' org.eventb.core.label='grd0' org.eventb.core.predicate='SpeedAboveMax=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n146' org.eventb.core.label='grd1' org.eventb.core.predicate='CruiseActive=TRUE∧CruiseSpeedAtMax=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n147' org.eventb.core.assignment='SpeedAboveMax ≔ FALSE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n148' org.eventb.core.assignment='VehicleAtCruiseSpeed ≔ TRUE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n149' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ObstacleDistanceBecomesVeryClose' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n150' org.eventb.core.label='grd0' org.eventb.core.predicate='ObstacleDistance=ODclose∧ObstacleRelativeSpeed=RSneg' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n151' org.eventb.core.assignment='ObstacleDistance ≔ ODveryclose' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n152' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n153' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ObstacleDistanceBecomesClose_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n154' org.eventb.core.label='grd0' org.eventb.core.predicate='ObstaclePresent=TRUE∧CruiseActive=TRUE∧ObstacleDistance=ODveryclose∧ObstacleRelativeSpeed=RSpos ∨ ObstacleDistance=ODnone∧ObstacleRelativeSpeed=RSneg' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n155' org.eventb.core.label='grd1' org.eventb.core.predicate='ObstacleRelativeSpeed=RSpos' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n156' org.eventb.core.assignment='ObstacleDistance ≔ ODclose' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n157' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n158' org.eventb.core.assignment='VehicleTryKeepTimeGap ≔ FALSE' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n159' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ObstacleDistanceBecomesBig' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n160' org.eventb.core.label='grd0' org.eventb.core.predicate='ObstacleDistance=ODclose∧ObstacleRelativeSpeed=RSpos' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n161' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n162' org.eventb.core.assignment='ObstacleDistance ≔ ODnone' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n163' org.eventb.core.assignment='VehicleTryKeepTimeGap ≔ FALSE' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n164' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ObstacleStartsTravelFaster_then_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n165' org.eventb.core.label='grd0' org.eventb.core.predicate='ObstaclePresent=TRUE∧ObstacleRelativeSpeed=RSequal' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n166' org.eventb.core.label='grd1' org.eventb.core.predicate='CruiseActive=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n167' org.eventb.core.label='grd2' org.eventb.core.predicate='ObstacleDistance≠ODveryclose' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n168' org.eventb.core.assignment='ObstacleRelativeSpeed ≔ RSpos' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n169' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n170' org.eventb.core.assignment='VehicleTryKeepTimeGap ≔ FALSE' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n171' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ObstacleStopsTravelFaster_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n172' org.eventb.core.label='grd0' org.eventb.core.predicate='ObstacleRelativeSpeed=RSpos' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n173' org.eventb.core.label='grd1' org.eventb.core.predicate='CruiseActive=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n174' org.eventb.core.assignment='ObstacleRelativeSpeed ≔ RSequal' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n175' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n176' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ObstacleStartsTravelSlower_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n177' org.eventb.core.label='grd0' org.eventb.core.predicate='ObstacleRelativeSpeed=RSequal' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n178' org.eventb.core.label='grd1' org.eventb.core.predicate='CruiseActive=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n179' org.eventb.core.assignment='ObstacleRelativeSpeed ≔ RSneg' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n180' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n181' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ObstacleStopsTravelSlower_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n182' org.eventb.core.label='grd0' org.eventb.core.predicate='ObstacleRelativeSpeed=RSneg' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n183' org.eventb.core.label='grd1' org.eventb.core.predicate='CruiseActive=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n184' org.eventb.core.assignment='ObstacleRelativeSpeed ≔ RSequal' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n185' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n186' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ObstacleAppearsWhenCruiseActive' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n187' org.eventb.core.label='grd0' org.eventb.core.predicate='ObstaclePresent=FALSE∧CruiseActive=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n188' org.eventb.core.assignment='ObstaclePresent ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n189' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n190' org.eventb.core.assignment='ObstacleRelativeSpeed :∈ RSset−{RSnone}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n191' org.eventb.core.assignment='ObstacleDistance :∈ ODset−{ODnone}' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n192' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ObstacleAppearsWhenCruiseInactive' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n193' org.eventb.core.label='grd0' org.eventb.core.predicate='ObstaclePresent=FALSE∧CruiseActive=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n194' org.eventb.core.assignment='ObstaclePresent ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n195' org.eventb.core.assignment='ObstacleRelativeSpeed :∈ RSset−{RSnone}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n196' org.eventb.core.assignment='ObstacleDistance ≔ ODnone' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n197' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ObstacleDisappears_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n198' org.eventb.core.label='grd0' org.eventb.core.predicate='ObstaclePresent=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n199' org.eventb.core.label='grd1' org.eventb.core.predicate='CruiseActive=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n200' org.eventb.core.assignment='ObstaclePresent ≔ FALSE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n201' org.eventb.core.assignment='ObstacleRelativeSpeed ≔ RSnone' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n202' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ TRUE' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n203' org.eventb.core.assignment='ObstacleDistance ≔ ODnone' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n204' org.eventb.core.assignment='VehicleTryKeepTimeGap ≔ FALSE' org.eventb.core.label='act4' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n205' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='VehicleManageObstacle' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n206' org.eventb.core.identifier='vtks' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n207' org.eventb.core.identifier='vtktg' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n208' org.eventb.core.label='grd0' org.eventb.core.predicate='ObstacleStatusJustChanged=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n209' org.eventb.core.label='grd1' org.eventb.core.predicate='vtks∈BOOL∧vtktg∈BOOL∧vtks=TRUE ∨ vtktg=TRUE ∨ CCInitialisationInProgress=TRUE ∨ CruiseSpeedChangeInProgress=TRUE∧ObstaclePresent=FALSE⇒vtktg=FALSE∧ObstacleDistance=ODnone⇒vtks=TRUE∧ObstacleDistance=ODclose∧ObstacleRelativeSpeed≠RSpos∧CCInitialisationInProgress=FALSE∧CruiseSpeedChangeInProgress=FALSE⇒vtktg=TRUE∧ObstacleDistance=ODveryclose∧CCInitialisationInProgress=FALSE∧CruiseSpeedChangeInProgress=FALSE⇒vtktg=TRUE∧ObstacleRelativeSpeed=RSpos∧ObstacleDistance≠ODveryclose∧CCInitialisationInProgress=FALSE∧CruiseSpeedChangeInProgress=FALSE⇒vtks=TRUE∧ObstacleRelativeSpeed=RSequal∧ObstacleDistance=ODnone⇒vtktg=FALSE∧ObstacleRelativeSpeed=RSneg∧ObstacleDistance=ODnone⇒vtktg=FALSE∧ObstacleRelativeSpeed=RSpos∧ObstacleDistance≠ODveryclose⇒vtktg=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n210' org.eventb.core.assignment='VehicleTryKeepTimeGap ≔ vtktg' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n211' org.eventb.core.assignment='VehicleTryKeepSpeed ≔ vtks' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n212' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ObstacleBecomesOld' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n213' org.eventb.core.label='grd0' org.eventb.core.predicate='ObstacleStatusJustChanged=TRUE∧VehicleTryKeepSpeed=TRUE ∨ VehicleTryKeepTimeGap=TRUE ∨ CCInitialisationInProgress=TRUE ∨ CruiseSpeedChangeInProgress=TRUE∧ObstacleDistance=ODnone⇒VehicleTryKeepSpeed=TRUE∧ObstacleDistance=ODclose∧ObstacleRelativeSpeed≠RSpos∧CCInitialisationInProgress=FALSE∧CruiseSpeedChangeInProgress=FALSE⇒VehicleTryKeepTimeGap=TRUE∧ObstacleDistance=ODveryclose∧CCInitialisationInProgress=FALSE∧CruiseSpeedChangeInProgress=FALSE⇒VehicleTryKeepTimeGap=TRUE∧ObstacleRelativeSpeed=RSpos∧ObstacleDistance≠ODveryclose∧CCInitialisationInProgress=FALSE∧CruiseSpeedChangeInProgress=FALSE⇒VehicleTryKeepSpeed=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n214' org.eventb.core.assignment='ObstacleStatusJustChanged ≔ FALSE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+</org.eventb.core.machineFile>
