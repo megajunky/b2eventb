@@ -202,22 +202,22 @@ OPERATIONS
 
               IF trans_size >=  disp_size 
               THEN
-	         DisPnames :=  {nn,tt | (nn,tt) : (1 .. disp_size) * PAGENAMES &
+	         DisPnames :=  {nn,tt | (nn,tt) : (1 .. disp_size) ** PAGENAMES &
                                  nn: 1..disp_size & tt : PAGENAMES &
                                      (tt = titles(nn))}
                                                   ||
-	         DisColours := {nn,cc | (nn,cc) : (1..disp_size) * COLOURS &
+	         DisColours := {nn,cc | (nn,cc) : (1..disp_size) ** COLOURS &
                                  nn: 1..disp_size & cc : COLOURS &
                                      ((nn=1 & cc = sel_colour) or
                                       (nn /= 1 & cc=norm_colour))}
               ELSE  /* trans_size < disp_size */
-                 
-                 DisPnames :=  {nn,tt | (nn,tt) : (1..disp_size) * PAGENAMES &
+
+                 DisPnames :=  {nn,tt | (nn,tt) : (1..disp_size) ** PAGENAMES &
                                  nn: 1..disp_size & tt : PAGENAMES &
                                 (((1<=nn) & (nn<=trans_size) & (tt = titles(nn))) or
                                 ((trans_size<nn) & (tt = blank)))}
                                                   ||
-                 DisColours := {nn,cc | (nn,cc) : (1..disp_size) * COLOURS &
+                 DisColours := {nn,cc | (nn,cc) : (1..disp_size) ** COLOURS &
                                  nn: 1..disp_size & cc : COLOURS &
                                        (  (nn=1  & cc = sel_colour) or
                                           (2<=nn & nn <= trans_size& cc=norm_colour) or
@@ -274,12 +274,12 @@ OPERATIONS
                        THEN                    
 
                         Scroll := Scroll-1 ||
-  
-	                  DisPnames :=  {nn,tt | (nn,tt) : (1..Display_size) * PAGENAMES &
+
+	                  DisPnames :=  {nn,tt | (nn,tt) : (1..Display_size) ** PAGENAMES &
                                  nn: 1..Display_size & tt : PAGENAMES &
                                         (tt = titles(Scroll-1+nn)) }
                                            ||
-	                  DisColours :=  {nn,cc | (nn,cc) : (1..Display_size) * COLOURS &
+	                  DisColours :=  {nn,cc | (nn,cc) : (1..Display_size) ** COLOURS &
                                  nn: 1..Display_size & cc : COLOURS &
                                          ((nn=2 & cc =sel_colour) or
                                          (nn/=2 & cc=norm_colour))}
@@ -289,15 +289,15 @@ OPERATIONS
                        ELSE 
                      /*"**C**scroll unchanged but highlight next location in display column"*/
 		          IF DisColours(Display_size) = white & DisPnames(Display_size) = blank
-			  THEN 
-	                  DisColours := {nn,cc | (nn,cc) : (1..Display_size) * COLOURS &
+			  THEN
+	                  DisColours := {nn,cc | (nn,cc) : (1..Display_size) ** COLOURS &
                                  nn: 1..Display_size & cc : COLOURS &
                                         ((nn=Selected-1-Scroll & cc = sel_colour) or
                                          (((nn/=Selected-1-Scroll & cc = norm_colour) & nn < Display_size) or
                                             (nn = Display_size & cc = white)))}
 			  ELSE
 
-	                  DisColours := {nn,cc | (nn,cc) : (1..Display_size) * COLOURS &
+	                  DisColours := {nn,cc | (nn,cc) : (1..Display_size) ** COLOURS &
                                  nn: 1..Display_size & cc : COLOURS &
                                         ((nn=Selected-1-Scroll & cc = sel_colour) or
                                          (nn/=Selected-1-Scroll & cc = norm_colour))}
@@ -306,7 +306,7 @@ OPERATIONS
                   ELSE  /* Scroll = 0 */
                        IF Selected >= 2
                        THEN /* cursor should now move to 1st position; Selected already updated. */
-	                  DisColours := {nn,cc | (nn,cc) : (1..Display_size) * COLOURS &
+	                  DisColours := {nn,cc | (nn,cc) : (1..Display_size) ** COLOURS &
                                  nn: 1..Display_size & cc : COLOURS &
                                         ((nn=Selected - 1 & cc = sel_colour) or
                                          (nn/=Selected - 1 & cc = norm_colour))}
@@ -319,8 +319,8 @@ OPERATIONS
 			       ************************************************/
                   END
                ELSE  /*" ***C***  No. of pages less than display-size "*/
-                   
-                  DisColours :=  {nn,cc | (nn,cc) : (1..Display_size) * COLOURS &
+
+                  DisColours :=  {nn,cc | (nn,cc) : (1..Display_size) ** COLOURS &
                                  nn: 1..Display_size & cc : COLOURS &
                               ((nn=Selected-1  & cc = sel_colour) or
                                (nn/=Selected-1 & nn <= Plist_size & cc = norm_colour) or
@@ -367,23 +367,23 @@ OPERATIONS
                         IF Scroll+Display_size < Plist_size /* scroll possible */
                         THEN /*normalscroll*/
 
-                                DisPnames := {nn,tt | (nn,tt) : (1..Display_size) * PAGENAMES &
+                                DisPnames := {nn,tt | (nn,tt) : (1..Display_size) ** PAGENAMES &
                                  nn: 1..Display_size & tt : PAGENAMES &
                                               (tt=titles(Scroll+1+nn))             }
                                            ||
-	                        DisColours := {nn,cc | (nn,cc) : (1..Display_size) * COLOURS &
+	                        DisColours := {nn,cc | (nn,cc) : (1..Display_size) ** COLOURS &
                                  nn: 1..Display_size & cc : COLOURS &
                                 ((nn=Display_size-1 & cc = sel_colour) or
                                  (nn/=Display_size-1 & cc = norm_colour))}
 
                         ELSE    /*"**C**overscroll --- no more pages left for scroling "*/
-                               
-                                DisPnames := {nn,tt | (nn,tt) : (1..Display_size) * PAGENAMES &
+
+                                DisPnames := {nn,tt | (nn,tt) : (1..Display_size) ** PAGENAMES &
                                  nn: 1..Display_size & tt : PAGENAMES &
                                            ((nn=Display_size & tt=blank) or             
                                             (nn/=Display_size & tt= titles(Scroll+1+nn)))}
                                            ||
-	                        DisColours := {nn,cc | (nn,cc) : (1..Display_size) * COLOURS &
+	                        DisColours := {nn,cc | (nn,cc) : (1..Display_size) ** COLOURS &
                                  nn: 1..Display_size & cc : COLOURS &
                                               (((nn= Display_size-1 & cc=sel_colour) or
                                                 (nn< Display_size-1 & cc=norm_colour)) or
@@ -393,29 +393,29 @@ OPERATIONS
                         /*"**C**scroll unchanged but highlight next page"*/
 		    IF DisColours(Display_size) = white & DisPnames(Display_size) = blank
 		    THEN
-                        DisPnames := {nn,tt | (nn,tt) : (1..Display_size) * PAGENAMES &
+                        DisPnames := {nn,tt | (nn,tt) : (1..Display_size) ** PAGENAMES &
                                  nn: 1..Display_size & tt : PAGENAMES &
                                      (tt= titles(Scroll+nn))}
                                            ||
-	                DisColours := {nn,cc | (nn,cc) : (1..Display_size) * COLOURS &
+	                DisColours := {nn,cc | (nn,cc) : (1..Display_size) ** COLOURS &
                                  nn: 1..Display_size & cc : COLOURS &
                                       ( (nn= Selected+1-Scroll & cc=sel_colour) or
                                         (nn/=Selected+1-Scroll & nn<Display_size & cc=norm_colour) or
 					(nn=Display_size & cc=white))}
                      ELSE
-                        DisPnames := {nn,tt | (nn,tt) : (1..Display_size) * PAGENAMES &
+                        DisPnames := {nn,tt | (nn,tt) : (1..Display_size) ** PAGENAMES &
                                  nn: 1..Display_size & tt : PAGENAMES &
                                      (tt= titles(Scroll+nn))}
                                            ||
-	                DisColours := {nn,cc | (nn,cc) : (1..Display_size) * COLOURS &
+	                DisColours := {nn,cc | (nn,cc) : (1..Display_size) ** COLOURS &
                                  nn: 1..Display_size & cc : COLOURS &
                                       ( (nn= Selected+1-Scroll & cc=sel_colour) or
                                         (nn/=Selected+1-Scroll & cc=norm_colour))}
 		     END
                 END
           ELSE  /*" ***C*** size of Plist is less than the display column "*/
-                        
-	                DisColours := {nn,cc | (nn,cc) : (1..Display_size) * COLOURS &
+
+	                DisColours := {nn,cc | (nn,cc) : (1..Display_size) ** COLOURS &
                                  nn: 1..Display_size & cc : COLOURS &
                                       ( (nn= Selected+1 & cc=sel_colour)   or
                                         (nn < Selected+1 & cc=norm_colour) or

@@ -43,7 +43,7 @@ INVARIANT
    T3_readpriority : NATURAL &
    T2_readpriority : NATURAL &
    BUSwrite : NATURAL +-> INTEGER &
-   BUSwrite : FIN(NATURAL*INTEGER) &
+   BUSwrite : FIN(NATURAL**INTEGER) &
    BUSwrite /= {} &
    0 : dom(BUSwrite)
 INITIALISATION
