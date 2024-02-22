@@ -1,0 +1,17 @@
+Error with in b/Benchmarks/Baskets.mch: Cannot invoke "clojure.lang.Named.getName()" because "x" is null
+Error with in b/Benchmarks/DSP0.mch: No method in multimethod 'ir-expr->str' for dispatch value: null
+Error with in b/Benchmarks/DSP0_complicated_constants.mch: No method in multimethod 'ir-expr->str' for dispatch value: null
+Error with in b/Benchmarks/DSP0_complicated_initialisation.mch: No method in multimethod 'ir-expr->str' for dispatch value: null
+Error with in b/Benchmarks/DSP0_complicated_property.mch: No method in multimethod 'ir-expr->str' for dispatch value: null
+Error with in b/Benchmarks/FunLawsWithLambda.mch: No method in multimethod 'ir-pred->str' for dispatch value: :definition-call
+Error with in b/Benchmarks/NatRangeLaws.mch: No method in multimethod 'ir-expr->str' for dispatch value: :max-int
+Error with in b/Benchmarks/RouteIsSeq.mch: No method in multimethod 'ir-expr->str' for dispatch value: :seq
+Error with in b/Benchmarks/SeqLaws.mch: No method in multimethod 'ir-expr->str' for dispatch value: :seq
+Error with in b/Benchmarks/SeqTest.mch: No method in multimethod 'ir-expr->str' for dispatch value: :seq
+Error with in b/Benchmarks/SeqTest2.mch: No method in multimethod 'ir-expr->str' for dispatch value: :seq
+Error with in b/Benchmarks/SetLaws.mch: No method in multimethod 'ir-expr->str' for dispatch value: :union-pe
+Error with in b/Benchmarks/SetLawsNat.mch: No method in multimethod 'ir-expr->str' for dispatch value: :sigma
+Error with in b/Benchmarks/SetLawsPow.mch: No method in multimethod 'ir-expr->str' for dispatch value: :definition-call
+Error with in b/Benchmarks/SetRelLaws.mch: No method in multimethod 'ir-expr->str' for dispatch value: :definition-call
+Error with in b/Benchmarks/SetSetLaws.mch: No method in multimethod 'ir-expr->str' for dispatch value: :union-pe
+Error with in b/Benchmarks/spec.mch: No method in multimethod 'sub->events' for dispatch value: :let-sub
