@@ -37,7 +37,7 @@
   <org.eventb.core.invariant name='n34' org.eventb.core.label='inv15' org.eventb.core.predicate='T3_readpriority∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n35' org.eventb.core.label='inv16' org.eventb.core.predicate='T2_readpriority∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n36' org.eventb.core.label='inv17' org.eventb.core.predicate='BUSwrite∈(ℕ)⇸(ℤ)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n37' org.eventb.core.label='inv18' org.eventb.core.predicate='BUSwrite∈FIN((ℕ) × (ℤ))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n37' org.eventb.core.label='inv18' org.eventb.core.predicate='BUSwrite∈{lisbset13244∣lisbset13244∈(ℕ) × (ℤ)∧finite(lisbset13244)}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n38' org.eventb.core.label='inv19' org.eventb.core.predicate='BUSwrite≠∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n39' org.eventb.core.label='inv20' org.eventb.core.predicate='0∈dom(BUSwrite)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.event name='n40' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T1Evaluate' org.eventb.core.comment=''>
