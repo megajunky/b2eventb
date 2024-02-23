@@ -26,3 +26,11 @@
 /checkouts
 /classes
 /target
+
+# Rodin files except .bum and .buc
+*.bcm
+*.bcc
+*.bpo
+*.bpr
+*.bps
+
