@@ -9,36 +9,31 @@
   <org.eventb.core.invariant name='n6' org.eventb.core.label='inv2' org.eventb.core.predicate='activec∈ℙ(Code)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n7' org.eventb.core.label='inv3' org.eventb.core.predicate='dom(db)=active' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n8' org.eventb.core.label='inv4' org.eventb.core.predicate='ran(db)=activec' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.event name='n9' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n10' org.eventb.core.assignment='db ≔ ∅' org.eventb.core.label='init0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n11' org.eventb.core.assignment='active ≔ ∅' org.eventb.core.label='init1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n12' org.eventb.core.assignment='activec ≔ ∅' org.eventb.core.label='init2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n9' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='lookup' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n10' org.eventb.core.identifier='nn' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n11' org.eventb.core.label='grd0' org.eventb.core.predicate='nn∈Name' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n12' org.eventb.core.label='grd1' org.eventb.core.predicate='nn∈active' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n13' org.eventb.core.assignment='cc ≔ db(nn)' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n13' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='lookup' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n14' org.eventb.core.identifier='nn' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n15' org.eventb.core.label='grd0' org.eventb.core.predicate='nn∈Name' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n16' org.eventb.core.label='grd1' org.eventb.core.predicate='nn∈active' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n17' org.eventb.core.assignment='cc ≔ db(nn)' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n14' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='add' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n15' org.eventb.core.identifier='nn' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n16' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n17' org.eventb.core.label='grd0' org.eventb.core.predicate='nn∈Name' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n18' org.eventb.core.label='grd1' org.eventb.core.predicate='cc∈Code' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n19' org.eventb.core.label='grd2' org.eventb.core.predicate='¬(nn∈active)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n20' org.eventb.core.assignment='db ≔ db∪{nn↦cc}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n21' org.eventb.core.assignment='active ≔ active∪{nn}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n22' org.eventb.core.assignment='activec ≔ activec∪{cc}' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n18' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='add' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n19' org.eventb.core.identifier='nn' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n20' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n21' org.eventb.core.label='grd0' org.eventb.core.predicate='nn∈Name' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n22' org.eventb.core.label='grd1' org.eventb.core.predicate='cc∈Code' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n23' org.eventb.core.label='grd2' org.eventb.core.predicate='¬(nn∈active)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n24' org.eventb.core.assignment='db ≔ db∪{nn↦cc}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n25' org.eventb.core.assignment='active ≔ active∪{nn}' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n26' org.eventb.core.assignment='activec ≔ activec∪{cc}' org.eventb.core.label='act2' org.eventb.core.comment='' />
-  </org.eventb.core.event>
-  <org.eventb.core.event name='n27' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='delete' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n28' org.eventb.core.identifier='nn' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n29' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n30' org.eventb.core.label='grd0' org.eventb.core.predicate='nn∈Name' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n31' org.eventb.core.label='grd1' org.eventb.core.predicate='cc∈Code' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n32' org.eventb.core.label='grd2' org.eventb.core.predicate='nn∈active' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n33' org.eventb.core.label='grd3' org.eventb.core.predicate='cc∈activec' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n34' org.eventb.core.assignment='db ≔ db−{nn↦cc}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n35' org.eventb.core.assignment='active ≔ dom(db−{nn↦cc})' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n36' org.eventb.core.assignment='activec ≔ db[active−{nn}]' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n23' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='delete' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n24' org.eventb.core.identifier='nn' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n25' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n26' org.eventb.core.label='grd0' org.eventb.core.predicate='nn∈Name' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n27' org.eventb.core.label='grd1' org.eventb.core.predicate='cc∈Code' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n28' org.eventb.core.label='grd2' org.eventb.core.predicate='nn∈active' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n29' org.eventb.core.label='grd3' org.eventb.core.predicate='cc∈activec' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n30' org.eventb.core.assignment='db ≔ db−{nn↦cc}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n31' org.eventb.core.assignment='active ≔ dom(db−{nn↦cc})' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n32' org.eventb.core.assignment='activec ≔ db[active−{nn}]' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
 </org.eventb.core.machineFile>

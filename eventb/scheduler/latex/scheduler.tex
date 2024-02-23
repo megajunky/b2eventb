@@ -9,13 +9,13 @@
 	\Variable{waiting}{}
 }
 \INVARIANTS{
-	\Invariant{inv0}{false}{$active\subseteq{}PID$}{}
-	\Invariant{inv1}{false}{$ready\subseteq{}PID$}{}
-	\Invariant{inv2}{false}{$waiting\subseteq{}PID$}{}
-	\Invariant{inv3}{false}{$ready\binter{}waiting=\emptyset{}$}{}
-	\Invariant{inv4}{false}{$active\binter{}(ready\bunion{}waiting)=\emptyset{}$}{}
-	\Invariant{inv5}{false}{$(card(active))\leq{}1$}{}
-	\Invariant{inv6}{false}{$active=\emptyset{}\limp{}ready=\emptyset{}$}{}
+	\Invariant{inv00}{false}{$active\subseteq{}PID$}{}
+	\Invariant{inv01}{false}{$ready\subseteq{}PID$}{}
+	\Invariant{inv02}{false}{$waiting\subseteq{}PID$}{}
+	\Invariant{inv03}{false}{$ready\binter{}waiting=\emptyset{}$}{}
+	\Invariant{inv04}{false}{$active\binter{}(ready\bunion{}waiting)=\emptyset{}$}{}
+	\Invariant{inv05}{false}{$(card(active))\leq{}1$}{}
+	\Invariant{inv06}{false}{$active=\emptyset{}\limp{}ready=\emptyset{}$}{}
 }
 \EVENTS{
 \INITIALISATION{false}{}{
@@ -30,10 +30,10 @@
 		\Param{pp}{true}{}
 	}
 	\GUARDS{true}{
-		\Guard{grd0}{false}{$pp\in{}PID\land{}\lnot{}(pp\in{}active)\land{}\lnot{}(pp\in{}ready\bunion{}waiting)$}{true}{}
+		\Guard{grd00}{false}{$pp\in{}PID\land{}\lnot{}(pp\in{}active)\land{}\lnot{}(pp\in{}ready\bunion{}waiting)$}{true}{}
 	}
 	\ACTIONS{true}{
-		\Action{act0}{$waiting \bcmeq{} waiting\bunion{}\{pp\}$}{true}{}
+		\Action{act00}{$waiting \bcmeq{} waiting\bunion{}\{pp\}$}{true}{}
 	}
 }
 \EVT{del}{false}{ordinary}{}{}{
@@ -41,10 +41,10 @@
 		\Param{pp}{true}{}
 	}
 	\GUARDS{true}{
-		\Guard{grd0}{false}{$pp\in{}waiting$}{true}{}
+		\Guard{grd00}{false}{$pp\in{}waiting$}{true}{}
 	}
 	\ACTIONS{true}{
-		\Action{act0}{$waiting \bcmeq{} waiting\setminus{}\{pp\}$}{true}{}
+		\Action{act00}{$waiting \bcmeq{} waiting\setminus{}\{pp\}$}{true}{}
 	}
 }
 \EVT{ready\_then}{false}{ordinary}{}{}{
@@ -52,12 +52,12 @@
 		\Param{rr}{true}{}
 	}
 	\GUARDS{true}{
-		\Guard{grd0}{false}{$rr\in{}waiting$}{true}{}
-		\Guard{grd1}{false}{$active=\emptyset{}$}{true}{}
+		\Guard{grd00}{false}{$rr\in{}waiting$}{true}{}
+		\Guard{grd01}{false}{$active=\emptyset{}$}{true}{}
 	}
 	\ACTIONS{true}{
-		\Action{act0}{$waiting \bcmeq{} waiting\setminus{}\{rr\}$}{true}{}
-		\Action{act1}{$active \bcmeq{} \{rr\}$}{true}{}
+		\Action{act00}{$waiting \bcmeq{} waiting\setminus{}\{rr\}$}{true}{}
+		\Action{act01}{$active \bcmeq{} \{rr\}$}{true}{}
 	}
 }
 \EVT{ready\_else}{false}{ordinary}{}{}{
@@ -65,22 +65,22 @@
 		\Param{rr}{true}{}
 	}
 	\GUARDS{true}{
-		\Guard{grd0}{false}{$rr\in{}waiting$}{true}{}
-		\Guard{grd1}{false}{$\lnot{}(active=\emptyset{})$}{true}{}
+		\Guard{grd00}{false}{$rr\in{}waiting$}{true}{}
+		\Guard{grd01}{false}{$\lnot{}(active=\emptyset{})$}{true}{}
 	}
 	\ACTIONS{true}{
-		\Action{act0}{$waiting \bcmeq{} waiting\setminus{}\{rr\}$}{true}{}
-		\Action{act1}{$ready \bcmeq{} ready\bunion{}\{rr\}$}{true}{}
+		\Action{act00}{$waiting \bcmeq{} waiting\setminus{}\{rr\}$}{true}{}
+		\Action{act01}{$ready \bcmeq{} ready\bunion{}\{rr\}$}{true}{}
 	}
 }
 \EVT{swap\_then}{false}{ordinary}{}{}{
 	\GUARDS{false}{
-		\Guard{grd0}{false}{$active\neq{}\emptyset{}$}{true}{}
-		\Guard{grd1}{false}{$ready=\emptyset{}$}{true}{}
+		\Guard{grd00}{false}{$active\neq{}\emptyset{}$}{true}{}
+		\Guard{grd01}{false}{$ready=\emptyset{}$}{true}{}
 	}
 	\ACTIONS{true}{
-		\Action{act0}{$waiting \bcmeq{} waiting\bunion{}active$}{true}{}
-		\Action{act1}{$active \bcmeq{} \emptyset{}$}{true}{}
+		\Action{act00}{$waiting \bcmeq{} waiting\bunion{}active$}{true}{}
+		\Action{act01}{$active \bcmeq{} \emptyset{}$}{true}{}
 	}
 }
 \EVT{swap\_else}{false}{ordinary}{}{}{
@@ -88,14 +88,14 @@
 		\Param{pp}{true}{}
 	}
 	\GUARDS{true}{
-		\Guard{grd0}{false}{$active\neq{}\emptyset{}$}{true}{}
-		\Guard{grd1}{false}{$\lnot{}(ready=\emptyset{})$}{true}{}
-		\Guard{grd2}{false}{$pp\in{}ready$}{true}{}
+		\Guard{grd00}{false}{$active\neq{}\emptyset{}$}{true}{}
+		\Guard{grd01}{false}{$\lnot{}(ready=\emptyset{})$}{true}{}
+		\Guard{grd02}{false}{$pp\in{}ready$}{true}{}
 	}
 	\ACTIONS{true}{
-		\Action{act0}{$waiting \bcmeq{} waiting\bunion{}active$}{true}{}
-		\Action{act1}{$active \bcmeq{} \{pp\}$}{true}{}
-		\Action{act2}{$ready \bcmeq{} ready\setminus{}\{pp\}$}{true}{}
+		\Action{act00}{$waiting \bcmeq{} waiting\bunion{}active$}{true}{}
+		\Action{act01}{$active \bcmeq{} \{pp\}$}{true}{}
+		\Action{act02}{$ready \bcmeq{} ready\setminus{}\{pp\}$}{true}{}
 	}
 }
 }

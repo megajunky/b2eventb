@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<org.eventb.core.contextFile org.eventb.core.configuration='org.eventb.core.fwd' version='3' org.eventb.core.comment=''>
+  <org.eventb.core.carrierSet name='n80' org.eventb.core.identifier='setX' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n81' org.eventb.core.identifier='setY' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n82' org.eventb.core.identifier='el1' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n83' org.eventb.core.identifier='el2' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n84' org.eventb.core.identifier='y1' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n85' org.eventb.core.identifier='y2' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n86' org.eventb.core.label='axm0' org.eventb.core.predicate='partition(setX,{el1},{el2})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n87' org.eventb.core.label='axm1' org.eventb.core.predicate='partition(setY,{y1},{y2})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+</org.eventb.core.contextFile>

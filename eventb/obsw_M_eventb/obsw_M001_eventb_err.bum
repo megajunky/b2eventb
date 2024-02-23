@@ -9,151 +9,143 @@
   <org.eventb.core.variable name='n6' org.eventb.core.identifier='TMpool' />
   <org.eventb.core.invariant name='n7' org.eventb.core.label='inv0' org.eventb.core.predicate='TCstatus∈PACKET_START_ADDRESSES_IN_TC_POOL⇸TC_STATUSES' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n8' org.eventb.core.label='inv1' org.eventb.core.predicate='dom(TCstatus)=dom(TCpool)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n9' org.eventb.core.label='inv2' org.eventb.core.predicate='∀tc_handler·(tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)∈{TC_Accepted,TC_Successfully_Executed,TC_Waiting_for_Execution,TC_Execution_Failed}⇒TCpool(tc_handler)∈VALID_TCS)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n9' org.eventb.core.label='inv2' org.eventb.core.predicate='∀tc_handler·tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)∈{TC_Accepted,TC_Successfully_Executed,TC_Waiting_for_Execution,TC_Execution_Failed}⇒TCpool(tc_handler)∈VALID_TCS' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n10' org.eventb.core.label='inv3' org.eventb.core.predicate='TMstatus∈PACKET_START_ADDRESSES_IN_TM_POOL⇸TM_STATUSES' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n11' org.eventb.core.label='inv4' org.eventb.core.predicate='dom(TMstatus)=dom(TMpool)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n12' org.eventb.core.label='inv5' org.eventb.core.predicate='TCbuffer∈PACKET_START_ADDRESSES_IN_TC_BUFFER⇸TC_SET' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n13' org.eventb.core.label='inv6' org.eventb.core.predicate='TMbuffer∈PACKET_START_ADDRESSES_IN_TM_BUFFER⇸TM_SET' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n14' org.eventb.core.label='inv7' org.eventb.core.predicate='TCpool∈PACKET_START_ADDRESSES_IN_TC_POOL⇸TC_SET' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n15' org.eventb.core.label='inv8' org.eventb.core.predicate='TMpool∈PACKET_START_ADDRESSES_IN_TM_POOL⇸TM_SET' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.event name='n16' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n17' org.eventb.core.assignment='TCbuffer ≔ ∅' org.eventb.core.label='init0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n18' org.eventb.core.assignment='TMbuffer ≔ ∅' org.eventb.core.label='init1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n19' org.eventb.core.assignment='TCpool ≔ ∅' org.eventb.core.label='init2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n20' org.eventb.core.assignment='TMpool ≔ ∅' org.eventb.core.label='init3' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n21' org.eventb.core.assignment='TCstatus ≔ ∅' org.eventb.core.label='init4' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n22' org.eventb.core.assignment='TMstatus ≔ ∅' org.eventb.core.label='init5' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n16' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='env_Receive_TC' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n17' org.eventb.core.identifier='tc' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n18' org.eventb.core.identifier='tc_pointer' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n19' org.eventb.core.label='grd0' org.eventb.core.predicate='tc∈TC_SET∧tc_pointer∈PACKET_START_ADDRESSES_IN_TC_BUFFER∧¬(tc_pointer∈dom(TCbuffer))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n20' org.eventb.core.assignment='TCbuffer ≔ TCbuffer{tc_pointer↦tc}' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n23' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='env_Receive_TC' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n24' org.eventb.core.identifier='tc' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n25' org.eventb.core.identifier='tc_pointer' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n26' org.eventb.core.label='grd0' org.eventb.core.predicate='tc∈TC_SET∧tc_pointer∈PACKET_START_ADDRESSES_IN_TC_BUFFER∧¬(tc_pointer∈dom(TCbuffer))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n27' org.eventb.core.assignment='TCbuffer ≔ TCbuffer{tc_pointer↦tc}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n21' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Poll_TC' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n22' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n23' org.eventb.core.identifier='tc_pointer' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n24' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈PACKET_START_ADDRESSES_IN_TC_POOL∧tc_pointer∈dom(TCbuffer)∧¬(tc_handler∈dom(TCpool))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n25' org.eventb.core.assignment='TCpool ≔ TCpool{tc_handler↦(TCbuffer(tc_pointer))}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n26' org.eventb.core.assignment='TCbuffer ≔ {tc_pointer}⩤TCbuffer' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n27' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Unchecked}' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n28' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Poll_TC' org.eventb.core.comment=''>
+  <org.eventb.core.event name='n28' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Accept_TC' org.eventb.core.comment=''>
     <org.eventb.core.parameter name='n29' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n30' org.eventb.core.identifier='tc_pointer' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n31' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈PACKET_START_ADDRESSES_IN_TC_POOL∧tc_pointer∈dom(TCbuffer)∧¬(tc_handler∈dom(TCpool))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n32' org.eventb.core.assignment='TCpool ≔ TCpool{tc_handler↦(TCbuffer(tc_pointer))}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n33' org.eventb.core.assignment='TCbuffer ≔ {tc_pointer}⩤TCbuffer' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n34' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Unchecked}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n30' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧TCpool(tc_handler)∈VALID_TCS∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Unchecked' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n31' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Accepted}' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n35' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Accept_TC' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n36' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n37' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧TCpool(tc_handler)∈VALID_TCS∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Unchecked' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n38' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Accepted}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n32' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Reject_TC' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n33' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n34' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Unchecked' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n35' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Rejected}' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n39' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Reject_TC' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n40' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n41' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Unchecked' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n42' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Rejected}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n36' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Report_TC_Acceptance' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n37' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n38' org.eventb.core.identifier='tm' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n39' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n40' org.eventb.core.label='grd0' org.eventb.core.predicate='tm∈TM_SET∧tm_handler∈PACKET_START_ADDRESSES_IN_TM_POOL∧tc_handler∈dom(TCpool)∧¬(tm_handler∈dom(TMpool))∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Accepted' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n41' org.eventb.core.assignment='TMpool ≔ TMpool{tm_handler↦tm}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n42' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Waiting_for_Execution}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n43' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Effective}' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n43' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Report_TC_Acceptance' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n44' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n45' org.eventb.core.identifier='tm' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n46' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n47' org.eventb.core.label='grd0' org.eventb.core.predicate='tm∈TM_SET∧tm_handler∈PACKET_START_ADDRESSES_IN_TM_POOL∧tc_handler∈dom(TCpool)∧¬(tm_handler∈dom(TMpool))∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Accepted' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n48' org.eventb.core.assignment='TMpool ≔ TMpool{tm_handler↦tm}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n49' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Waiting_for_Execution}' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n50' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Effective}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n44' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Skip_TC_Acceptance_Report' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n45' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n46' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Accepted' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n47' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Waiting_for_Execution}' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n51' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Skip_TC_Acceptance_Report' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n52' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n53' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Accepted' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n54' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Waiting_for_Execution}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n48' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Report_TC_Rejection' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n49' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n50' org.eventb.core.identifier='tm' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n51' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n52' org.eventb.core.label='grd0' org.eventb.core.predicate='tm∈TM_SET∧tm_handler∈PACKET_START_ADDRESSES_IN_TM_POOL∧tc_handler∈dom(TCpool)∧¬(tm_handler∈dom(TMpool))∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Rejected' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n53' org.eventb.core.assignment='TMpool ≔ TMpool{tm_handler↦tm}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n54' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Removable}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n55' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Effective}' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n55' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Report_TC_Rejection' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n56' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n57' org.eventb.core.identifier='tm' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n58' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n59' org.eventb.core.label='grd0' org.eventb.core.predicate='tm∈TM_SET∧tm_handler∈PACKET_START_ADDRESSES_IN_TM_POOL∧tc_handler∈dom(TCpool)∧¬(tm_handler∈dom(TMpool))∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Rejected' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n60' org.eventb.core.assignment='TMpool ≔ TMpool{tm_handler↦tm}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n61' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Removable}' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n62' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Effective}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n56' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Skip_TC_Rejection_Report' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n57' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n58' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Rejected' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n59' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Removable}' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n63' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Skip_TC_Rejection_Report' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n64' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n65' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Rejected' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n66' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Removable}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n60' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Execute_TC_Successfully' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n61' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n62' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Waiting_for_Execution' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n63' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Successfully_Executed}' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n67' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Execute_TC_Successfully' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n68' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n69' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Waiting_for_Execution' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n70' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Successfully_Executed}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n64' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Reset_TM_Buffer' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n65' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n66' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Waiting_for_Execution' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n67' org.eventb.core.assignment='TMbuffer ≔ ∅' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n68' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Successfully_Executed}' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n71' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Reset_TM_Buffer' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n72' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n73' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Waiting_for_Execution' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n74' org.eventb.core.assignment='TMbuffer ≔ ∅' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n75' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Successfully_Executed}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n69' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Fail_TC_Execution' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n70' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n71' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Waiting_for_Execution' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n72' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Execution_Failed}' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n76' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Fail_TC_Execution' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n77' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n78' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Waiting_for_Execution' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n79' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Execution_Failed}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n73' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Report_TC_Execution_Success' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n74' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n75' org.eventb.core.identifier='tm' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n76' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n77' org.eventb.core.label='grd0' org.eventb.core.predicate='tm∈TM_SET∧tm_handler∈PACKET_START_ADDRESSES_IN_TM_POOL∧tc_handler∈dom(TCpool)∧¬(tm_handler∈dom(TMpool))∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Successfully_Executed' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n78' org.eventb.core.assignment='TMpool ≔ TMpool{tm_handler↦tm}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n79' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Removable}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n80' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Effective}' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n80' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Report_TC_Execution_Success' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n81' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n82' org.eventb.core.identifier='tm' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n83' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n84' org.eventb.core.label='grd0' org.eventb.core.predicate='tm∈TM_SET∧tm_handler∈PACKET_START_ADDRESSES_IN_TM_POOL∧tc_handler∈dom(TCpool)∧¬(tm_handler∈dom(TMpool))∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Successfully_Executed' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n85' org.eventb.core.assignment='TMpool ≔ TMpool{tm_handler↦tm}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n86' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Removable}' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n87' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Effective}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n81' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Skip_TC_Success_Report' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n82' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n83' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Successfully_Executed' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n84' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Removable}' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n88' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Skip_TC_Success_Report' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n89' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n90' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Successfully_Executed' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n91' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Removable}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n85' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Report_TC_Execution_Failure' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n86' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n87' org.eventb.core.identifier='tm' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n88' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n89' org.eventb.core.label='grd0' org.eventb.core.predicate='tm∈TM_SET∧tm_handler∈PACKET_START_ADDRESSES_IN_TM_POOL∧tc_handler∈dom(TCpool)∧¬(tm_handler∈dom(TMpool))∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Execution_Failed' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n90' org.eventb.core.assignment='TMpool ≔ TMpool{tm_handler↦tm}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n91' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Removable}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n92' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Effective}' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n92' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Report_TC_Execution_Failure' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n93' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n94' org.eventb.core.identifier='tm' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n95' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n96' org.eventb.core.label='grd0' org.eventb.core.predicate='tm∈TM_SET∧tm_handler∈PACKET_START_ADDRESSES_IN_TM_POOL∧tc_handler∈dom(TCpool)∧¬(tm_handler∈dom(TMpool))∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Execution_Failed' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n97' org.eventb.core.assignment='TMpool ≔ TMpool{tm_handler↦tm}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n98' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Removable}' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n99' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Effective}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n93' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Skip_TC_Failure_Report' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n94' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n95' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Execution_Failed' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n96' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Removable}' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n100' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Skip_TC_Failure_Report' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n101' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n102' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Execution_Failed' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n103' org.eventb.core.assignment='TCstatus ≔ TCstatus{tc_handler↦TC_Removable}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n97' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Drop_TC' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n98' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n99' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Removable' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n100' org.eventb.core.assignment='TCpool ≔ {tc_handler}⩤TCpool' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n101' org.eventb.core.assignment='TCstatus ≔ {tc_handler}⩤TCstatus' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n104' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Drop_TC' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n105' org.eventb.core.identifier='tc_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n106' org.eventb.core.label='grd0' org.eventb.core.predicate='tc_handler∈dom(TCpool)∧tc_handler∈dom(TCstatus)∧TCstatus(tc_handler)=TC_Removable' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n107' org.eventb.core.assignment='TCpool ≔ {tc_handler}⩤TCpool' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n108' org.eventb.core.assignment='TCstatus ≔ {tc_handler}⩤TCstatus' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n102' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Produce_TM' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n103' org.eventb.core.identifier='tm' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n104' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n105' org.eventb.core.label='grd0' org.eventb.core.predicate='tm∈TM_SET∧tm_handler∈PACKET_START_ADDRESSES_IN_TM_POOL∧¬(tm_handler∈dom(TMpool))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n106' org.eventb.core.assignment='TMpool ≔ TMpool{tm_handler↦tm}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n107' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Effective}' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n109' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Produce_TM' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n110' org.eventb.core.identifier='tm' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n111' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n112' org.eventb.core.label='grd0' org.eventb.core.predicate='tm∈TM_SET∧tm_handler∈PACKET_START_ADDRESSES_IN_TM_POOL∧¬(tm_handler∈dom(TMpool))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n113' org.eventb.core.assignment='TMpool ≔ TMpool{tm_handler↦tm}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n114' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Effective}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n108' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Pass_TM' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n109' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n110' org.eventb.core.identifier='tm_pointer' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n111' org.eventb.core.label='grd0' org.eventb.core.predicate='tm_pointer∈PACKET_START_ADDRESSES_IN_TM_BUFFER∧tm_handler∈dom(TMpool)∧¬(tm_pointer∈dom(TMbuffer))∧tm_handler∈dom(TMstatus)∧TMstatus(tm_handler)=TM_Effective' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n112' org.eventb.core.assignment='TMbuffer ≔ TMbuffer{tm_pointer↦(TMpool(tm_handler))}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n113' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Removable}' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n115' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Pass_TM' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n116' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n117' org.eventb.core.identifier='tm_pointer' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n118' org.eventb.core.label='grd0' org.eventb.core.predicate='tm_pointer∈PACKET_START_ADDRESSES_IN_TM_BUFFER∧tm_handler∈dom(TMpool)∧¬(tm_pointer∈dom(TMbuffer))∧tm_handler∈dom(TMstatus)∧TMstatus(tm_handler)=TM_Effective' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n119' org.eventb.core.assignment='TMbuffer ≔ TMbuffer{tm_pointer↦(TMpool(tm_handler))}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n120' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Removable}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n114' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Cancel_TM' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n115' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n116' org.eventb.core.label='grd0' org.eventb.core.predicate='tm_handler∈dom(TMpool)∧tm_handler∈dom(TMstatus)∧TMstatus(tm_handler)=TM_Effective' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n117' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Removable}' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n121' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Cancel_TM' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n122' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n123' org.eventb.core.label='grd0' org.eventb.core.predicate='tm_handler∈dom(TMpool)∧tm_handler∈dom(TMstatus)∧TMstatus(tm_handler)=TM_Effective' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n124' org.eventb.core.assignment='TMstatus ≔ TMstatus{tm_handler↦TM_Removable}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n118' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Drop_TM' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n119' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n120' org.eventb.core.label='grd0' org.eventb.core.predicate='tm_handler∈dom(TMpool)∧tm_handler∈dom(TMstatus)∧TMstatus(tm_handler)=TM_Removable' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n121' org.eventb.core.assignment='TMpool ≔ {tm_handler}⩤TMpool' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n122' org.eventb.core.assignment='TMstatus ≔ {tm_handler}⩤TMstatus' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n125' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Drop_TM' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n126' org.eventb.core.identifier='tm_handler' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n127' org.eventb.core.label='grd0' org.eventb.core.predicate='tm_handler∈dom(TMpool)∧tm_handler∈dom(TMstatus)∧TMstatus(tm_handler)=TM_Removable' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n128' org.eventb.core.assignment='TMpool ≔ {tm_handler}⩤TMpool' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n129' org.eventb.core.assignment='TMstatus ≔ {tm_handler}⩤TMstatus' org.eventb.core.label='act1' org.eventb.core.comment='' />
-  </org.eventb.core.event>
-  <org.eventb.core.event name='n130' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='env_Deliver_TM' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n131' org.eventb.core.identifier='tm_pointer' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n132' org.eventb.core.label='grd0' org.eventb.core.predicate='tm_pointer∈dom(TMbuffer)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n133' org.eventb.core.assignment='TMbuffer ≔ {tm_pointer}⩤TMbuffer' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n123' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='env_Deliver_TM' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n124' org.eventb.core.identifier='tm_pointer' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n125' org.eventb.core.label='grd0' org.eventb.core.predicate='tm_pointer∈dom(TMbuffer)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n126' org.eventb.core.assignment='TMbuffer ≔ {tm_pointer}⩤TMbuffer' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
 </org.eventb.core.machineFile>

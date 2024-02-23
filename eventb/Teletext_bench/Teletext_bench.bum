@@ -20,261 +20,252 @@
   <org.eventb.core.invariant name='n17' org.eventb.core.label='inv8' org.eventb.core.predicate='Scroll&lt;Selected' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n18' org.eventb.core.label='inv9' org.eventb.core.predicate='Status=UNDEFINED⇒Plist_size=0∧DisPnames=∅∧DisColours=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n19' org.eventb.core.label='inv10' org.eventb.core.predicate='Status=DEFINED⇒Plist_size&gt;0∧DisPnames≠∅∧DisColours≠∅∧DisColours(Selected−Scroll)=lightgrey∧Scroll&gt;0⇒Selected&gt;1∧Scroll=0⇒Selected&lt;Display_size∧Selected≤Plist_size∧Plist_size&lt;Display_size⇒Scroll=0∧Plist_size=Display_size⇒Scroll=0 ∨ Scroll=1∧Plist_size&gt;Display_size⇒Scroll≤((Plist_size−Display_size)+1)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.event name='n20' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n21' org.eventb.core.assignment='Display_size ≔ 0' org.eventb.core.label='init0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n22' org.eventb.core.assignment='Plist_size ≔ 0' org.eventb.core.label='init1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n23' org.eventb.core.assignment='Status ≔ UNDEFINED' org.eventb.core.label='init2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n24' org.eventb.core.assignment='Selected ≔ 1' org.eventb.core.label='init3' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n25' org.eventb.core.assignment='Scroll ≔ 0' org.eventb.core.label='init4' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n26' org.eventb.core.assignment='DisColours,DisPnames ≔ ∅,∅' org.eventb.core.label='init5' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n27' org.eventb.core.assignment='titles ≔ {15↦p15,3↦p3,9↦p9,7↦p7,14↦p14,10↦p10,11↦p11,6↦p6,8↦p8,13↦p13,5↦p5,12↦p12,2↦p2,1↦p1,4↦p4}' org.eventb.core.label='init6' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n20' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='PageAtColumn1' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n21' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n22' org.eventb.core.assignment='pp ≔ DisPnames(1)' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n28' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='PageAtColumn1' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n29' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n30' org.eventb.core.assignment='pp ≔ DisPnames(1)' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n23' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ColourAtColumn1' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n24' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n25' org.eventb.core.assignment='cc ≔ DisColours(1)' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n31' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ColourAtColumn1' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n32' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n33' org.eventb.core.assignment='cc ≔ DisColours(1)' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n26' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='CurrentCursorPosition' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n27' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n28' org.eventb.core.assignment='pos ≔ Selected−Scroll' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n34' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='CurrentCursorPosition' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n35' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n36' org.eventb.core.assignment='pos ≔ Selected−Scroll' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n29' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='PageAtCurCursor' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n30' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n31' org.eventb.core.assignment='pp ≔ DisPnames(Selected−Scroll)' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n37' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='PageAtCurCursor' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n38' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n39' org.eventb.core.assignment='pp ≔ DisPnames(Selected−Scroll)' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n32' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ColourAtCurCursor' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n33' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n34' org.eventb.core.assignment='cc ≔ DisColours(Selected−Scroll)' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n40' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ColourAtCurCursor' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n41' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n42' org.eventb.core.assignment='cc ≔ DisColours(Selected−Scroll)' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n35' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='PageAtLastColumn' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n36' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n37' org.eventb.core.assignment='pp ≔ DisPnames(Display_size)' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n43' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='PageAtLastColumn' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n44' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n45' org.eventb.core.assignment='pp ≔ DisPnames(Display_size)' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n38' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ColourAtLastColumn' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n39' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n40' org.eventb.core.assignment='cc ≔ DisColours(Display_size)' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n46' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ColourAtLastColumn' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n47' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n48' org.eventb.core.assignment='cc ≔ DisColours(Display_size)' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n41' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='define_then' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n42' org.eventb.core.identifier='trans_size' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n43' org.eventb.core.identifier='disp_size' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n44' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=UNDEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n45' org.eventb.core.label='grd1' org.eventb.core.predicate='trans_size∈1‥15' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n46' org.eventb.core.label='grd2' org.eventb.core.predicate='trans_size&gt;5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n47' org.eventb.core.label='grd3' org.eventb.core.predicate='trans_size&lt;7' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n48' org.eventb.core.label='grd4' org.eventb.core.predicate='disp_size&gt;3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n49' org.eventb.core.label='grd5' org.eventb.core.predicate='disp_size&lt;5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n50' org.eventb.core.label='grd6' org.eventb.core.predicate='disp_size∈1‥10' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n51' org.eventb.core.label='grd7' org.eventb.core.predicate='trans_size&lt;disp_size ∨ trans_size≥disp_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n52' org.eventb.core.label='grd8' org.eventb.core.predicate='trans_size≥disp_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n53' org.eventb.core.assignment='Status ≔ DEFINED' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n54' org.eventb.core.assignment='Plist_size ≔ trans_size' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n55' org.eventb.core.assignment='Display_size ≔ disp_size' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n56' org.eventb.core.assignment='Selected ≔ 1' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n57' org.eventb.core.assignment='Scroll ≔ 0' org.eventb.core.label='act4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n58' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥disp_size) × PAGENAMES∧nn∈1‥disp_size∧tt∈PAGENAMES∧tt=titles(nn)}' org.eventb.core.label='act5' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n59' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥disp_size) × COLOURS∧nn∈1‥disp_size∧cc∈COLOURS∧nn=1∧cc=lightgrey ∨ nn≠1∧cc=red}' org.eventb.core.label='act6' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n49' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='define_then' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n50' org.eventb.core.identifier='trans_size' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n51' org.eventb.core.identifier='disp_size' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n52' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=UNDEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n53' org.eventb.core.label='grd1' org.eventb.core.predicate='trans_size∈1‥15' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n54' org.eventb.core.label='grd2' org.eventb.core.predicate='trans_size&gt;5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n55' org.eventb.core.label='grd3' org.eventb.core.predicate='trans_size&lt;7' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n56' org.eventb.core.label='grd4' org.eventb.core.predicate='disp_size&gt;3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n57' org.eventb.core.label='grd5' org.eventb.core.predicate='disp_size&lt;5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n58' org.eventb.core.label='grd6' org.eventb.core.predicate='disp_size∈1‥10' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n59' org.eventb.core.label='grd7' org.eventb.core.predicate='trans_size&lt;disp_size ∨ trans_size≥disp_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n60' org.eventb.core.label='grd8' org.eventb.core.predicate='trans_size≥disp_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n61' org.eventb.core.assignment='Status ≔ DEFINED' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n62' org.eventb.core.assignment='Plist_size ≔ trans_size' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n63' org.eventb.core.assignment='Display_size ≔ disp_size' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n64' org.eventb.core.assignment='Selected ≔ 1' org.eventb.core.label='act3' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n65' org.eventb.core.assignment='Scroll ≔ 0' org.eventb.core.label='act4' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n66' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥disp_size) × PAGENAMES∧nn∈1‥disp_size∧tt∈PAGENAMES∧tt=titles(nn)}' org.eventb.core.label='act5' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n67' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥disp_size) × COLOURS∧nn∈1‥disp_size∧cc∈COLOURS∧nn=1∧cc=lightgrey ∨ nn≠1∧cc=red}' org.eventb.core.label='act6' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n60' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='define_else' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n61' org.eventb.core.identifier='trans_size' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n62' org.eventb.core.identifier='disp_size' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n63' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=UNDEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n64' org.eventb.core.label='grd1' org.eventb.core.predicate='trans_size∈1‥15' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n65' org.eventb.core.label='grd2' org.eventb.core.predicate='trans_size&gt;5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n66' org.eventb.core.label='grd3' org.eventb.core.predicate='trans_size&lt;7' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n67' org.eventb.core.label='grd4' org.eventb.core.predicate='disp_size&gt;3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n68' org.eventb.core.label='grd5' org.eventb.core.predicate='disp_size&lt;5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n69' org.eventb.core.label='grd6' org.eventb.core.predicate='disp_size∈1‥10' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n70' org.eventb.core.label='grd7' org.eventb.core.predicate='trans_size&lt;disp_size ∨ trans_size≥disp_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n71' org.eventb.core.label='grd8' org.eventb.core.predicate='¬(trans_size≥disp_size)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n72' org.eventb.core.assignment='Status ≔ DEFINED' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n73' org.eventb.core.assignment='Plist_size ≔ trans_size' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n74' org.eventb.core.assignment='Display_size ≔ disp_size' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n75' org.eventb.core.assignment='Selected ≔ 1' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n76' org.eventb.core.assignment='Scroll ≔ 0' org.eventb.core.label='act4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n77' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥disp_size) × PAGENAMES∧nn∈1‥disp_size∧tt∈PAGENAMES∧1≤nn∧nn≤trans_size∧tt=titles(nn) ∨ trans_size&lt;nn∧tt=blank}' org.eventb.core.label='act5' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n78' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥disp_size) × COLOURS∧nn∈1‥disp_size∧cc∈COLOURS∧nn=1∧cc=lightgrey ∨ 2≤nn∧nn≤trans_size∧cc=red ∨ trans_size&lt;nn∧cc=white}' org.eventb.core.label='act6' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n68' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='define_else' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n69' org.eventb.core.identifier='trans_size' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n70' org.eventb.core.identifier='disp_size' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n71' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=UNDEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n72' org.eventb.core.label='grd1' org.eventb.core.predicate='trans_size∈1‥15' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n73' org.eventb.core.label='grd2' org.eventb.core.predicate='trans_size&gt;5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n74' org.eventb.core.label='grd3' org.eventb.core.predicate='trans_size&lt;7' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n75' org.eventb.core.label='grd4' org.eventb.core.predicate='disp_size&gt;3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n76' org.eventb.core.label='grd5' org.eventb.core.predicate='disp_size&lt;5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n77' org.eventb.core.label='grd6' org.eventb.core.predicate='disp_size∈1‥10' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n78' org.eventb.core.label='grd7' org.eventb.core.predicate='trans_size&lt;disp_size ∨ trans_size≥disp_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n79' org.eventb.core.label='grd8' org.eventb.core.predicate='¬(trans_size≥disp_size)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n80' org.eventb.core.assignment='Status ≔ DEFINED' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n81' org.eventb.core.assignment='Plist_size ≔ trans_size' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n82' org.eventb.core.assignment='Display_size ≔ disp_size' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n83' org.eventb.core.assignment='Selected ≔ 1' org.eventb.core.label='act3' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n84' org.eventb.core.assignment='Scroll ≔ 0' org.eventb.core.label='act4' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n85' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥disp_size) × PAGENAMES∧nn∈1‥disp_size∧tt∈PAGENAMES∧1≤nn∧nn≤trans_size∧tt=titles(nn) ∨ trans_size&lt;nn∧tt=blank}' org.eventb.core.label='act5' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n86' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥disp_size) × COLOURS∧nn∈1‥disp_size∧cc∈COLOURS∧nn=1∧cc=lightgrey ∨ 2≤nn∧nn≤trans_size∧cc=red ∨ trans_size&lt;nn∧cc=white}' org.eventb.core.label='act6' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n79' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='undefine' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n80' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n81' org.eventb.core.assignment='Status ≔ UNDEFINED' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n82' org.eventb.core.assignment='Selected ≔ 1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n83' org.eventb.core.assignment='Scroll ≔ 0' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n84' org.eventb.core.assignment='Plist_size ≔ 0' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n85' org.eventb.core.assignment='Display_size ≔ 0' org.eventb.core.label='act4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n86' org.eventb.core.assignment='DisColours,DisPnames ≔ ∅,∅' org.eventb.core.label='act5' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n87' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='undefine' org.eventb.core.comment=''>
+  <org.eventb.core.event name='n87' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='upCursor_then_then_then_then' org.eventb.core.comment=''>
     <org.eventb.core.guard name='n88' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n89' org.eventb.core.assignment='Status ≔ UNDEFINED' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n90' org.eventb.core.assignment='Selected ≔ 1' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n91' org.eventb.core.assignment='Scroll ≔ 0' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n92' org.eventb.core.assignment='Plist_size ≔ 0' org.eventb.core.label='act3' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n93' org.eventb.core.assignment='Display_size ≔ 0' org.eventb.core.label='act4' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n94' org.eventb.core.assignment='DisColours,DisPnames ≔ ∅,∅' org.eventb.core.label='act5' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n89' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&gt;1 ∨ Selected≤1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n90' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n91' org.eventb.core.label='grd3' org.eventb.core.predicate='Scroll&gt;0 ∨ Scroll≤0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n92' org.eventb.core.label='grd4' org.eventb.core.predicate='Selected=Scroll+2 ∨ Selected≠Scroll+2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n93' org.eventb.core.label='grd5' org.eventb.core.predicate='Selected=2 ∨ Selected≠2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n94' org.eventb.core.label='grd6' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n95' org.eventb.core.label='grd7' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n96' org.eventb.core.label='grd8' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n97' org.eventb.core.label='grd9' org.eventb.core.predicate='Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n98' org.eventb.core.label='grd10' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n99' org.eventb.core.label='grd11' org.eventb.core.predicate='Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n100' org.eventb.core.label='grd12' org.eventb.core.predicate='Selected=Scroll+2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n101' org.eventb.core.assignment='Selected ≔ Selected−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n102' org.eventb.core.assignment='Scroll ≔ Scroll−1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n103' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥Display_size) × PAGENAMES∧nn∈1‥Display_size∧tt∈PAGENAMES∧tt=titles((Scroll−1)+nn)}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n104' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=2∧cc=lightgrey ∨ nn≠2∧cc=red}' org.eventb.core.label='act3' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n95' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='upCursor_then_then_then_then' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n96' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n97' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&gt;1 ∨ Selected≤1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n98' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n99' org.eventb.core.label='grd3' org.eventb.core.predicate='Scroll&gt;0 ∨ Scroll≤0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n100' org.eventb.core.label='grd4' org.eventb.core.predicate='Selected=Scroll+2 ∨ Selected≠Scroll+2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n101' org.eventb.core.label='grd5' org.eventb.core.predicate='Selected=2 ∨ Selected≠2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n102' org.eventb.core.label='grd6' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n103' org.eventb.core.label='grd7' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n104' org.eventb.core.label='grd8' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n105' org.eventb.core.label='grd9' org.eventb.core.predicate='Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n106' org.eventb.core.label='grd10' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n107' org.eventb.core.label='grd11' org.eventb.core.predicate='Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n108' org.eventb.core.label='grd12' org.eventb.core.predicate='Selected=Scroll+2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n109' org.eventb.core.assignment='Selected ≔ Selected−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n110' org.eventb.core.assignment='Scroll ≔ Scroll−1' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n111' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥Display_size) × PAGENAMES∧nn∈1‥Display_size∧tt∈PAGENAMES∧tt=titles((Scroll−1)+nn)}' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n112' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=2∧cc=lightgrey ∨ nn≠2∧cc=red}' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n105' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='upCursor_then_then_then_else_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n106' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n107' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&gt;1 ∨ Selected≤1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n108' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n109' org.eventb.core.label='grd3' org.eventb.core.predicate='Scroll&gt;0 ∨ Scroll≤0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n110' org.eventb.core.label='grd4' org.eventb.core.predicate='Selected=Scroll+2 ∨ Selected≠Scroll+2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n111' org.eventb.core.label='grd5' org.eventb.core.predicate='Selected=2 ∨ Selected≠2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n112' org.eventb.core.label='grd6' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n113' org.eventb.core.label='grd7' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n114' org.eventb.core.label='grd8' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n115' org.eventb.core.label='grd9' org.eventb.core.predicate='Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n116' org.eventb.core.label='grd10' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n117' org.eventb.core.label='grd11' org.eventb.core.predicate='Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n118' org.eventb.core.label='grd12' org.eventb.core.predicate='¬(Selected=Scroll+2)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n119' org.eventb.core.label='grd13' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n120' org.eventb.core.assignment='Selected ≔ Selected−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n121' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Selected−1−Scroll∧cc=lightgrey ∨ nn≠Selected−1−Scroll∧cc=red∧nn&lt;Display_size ∨ nn=Display_size∧cc=white}' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n113' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='upCursor_then_then_then_else_then' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n114' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n115' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&gt;1 ∨ Selected≤1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n116' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n117' org.eventb.core.label='grd3' org.eventb.core.predicate='Scroll&gt;0 ∨ Scroll≤0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n118' org.eventb.core.label='grd4' org.eventb.core.predicate='Selected=Scroll+2 ∨ Selected≠Scroll+2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n119' org.eventb.core.label='grd5' org.eventb.core.predicate='Selected=2 ∨ Selected≠2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n120' org.eventb.core.label='grd6' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n121' org.eventb.core.label='grd7' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n122' org.eventb.core.label='grd8' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n123' org.eventb.core.label='grd9' org.eventb.core.predicate='Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n124' org.eventb.core.label='grd10' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n125' org.eventb.core.label='grd11' org.eventb.core.predicate='Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n126' org.eventb.core.label='grd12' org.eventb.core.predicate='¬(Selected=Scroll+2)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n127' org.eventb.core.label='grd13' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n128' org.eventb.core.assignment='Selected ≔ Selected−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n129' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Selected−1−Scroll∧cc=lightgrey ∨ nn≠Selected−1−Scroll∧cc=red∧nn&lt;Display_size ∨ nn=Display_size∧cc=white}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n122' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='upCursor_then_then_then_else_else' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n123' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n124' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&gt;1 ∨ Selected≤1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n125' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n126' org.eventb.core.label='grd3' org.eventb.core.predicate='Scroll&gt;0 ∨ Scroll≤0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n127' org.eventb.core.label='grd4' org.eventb.core.predicate='Selected=Scroll+2 ∨ Selected≠Scroll+2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n128' org.eventb.core.label='grd5' org.eventb.core.predicate='Selected=2 ∨ Selected≠2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n129' org.eventb.core.label='grd6' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n130' org.eventb.core.label='grd7' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n131' org.eventb.core.label='grd8' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n132' org.eventb.core.label='grd9' org.eventb.core.predicate='Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n133' org.eventb.core.label='grd10' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n134' org.eventb.core.label='grd11' org.eventb.core.predicate='Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n135' org.eventb.core.label='grd12' org.eventb.core.predicate='¬(Selected=Scroll+2)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n136' org.eventb.core.label='grd13' org.eventb.core.predicate='¬(DisColours(Display_size)=white∧DisPnames(Display_size)=blank)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n137' org.eventb.core.assignment='Selected ≔ Selected−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n138' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Selected−1−Scroll∧cc=lightgrey ∨ nn≠Selected−1−Scroll∧cc=red}' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n130' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='upCursor_then_then_then_else_else' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n131' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n132' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&gt;1 ∨ Selected≤1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n133' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n134' org.eventb.core.label='grd3' org.eventb.core.predicate='Scroll&gt;0 ∨ Scroll≤0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n135' org.eventb.core.label='grd4' org.eventb.core.predicate='Selected=Scroll+2 ∨ Selected≠Scroll+2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n136' org.eventb.core.label='grd5' org.eventb.core.predicate='Selected=2 ∨ Selected≠2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n137' org.eventb.core.label='grd6' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n138' org.eventb.core.label='grd7' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n139' org.eventb.core.label='grd8' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n140' org.eventb.core.label='grd9' org.eventb.core.predicate='Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n141' org.eventb.core.label='grd10' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n142' org.eventb.core.label='grd11' org.eventb.core.predicate='Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n143' org.eventb.core.label='grd12' org.eventb.core.predicate='¬(Selected=Scroll+2)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n144' org.eventb.core.label='grd13' org.eventb.core.predicate='¬(DisColours(Display_size)=white∧DisPnames(Display_size)=blank)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n145' org.eventb.core.assignment='Selected ≔ Selected−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n146' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Selected−1−Scroll∧cc=lightgrey ∨ nn≠Selected−1−Scroll∧cc=red}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n139' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='upCursor_then_then_else_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n140' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n141' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&gt;1 ∨ Selected≤1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n142' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n143' org.eventb.core.label='grd3' org.eventb.core.predicate='Scroll&gt;0 ∨ Scroll≤0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n144' org.eventb.core.label='grd4' org.eventb.core.predicate='Selected=Scroll+2 ∨ Selected≠Scroll+2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n145' org.eventb.core.label='grd5' org.eventb.core.predicate='Selected=2 ∨ Selected≠2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n146' org.eventb.core.label='grd6' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n147' org.eventb.core.label='grd7' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n148' org.eventb.core.label='grd8' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n149' org.eventb.core.label='grd9' org.eventb.core.predicate='Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n150' org.eventb.core.label='grd10' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n151' org.eventb.core.label='grd11' org.eventb.core.predicate='¬(Scroll&gt;0)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n152' org.eventb.core.label='grd12' org.eventb.core.predicate='Selected≥2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n153' org.eventb.core.assignment='Selected ≔ Selected−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n154' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Selected−1∧cc=lightgrey ∨ nn≠Selected−1∧cc=red}' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n147' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='upCursor_then_then_else_then' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n148' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n149' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&gt;1 ∨ Selected≤1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n150' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n151' org.eventb.core.label='grd3' org.eventb.core.predicate='Scroll&gt;0 ∨ Scroll≤0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n152' org.eventb.core.label='grd4' org.eventb.core.predicate='Selected=Scroll+2 ∨ Selected≠Scroll+2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n153' org.eventb.core.label='grd5' org.eventb.core.predicate='Selected=2 ∨ Selected≠2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n154' org.eventb.core.label='grd6' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n155' org.eventb.core.label='grd7' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n156' org.eventb.core.label='grd8' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n157' org.eventb.core.label='grd9' org.eventb.core.predicate='Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n158' org.eventb.core.label='grd10' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n159' org.eventb.core.label='grd11' org.eventb.core.predicate='¬(Scroll&gt;0)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n160' org.eventb.core.label='grd12' org.eventb.core.predicate='Selected≥2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n161' org.eventb.core.assignment='Selected ≔ Selected−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n162' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Selected−1∧cc=lightgrey ∨ nn≠Selected−1∧cc=red}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n155' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='upCursor_then_else' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n156' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n157' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&gt;1 ∨ Selected≤1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n158' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n159' org.eventb.core.label='grd3' org.eventb.core.predicate='Scroll&gt;0 ∨ Scroll≤0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n160' org.eventb.core.label='grd4' org.eventb.core.predicate='Selected=Scroll+2 ∨ Selected≠Scroll+2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n161' org.eventb.core.label='grd5' org.eventb.core.predicate='Selected=2 ∨ Selected≠2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n162' org.eventb.core.label='grd6' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n163' org.eventb.core.label='grd7' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n164' org.eventb.core.label='grd8' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n165' org.eventb.core.label='grd9' org.eventb.core.predicate='Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n166' org.eventb.core.label='grd10' org.eventb.core.predicate='¬(Plist_size≥Display_size)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n167' org.eventb.core.assignment='Selected ≔ Selected−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n168' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Selected−1∧cc=lightgrey ∨ nn≠Selected−1∧nn≤Plist_size∧cc=red ∨ nn&gt;Plist_size∧cc=white}' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n163' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='upCursor_then_else' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n164' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n165' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&gt;1 ∨ Selected≤1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n166' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n167' org.eventb.core.label='grd3' org.eventb.core.predicate='Scroll&gt;0 ∨ Scroll≤0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n168' org.eventb.core.label='grd4' org.eventb.core.predicate='Selected=Scroll+2 ∨ Selected≠Scroll+2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n169' org.eventb.core.label='grd5' org.eventb.core.predicate='Selected=2 ∨ Selected≠2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n170' org.eventb.core.label='grd6' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n171' org.eventb.core.label='grd7' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n172' org.eventb.core.label='grd8' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n173' org.eventb.core.label='grd9' org.eventb.core.predicate='Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n174' org.eventb.core.label='grd10' org.eventb.core.predicate='¬(Plist_size≥Display_size)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n175' org.eventb.core.assignment='Selected ≔ Selected−1' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n176' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Selected−1∧cc=lightgrey ∨ nn≠Selected−1∧nn≤Plist_size∧cc=red ∨ nn&gt;Plist_size∧cc=white}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n169' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='downCursor_then_then_then_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n170' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n171' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&lt;Plist_size ∨ Selected≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n172' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n173' org.eventb.core.label='grd3' org.eventb.core.predicate='Selected+1=Scroll+Display_size ∨ Selected+1≠Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n174' org.eventb.core.label='grd4' org.eventb.core.predicate='(Scroll+Display_size)&lt;Plist_size ∨ (Scroll+Display_size)≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n175' org.eventb.core.label='grd5' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n176' org.eventb.core.label='grd6' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n177' org.eventb.core.label='grd7' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n178' org.eventb.core.label='grd8' org.eventb.core.predicate='Selected&lt;Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n179' org.eventb.core.label='grd9' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n180' org.eventb.core.label='grd10' org.eventb.core.predicate='Selected+1=Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n181' org.eventb.core.label='grd11' org.eventb.core.predicate='(Scroll+Display_size)&lt;Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n182' org.eventb.core.assignment='Selected ≔ Selected+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n183' org.eventb.core.assignment='Scroll ≔ Scroll+1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n184' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥Display_size) × PAGENAMES∧nn∈1‥Display_size∧tt∈PAGENAMES∧tt=titles(Scroll+1+nn)}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n185' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Display_size−1∧cc=lightgrey ∨ nn≠Display_size−1∧cc=red}' org.eventb.core.label='act3' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n177' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='downCursor_then_then_then_then' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n178' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n179' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&lt;Plist_size ∨ Selected≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n180' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n181' org.eventb.core.label='grd3' org.eventb.core.predicate='Selected+1=Scroll+Display_size ∨ Selected+1≠Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n182' org.eventb.core.label='grd4' org.eventb.core.predicate='(Scroll+Display_size)&lt;Plist_size ∨ (Scroll+Display_size)≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n183' org.eventb.core.label='grd5' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n184' org.eventb.core.label='grd6' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n185' org.eventb.core.label='grd7' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n186' org.eventb.core.label='grd8' org.eventb.core.predicate='Selected&lt;Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n187' org.eventb.core.label='grd9' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n188' org.eventb.core.label='grd10' org.eventb.core.predicate='Selected+1=Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n189' org.eventb.core.label='grd11' org.eventb.core.predicate='(Scroll+Display_size)&lt;Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n190' org.eventb.core.assignment='Selected ≔ Selected+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n191' org.eventb.core.assignment='Scroll ≔ Scroll+1' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n192' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥Display_size) × PAGENAMES∧nn∈1‥Display_size∧tt∈PAGENAMES∧tt=titles(Scroll+1+nn)}' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n193' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Display_size−1∧cc=lightgrey ∨ nn≠Display_size−1∧cc=red}' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n186' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='downCursor_then_then_then_else' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n187' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n188' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&lt;Plist_size ∨ Selected≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n189' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n190' org.eventb.core.label='grd3' org.eventb.core.predicate='Selected+1=Scroll+Display_size ∨ Selected+1≠Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n191' org.eventb.core.label='grd4' org.eventb.core.predicate='(Scroll+Display_size)&lt;Plist_size ∨ (Scroll+Display_size)≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n192' org.eventb.core.label='grd5' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n193' org.eventb.core.label='grd6' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n194' org.eventb.core.label='grd7' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n195' org.eventb.core.label='grd8' org.eventb.core.predicate='Selected&lt;Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n196' org.eventb.core.label='grd9' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n197' org.eventb.core.label='grd10' org.eventb.core.predicate='Selected+1=Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n198' org.eventb.core.label='grd11' org.eventb.core.predicate='¬((Scroll+Display_size)&lt;Plist_size)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n199' org.eventb.core.assignment='Selected ≔ Selected+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n200' org.eventb.core.assignment='Scroll ≔ Scroll+1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n201' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥Display_size) × PAGENAMES∧nn∈1‥Display_size∧tt∈PAGENAMES∧nn=Display_size∧tt=blank ∨ nn≠Display_size∧tt=titles(Scroll+1+nn)}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n202' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Display_size−1∧cc=lightgrey ∨ nn&lt;(Display_size−1)∧cc=red ∨ nn=Display_size∧cc=white}' org.eventb.core.label='act3' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n194' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='downCursor_then_then_then_else' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n195' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n196' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&lt;Plist_size ∨ Selected≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n197' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n198' org.eventb.core.label='grd3' org.eventb.core.predicate='Selected+1=Scroll+Display_size ∨ Selected+1≠Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n199' org.eventb.core.label='grd4' org.eventb.core.predicate='(Scroll+Display_size)&lt;Plist_size ∨ (Scroll+Display_size)≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n200' org.eventb.core.label='grd5' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n201' org.eventb.core.label='grd6' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n202' org.eventb.core.label='grd7' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n203' org.eventb.core.label='grd8' org.eventb.core.predicate='Selected&lt;Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n204' org.eventb.core.label='grd9' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n205' org.eventb.core.label='grd10' org.eventb.core.predicate='Selected+1=Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n206' org.eventb.core.label='grd11' org.eventb.core.predicate='¬((Scroll+Display_size)&lt;Plist_size)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n207' org.eventb.core.assignment='Selected ≔ Selected+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n208' org.eventb.core.assignment='Scroll ≔ Scroll+1' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n209' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥Display_size) × PAGENAMES∧nn∈1‥Display_size∧tt∈PAGENAMES∧nn=Display_size∧tt=blank ∨ nn≠Display_size∧tt=titles(Scroll+1+nn)}' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n210' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Display_size−1∧cc=lightgrey ∨ nn&lt;(Display_size−1)∧cc=red ∨ nn=Display_size∧cc=white}' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n203' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='downCursor_then_then_else_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n204' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n205' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&lt;Plist_size ∨ Selected≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n206' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n207' org.eventb.core.label='grd3' org.eventb.core.predicate='Selected+1=Scroll+Display_size ∨ Selected+1≠Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n208' org.eventb.core.label='grd4' org.eventb.core.predicate='(Scroll+Display_size)&lt;Plist_size ∨ (Scroll+Display_size)≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n209' org.eventb.core.label='grd5' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n210' org.eventb.core.label='grd6' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n211' org.eventb.core.label='grd7' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n212' org.eventb.core.label='grd8' org.eventb.core.predicate='Selected&lt;Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n213' org.eventb.core.label='grd9' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n214' org.eventb.core.label='grd10' org.eventb.core.predicate='¬(Selected+1=Scroll+Display_size)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n215' org.eventb.core.label='grd11' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n216' org.eventb.core.assignment='Selected ≔ Selected+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n217' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥Display_size) × PAGENAMES∧nn∈1‥Display_size∧tt∈PAGENAMES∧tt=titles(Scroll+nn)}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n218' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=(Selected+1)−Scroll∧cc=lightgrey ∨ nn≠(Selected+1)−Scroll∧nn&lt;Display_size∧cc=red ∨ nn=Display_size∧cc=white}' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n211' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='downCursor_then_then_else_then' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n212' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n213' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&lt;Plist_size ∨ Selected≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n214' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n215' org.eventb.core.label='grd3' org.eventb.core.predicate='Selected+1=Scroll+Display_size ∨ Selected+1≠Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n216' org.eventb.core.label='grd4' org.eventb.core.predicate='(Scroll+Display_size)&lt;Plist_size ∨ (Scroll+Display_size)≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n217' org.eventb.core.label='grd5' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n218' org.eventb.core.label='grd6' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n219' org.eventb.core.label='grd7' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n220' org.eventb.core.label='grd8' org.eventb.core.predicate='Selected&lt;Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n221' org.eventb.core.label='grd9' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n222' org.eventb.core.label='grd10' org.eventb.core.predicate='¬(Selected+1=Scroll+Display_size)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n223' org.eventb.core.label='grd11' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n224' org.eventb.core.assignment='Selected ≔ Selected+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n225' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥Display_size) × PAGENAMES∧nn∈1‥Display_size∧tt∈PAGENAMES∧tt=titles(Scroll+nn)}' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n226' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=(Selected+1)−Scroll∧cc=lightgrey ∨ nn≠(Selected+1)−Scroll∧nn&lt;Display_size∧cc=red ∨ nn=Display_size∧cc=white}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n219' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='downCursor_then_then_else_else' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n220' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n221' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&lt;Plist_size ∨ Selected≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n222' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n223' org.eventb.core.label='grd3' org.eventb.core.predicate='Selected+1=Scroll+Display_size ∨ Selected+1≠Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n224' org.eventb.core.label='grd4' org.eventb.core.predicate='(Scroll+Display_size)&lt;Plist_size ∨ (Scroll+Display_size)≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n225' org.eventb.core.label='grd5' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n226' org.eventb.core.label='grd6' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n227' org.eventb.core.label='grd7' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n228' org.eventb.core.label='grd8' org.eventb.core.predicate='Selected&lt;Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n229' org.eventb.core.label='grd9' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n230' org.eventb.core.label='grd10' org.eventb.core.predicate='¬(Selected+1=Scroll+Display_size)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n231' org.eventb.core.label='grd11' org.eventb.core.predicate='¬(DisColours(Display_size)=white∧DisPnames(Display_size)=blank)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n232' org.eventb.core.assignment='Selected ≔ Selected+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n233' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥Display_size) × PAGENAMES∧nn∈1‥Display_size∧tt∈PAGENAMES∧tt=titles(Scroll+nn)}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n234' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=(Selected+1)−Scroll∧cc=lightgrey ∨ nn≠(Selected+1)−Scroll∧cc=red}' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n227' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='downCursor_then_then_else_else' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n228' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n229' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&lt;Plist_size ∨ Selected≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n230' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n231' org.eventb.core.label='grd3' org.eventb.core.predicate='Selected+1=Scroll+Display_size ∨ Selected+1≠Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n232' org.eventb.core.label='grd4' org.eventb.core.predicate='(Scroll+Display_size)&lt;Plist_size ∨ (Scroll+Display_size)≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n233' org.eventb.core.label='grd5' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n234' org.eventb.core.label='grd6' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n235' org.eventb.core.label='grd7' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n236' org.eventb.core.label='grd8' org.eventb.core.predicate='Selected&lt;Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n237' org.eventb.core.label='grd9' org.eventb.core.predicate='Plist_size≥Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n238' org.eventb.core.label='grd10' org.eventb.core.predicate='¬(Selected+1=Scroll+Display_size)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n239' org.eventb.core.label='grd11' org.eventb.core.predicate='¬(DisColours(Display_size)=white∧DisPnames(Display_size)=blank)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n240' org.eventb.core.assignment='Selected ≔ Selected+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n241' org.eventb.core.assignment='DisPnames ≔ {nn,tt∣nn↦tt∈(1‥Display_size) × PAGENAMES∧nn∈1‥Display_size∧tt∈PAGENAMES∧tt=titles(Scroll+nn)}' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n242' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=(Selected+1)−Scroll∧cc=lightgrey ∨ nn≠(Selected+1)−Scroll∧cc=red}' org.eventb.core.label='act2' org.eventb.core.comment='' />
-  </org.eventb.core.event>
-  <org.eventb.core.event name='n243' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='downCursor_then_else' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n244' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n245' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&lt;Plist_size ∨ Selected≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n246' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n247' org.eventb.core.label='grd3' org.eventb.core.predicate='Selected+1=Scroll+Display_size ∨ Selected+1≠Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n248' org.eventb.core.label='grd4' org.eventb.core.predicate='(Scroll+Display_size)&lt;Plist_size ∨ (Scroll+Display_size)≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n249' org.eventb.core.label='grd5' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n250' org.eventb.core.label='grd6' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n251' org.eventb.core.label='grd7' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n252' org.eventb.core.label='grd8' org.eventb.core.predicate='Selected&lt;Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n253' org.eventb.core.label='grd9' org.eventb.core.predicate='¬(Plist_size≥Display_size)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n254' org.eventb.core.assignment='Selected ≔ Selected+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n255' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Selected+1∧cc=lightgrey ∨ nn&lt;(Selected+1)∧cc=red ∨ nn&gt;(Selected+1)∧nn≤Plist_size∧cc=red ∨ nn&gt;Plist_size∧cc=white}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n235' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='downCursor_then_else' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n236' org.eventb.core.label='grd0' org.eventb.core.predicate='Status=DEFINED' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n237' org.eventb.core.label='grd1' org.eventb.core.predicate='Selected&lt;Plist_size ∨ Selected≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n238' org.eventb.core.label='grd2' org.eventb.core.predicate='Plist_size≥Display_size ∨ Plist_size&lt;Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n239' org.eventb.core.label='grd3' org.eventb.core.predicate='Selected+1=Scroll+Display_size ∨ Selected+1≠Scroll+Display_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n240' org.eventb.core.label='grd4' org.eventb.core.predicate='(Scroll+Display_size)&lt;Plist_size ∨ (Scroll+Display_size)≥Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n241' org.eventb.core.label='grd5' org.eventb.core.predicate='DisColours(Display_size)=white∧DisPnames(Display_size)=blank ∨ DisColours(Display_size)≠white ∨ DisPnames(Display_size)≠blank' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n242' org.eventb.core.label='grd6' org.eventb.core.predicate='Selected=1 ∨ Selected&gt;1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n243' org.eventb.core.label='grd7' org.eventb.core.predicate='Scroll=0 ∨ Scroll&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n244' org.eventb.core.label='grd8' org.eventb.core.predicate='Selected&lt;Plist_size' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n245' org.eventb.core.label='grd9' org.eventb.core.predicate='¬(Plist_size≥Display_size)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n246' org.eventb.core.assignment='Selected ≔ Selected+1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n247' org.eventb.core.assignment='DisColours ≔ {nn,cc∣nn↦cc∈(1‥Display_size) × COLOURS∧nn∈1‥Display_size∧cc∈COLOURS∧nn=Selected+1∧cc=lightgrey ∨ nn&lt;(Selected+1)∧cc=red ∨ nn&gt;(Selected+1)∧nn≤Plist_size∧cc=red ∨ nn&gt;Plist_size∧cc=white}' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
 </org.eventb.core.machineFile>

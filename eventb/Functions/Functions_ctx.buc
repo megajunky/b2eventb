@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <org.eventb.core.contextFile org.eventb.core.configuration='org.eventb.core.fwd' version='3' org.eventb.core.comment=''>
-  <org.eventb.core.carrierSet name='n22' org.eventb.core.identifier='ID' org.eventb.core.comment='' />
-  <org.eventb.core.constant name='n23' org.eventb.core.identifier='fun' org.eventb.core.comment='' />
-  <org.eventb.core.constant name='n24' org.eventb.core.identifier='fun2' org.eventb.core.comment='' />
-  <org.eventb.core.constant name='n25' org.eventb.core.identifier='aa' org.eventb.core.comment='' />
-  <org.eventb.core.constant name='n26' org.eventb.core.identifier='bb' org.eventb.core.comment='' />
-  <org.eventb.core.axiom name='n27' org.eventb.core.label='axm0' org.eventb.core.predicate='partition(ID,{aa},{bb})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.axiom name='n28' org.eventb.core.label='axm1' org.eventb.core.predicate='fun∈ℙ(ID × (ID × ID))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.axiom name='n29' org.eventb.core.label='axm2' org.eventb.core.predicate='fun={xx,yy,zz∣xx∈ID∧yy∈ID∧zz∈ID∧zz=xx}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.axiom name='n30' org.eventb.core.label='axm3' org.eventb.core.predicate='fun2∈ℙ(ID × (ID × ID))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.axiom name='n31' org.eventb.core.label='axm4' org.eventb.core.predicate='fun2={xx,yy,zz∣xx∈ID∧yy∈ID∧zz∈ID∧zz=xx∧yy=xx}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n19' org.eventb.core.identifier='ID' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n20' org.eventb.core.identifier='fun' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n21' org.eventb.core.identifier='fun2' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n22' org.eventb.core.identifier='aa' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n23' org.eventb.core.identifier='bb' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n24' org.eventb.core.label='axm0' org.eventb.core.predicate='partition(ID,{aa},{bb})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n25' org.eventb.core.label='axm1' org.eventb.core.predicate='fun∈ℙ(ID × (ID × ID))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n26' org.eventb.core.label='axm2' org.eventb.core.predicate='fun={xx,yy,zz∣xx∈ID∧yy∈ID∧zz∈ID∧zz=xx}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n27' org.eventb.core.label='axm3' org.eventb.core.predicate='fun2∈ℙ(ID × (ID × ID))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n28' org.eventb.core.label='axm4' org.eventb.core.predicate='fun2={xx,yy,zz∣xx∈ID∧yy∈ID∧zz∈ID∧zz=xx∧yy=xx}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
 </org.eventb.core.contextFile>

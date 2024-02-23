@@ -37,184 +37,164 @@
   <org.eventb.core.invariant name='n34' org.eventb.core.label='inv15' org.eventb.core.predicate='T3_readpriority∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n35' org.eventb.core.label='inv16' org.eventb.core.predicate='T2_readpriority∈ℕ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n36' org.eventb.core.label='inv17' org.eventb.core.predicate='BUSwrite∈(ℕ)⇸(ℤ)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n37' org.eventb.core.label='inv18' org.eventb.core.predicate='BUSwrite∈{lisbset13244∣lisbset13244∈(ℕ) × (ℤ)∧finite(lisbset13244)}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n37' org.eventb.core.label='inv18' org.eventb.core.predicate='BUSwrite∈{lisbset13246∣lisbset13246∈(ℕ) × (ℤ)∧finite(lisbset13246)}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n38' org.eventb.core.label='inv19' org.eventb.core.predicate='BUSwrite≠∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n39' org.eventb.core.label='inv20' org.eventb.core.predicate='0∈dom(BUSwrite)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.event name='n40' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n41' org.eventb.core.assignment='T2v ≔ 0' org.eventb.core.label='init0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n42' org.eventb.core.assignment='T3_evaluated ≔ TRUE' org.eventb.core.label='init1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n43' org.eventb.core.assignment='T3_enabled ≔ TRUE' org.eventb.core.label='init2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n44' org.eventb.core.assignment='T1_state ≔ T1_EN' org.eventb.core.label='init3' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n45' org.eventb.core.assignment='T2_state ≔ T2_EN' org.eventb.core.label='init4' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n46' org.eventb.core.assignment='T3_state ≔ T3_READY' org.eventb.core.label='init5' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n47' org.eventb.core.assignment='T1_writevalue ≔ 0' org.eventb.core.label='init6' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n48' org.eventb.core.assignment='T2_writevalue ≔ 0' org.eventb.core.label='init7' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n49' org.eventb.core.assignment='T2_readvalue ≔ 0' org.eventb.core.label='init8' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n50' org.eventb.core.assignment='T2_readpriority ≔ 0' org.eventb.core.label='init9' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n51' org.eventb.core.assignment='T3_readvalue ≔ 0' org.eventb.core.label='init10' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n52' org.eventb.core.assignment='T3_readpriority ≔ 0' org.eventb.core.label='init11' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n53' org.eventb.core.assignment='T1_timer ≔ 2' org.eventb.core.label='init12' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n54' org.eventb.core.assignment='T2_timer ≔ 3' org.eventb.core.label='init13' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n55' org.eventb.core.assignment='BUSwrite ≔ {0↦0}' org.eventb.core.label='init14' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n56' org.eventb.core.assignment='BUSvalue ≔ 0' org.eventb.core.label='init15' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n57' org.eventb.core.assignment='BUSpriority ≔ 0' org.eventb.core.label='init16' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n58' org.eventb.core.assignment='T2_mode ≔ T2MODE_SENSE' org.eventb.core.label='init17' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n40' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T1Evaluate' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n41' org.eventb.core.label='grd0' org.eventb.core.predicate='T1_timer=0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n42' org.eventb.core.label='grd1' org.eventb.core.predicate='T1_state=T1_EN' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n43' org.eventb.core.assignment='T1_timer ≔ 0' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n44' org.eventb.core.assignment='T1_state ≔ T1_CALC' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n59' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T1Evaluate' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n60' org.eventb.core.label='grd0' org.eventb.core.predicate='T1_timer=0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n61' org.eventb.core.label='grd1' org.eventb.core.predicate='T1_state=T1_EN' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n62' org.eventb.core.assignment='T1_timer ≔ 0' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n63' org.eventb.core.assignment='T1_state ≔ T1_CALC' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n45' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T1Calculate' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n46' org.eventb.core.identifier='p' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n47' org.eventb.core.label='grd0' org.eventb.core.predicate='T1_state=T1_CALC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n48' org.eventb.core.assignment='T1_writevalue ≔ p' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n49' org.eventb.core.assignment='T1_state ≔ T1_SEND' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n64' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T1Calculate' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n65' org.eventb.core.identifier='p' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n66' org.eventb.core.label='grd0' org.eventb.core.predicate='T1_state=T1_CALC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n67' org.eventb.core.assignment='T1_writevalue ≔ p' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n68' org.eventb.core.assignment='T1_state ≔ T1_SEND' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n50' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T1SendResult' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n51' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n52' org.eventb.core.identifier='pv' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n53' org.eventb.core.label='grd0' org.eventb.core.predicate='pv=T1_writevalue' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n54' org.eventb.core.label='grd1' org.eventb.core.predicate='ppriority=3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n55' org.eventb.core.label='grd2' org.eventb.core.predicate='T1_state=T1_SEND' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n56' org.eventb.core.assignment='BUSwrite ≔ BUSwrite{ppriority↦pv}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n57' org.eventb.core.assignment='T1_state ≔ T1_WAIT' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n69' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T1SendResult' org.eventb.core.comment=''>
+  <org.eventb.core.event name='n58' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T1Wait' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n59' org.eventb.core.identifier='pt' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n60' org.eventb.core.label='grd0' org.eventb.core.predicate='pt=2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n61' org.eventb.core.label='grd1' org.eventb.core.predicate='T1_state=T1_WAIT' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n62' org.eventb.core.assignment='T1_timer ≔ pt' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n63' org.eventb.core.assignment='T1_state ≔ T1_EN' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n64' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2Evaluate' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n65' org.eventb.core.label='grd0' org.eventb.core.predicate='T2_timer=0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n66' org.eventb.core.label='grd1' org.eventb.core.predicate='T2_state=T2_EN' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n67' org.eventb.core.assignment='T2_timer ≔ 0' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n68' org.eventb.core.assignment='T2_state ≔ T2_RCV' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n69' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2ReadBus' org.eventb.core.comment=''>
     <org.eventb.core.parameter name='n70' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
     <org.eventb.core.parameter name='n71' org.eventb.core.identifier='pv' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n72' org.eventb.core.label='grd0' org.eventb.core.predicate='pv=T1_writevalue' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n73' org.eventb.core.label='grd1' org.eventb.core.predicate='ppriority=3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n74' org.eventb.core.label='grd2' org.eventb.core.predicate='T1_state=T1_SEND' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n75' org.eventb.core.assignment='BUSwrite ≔ BUSwrite{ppriority↦pv}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n76' org.eventb.core.assignment='T1_state ≔ T1_WAIT' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n72' org.eventb.core.label='grd0' org.eventb.core.predicate='pv=BUSvalue' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n73' org.eventb.core.label='grd1' org.eventb.core.predicate='ppriority=BUSpriority' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n74' org.eventb.core.label='grd2' org.eventb.core.predicate='T2_state=T2_RCV' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n75' org.eventb.core.assignment='T2_readvalue ≔ pv' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n76' org.eventb.core.assignment='T2_readpriority ≔ ppriority' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n77' org.eventb.core.assignment='T2_state ≔ T2_PROC' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n77' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T1Wait' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n78' org.eventb.core.identifier='pt' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n79' org.eventb.core.label='grd0' org.eventb.core.predicate='pt=2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n80' org.eventb.core.label='grd1' org.eventb.core.predicate='T1_state=T1_WAIT' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n81' org.eventb.core.assignment='T1_timer ≔ pt' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n82' org.eventb.core.assignment='T1_state ≔ T1_EN' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n78' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2Reset' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n79' org.eventb.core.label='grd0' org.eventb.core.predicate='T2_readpriority=4' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n80' org.eventb.core.label='grd1' org.eventb.core.predicate='T2_state=T2_PROC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n81' org.eventb.core.assignment='T2_writevalue ≔ T2v' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n82' org.eventb.core.assignment='T2v ≔ 0' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n83' org.eventb.core.assignment='T2_state ≔ T2_SEND' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n84' org.eventb.core.assignment='T2_mode ≔ T2MODE_TRANSMIT' org.eventb.core.label='act3' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n83' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2Evaluate' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n84' org.eventb.core.label='grd0' org.eventb.core.predicate='T2_timer=0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n85' org.eventb.core.label='grd1' org.eventb.core.predicate='T2_state=T2_EN' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n86' org.eventb.core.assignment='T2_timer ≔ 0' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n87' org.eventb.core.assignment='T2_state ≔ T2_RCV' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n85' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2Complete' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n86' org.eventb.core.label='grd0' org.eventb.core.predicate='T2_readpriority=5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n87' org.eventb.core.label='grd1' org.eventb.core.predicate='T2_state=T2_PROC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n88' org.eventb.core.label='grd2' org.eventb.core.predicate='T2_mode=T2MODE_TRANSMIT' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n89' org.eventb.core.assignment='T2_state ≔ T2_RELEASE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n90' org.eventb.core.assignment='T2_mode ≔ T2MODE_SENSE' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n88' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2ReadBus' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n89' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n90' org.eventb.core.identifier='pv' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n91' org.eventb.core.label='grd0' org.eventb.core.predicate='pv=BUSvalue' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n92' org.eventb.core.label='grd1' org.eventb.core.predicate='ppriority=BUSpriority' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n93' org.eventb.core.label='grd2' org.eventb.core.predicate='T2_state=T2_RCV' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n94' org.eventb.core.assignment='T2_readvalue ≔ pv' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n95' org.eventb.core.assignment='T2_readpriority ≔ ppriority' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n96' org.eventb.core.assignment='T2_state ≔ T2_PROC' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n91' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2ReleaseBus' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n92' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n93' org.eventb.core.label='grd0' org.eventb.core.predicate='ppriority=T2_readpriority' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n94' org.eventb.core.label='grd1' org.eventb.core.predicate='ppriority∈dom(BUSwrite)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n95' org.eventb.core.label='grd2' org.eventb.core.predicate='T2_state=T2_RELEASE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n96' org.eventb.core.assignment='BUSwrite ≔ {ppriority}⩤BUSwrite' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n97' org.eventb.core.assignment='T2_state ≔ T2_WAIT' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n97' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2Reset' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n98' org.eventb.core.label='grd0' org.eventb.core.predicate='T2_readpriority=4' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n99' org.eventb.core.label='grd1' org.eventb.core.predicate='T2_state=T2_PROC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n100' org.eventb.core.assignment='T2_writevalue ≔ T2v' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n101' org.eventb.core.assignment='T2v ≔ 0' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n102' org.eventb.core.assignment='T2_state ≔ T2_SEND' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n103' org.eventb.core.assignment='T2_mode ≔ T2MODE_TRANSMIT' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n98' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2Calculate' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n99' org.eventb.core.label='grd0' org.eventb.core.predicate='T2_readpriority=3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n100' org.eventb.core.label='grd1' org.eventb.core.predicate='T2_state=T2_PROC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n101' org.eventb.core.assignment='T2v ≔ T2_readvalue' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n102' org.eventb.core.assignment='T2_state ≔ T2_WAIT' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n104' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2Complete' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n105' org.eventb.core.label='grd0' org.eventb.core.predicate='T2_readpriority=5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n106' org.eventb.core.label='grd1' org.eventb.core.predicate='T2_state=T2_PROC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n107' org.eventb.core.label='grd2' org.eventb.core.predicate='T2_mode=T2MODE_TRANSMIT' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n108' org.eventb.core.assignment='T2_state ≔ T2_RELEASE' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n109' org.eventb.core.assignment='T2_mode ≔ T2MODE_SENSE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n103' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2WriteBus' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n104' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n105' org.eventb.core.identifier='pv' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n106' org.eventb.core.label='grd0' org.eventb.core.predicate='pv=T2_writevalue' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n107' org.eventb.core.label='grd1' org.eventb.core.predicate='ppriority=5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n108' org.eventb.core.label='grd2' org.eventb.core.predicate='T2_state=T2_SEND' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n109' org.eventb.core.assignment='BUSwrite ≔ BUSwrite{ppriority↦pv}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n110' org.eventb.core.assignment='T2_state ≔ T2_WAIT' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n110' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2ReleaseBus' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n111' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n112' org.eventb.core.label='grd0' org.eventb.core.predicate='ppriority=T2_readpriority' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n113' org.eventb.core.label='grd1' org.eventb.core.predicate='ppriority∈dom(BUSwrite)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n114' org.eventb.core.label='grd2' org.eventb.core.predicate='T2_state=T2_RELEASE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n115' org.eventb.core.assignment='BUSwrite ≔ {ppriority}⩤BUSwrite' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n116' org.eventb.core.assignment='T2_state ≔ T2_WAIT' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n111' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2Wait' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n112' org.eventb.core.identifier='pt' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n113' org.eventb.core.label='grd0' org.eventb.core.predicate='pt=3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n114' org.eventb.core.label='grd1' org.eventb.core.predicate='T2_state=T2_WAIT' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n115' org.eventb.core.assignment='T2_timer ≔ pt' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n116' org.eventb.core.assignment='T2_state ≔ T2_EN' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n117' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2Calculate' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n118' org.eventb.core.label='grd0' org.eventb.core.predicate='T2_readpriority=3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n119' org.eventb.core.label='grd1' org.eventb.core.predicate='T2_state=T2_PROC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n120' org.eventb.core.assignment='T2v ≔ T2_readvalue' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n121' org.eventb.core.assignment='T2_state ≔ T2_WAIT' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n117' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3Initiate' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n118' org.eventb.core.label='grd0' org.eventb.core.predicate='T3_state=T3_READY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n119' org.eventb.core.label='grd1' org.eventb.core.predicate='T3_evaluated=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n120' org.eventb.core.label='grd2' org.eventb.core.predicate='T3_enabled=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n121' org.eventb.core.assignment='T3_state ≔ T3_WRITE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n122' org.eventb.core.assignment='T3_enabled ≔ FALSE' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n122' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2WriteBus' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n123' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n124' org.eventb.core.identifier='pv' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n125' org.eventb.core.label='grd0' org.eventb.core.predicate='pv=T2_writevalue' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n126' org.eventb.core.label='grd1' org.eventb.core.predicate='ppriority=5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n127' org.eventb.core.label='grd2' org.eventb.core.predicate='T2_state=T2_SEND' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n128' org.eventb.core.assignment='BUSwrite ≔ BUSwrite{ppriority↦pv}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n129' org.eventb.core.assignment='T2_state ≔ T2_WAIT' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n123' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3Evaluate' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n124' org.eventb.core.label='grd0' org.eventb.core.predicate='T3_state=T3_READY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n125' org.eventb.core.label='grd1' org.eventb.core.predicate='T3_evaluated=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n126' org.eventb.core.label='grd2' org.eventb.core.predicate='T3_enabled=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n127' org.eventb.core.assignment='T3_state ≔ T3_READ' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n130' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T2Wait' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n131' org.eventb.core.identifier='pt' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n132' org.eventb.core.label='grd0' org.eventb.core.predicate='pt=3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n133' org.eventb.core.label='grd1' org.eventb.core.predicate='T2_state=T2_WAIT' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n134' org.eventb.core.assignment='T2_timer ≔ pt' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n135' org.eventb.core.assignment='T2_state ≔ T2_EN' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n128' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3writebus' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n129' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n130' org.eventb.core.identifier='pv' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n131' org.eventb.core.label='grd0' org.eventb.core.predicate='pv=0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n132' org.eventb.core.label='grd1' org.eventb.core.predicate='ppriority=4' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n133' org.eventb.core.label='grd2' org.eventb.core.predicate='T3_state=T3_WRITE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n134' org.eventb.core.assignment='BUSwrite ≔ BUSwrite{ppriority↦pv}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n135' org.eventb.core.assignment='T3_state ≔ T3_WAIT' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n136' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3Initiate' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n137' org.eventb.core.label='grd0' org.eventb.core.predicate='T3_state=T3_READY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n138' org.eventb.core.label='grd1' org.eventb.core.predicate='T3_evaluated=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n139' org.eventb.core.label='grd2' org.eventb.core.predicate='T3_enabled=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n140' org.eventb.core.assignment='T3_state ≔ T3_WRITE' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n141' org.eventb.core.assignment='T3_enabled ≔ FALSE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n136' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3Read' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n137' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n138' org.eventb.core.identifier='pv' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n139' org.eventb.core.label='grd0' org.eventb.core.predicate='pv=BUSvalue' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n140' org.eventb.core.label='grd1' org.eventb.core.predicate='ppriority=BUSpriority' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n141' org.eventb.core.label='grd2' org.eventb.core.predicate='T3_state=T3_READ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n142' org.eventb.core.assignment='T3_readvalue ≔ pv' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n143' org.eventb.core.assignment='T3_readpriority ≔ ppriority' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n144' org.eventb.core.assignment='T3_state ≔ T3_PROC' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n142' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3Evaluate' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n143' org.eventb.core.label='grd0' org.eventb.core.predicate='T3_state=T3_READY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n144' org.eventb.core.label='grd1' org.eventb.core.predicate='T3_evaluated=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n145' org.eventb.core.label='grd2' org.eventb.core.predicate='T3_enabled=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n146' org.eventb.core.assignment='T3_state ≔ T3_READ' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n145' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3Poll' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n146' org.eventb.core.label='grd0' org.eventb.core.predicate='T3_readpriority&lt;5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n147' org.eventb.core.label='grd1' org.eventb.core.predicate='T3_state=T3_PROC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n148' org.eventb.core.assignment='T3_state ≔ T3_WAIT' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n147' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3writebus' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n148' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n149' org.eventb.core.identifier='pv' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n150' org.eventb.core.label='grd0' org.eventb.core.predicate='pv=0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n151' org.eventb.core.label='grd1' org.eventb.core.predicate='ppriority=4' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n152' org.eventb.core.label='grd2' org.eventb.core.predicate='T3_state=T3_WRITE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n153' org.eventb.core.assignment='BUSwrite ≔ BUSwrite{ppriority↦pv}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n154' org.eventb.core.assignment='T3_state ≔ T3_WAIT' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n149' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3ReleaseBus' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n150' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n151' org.eventb.core.label='grd0' org.eventb.core.predicate='ppriority=4' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n152' org.eventb.core.label='grd1' org.eventb.core.predicate='T3_readpriority=5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n153' org.eventb.core.label='grd2' org.eventb.core.predicate='T3_state=T3_PROC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n154' org.eventb.core.assignment='BUSwrite ≔ {ppriority}⩤BUSwrite' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n155' org.eventb.core.assignment='T3_state ≔ T3_RELEASE' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n155' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3Read' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n156' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n157' org.eventb.core.identifier='pv' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n158' org.eventb.core.label='grd0' org.eventb.core.predicate='pv=BUSvalue' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n159' org.eventb.core.label='grd1' org.eventb.core.predicate='ppriority=BUSpriority' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n160' org.eventb.core.label='grd2' org.eventb.core.predicate='T3_state=T3_READ' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n161' org.eventb.core.assignment='T3_readvalue ≔ pv' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n162' org.eventb.core.assignment='T3_readpriority ≔ ppriority' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n163' org.eventb.core.assignment='T3_state ≔ T3_PROC' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n156' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3Wait' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n157' org.eventb.core.label='grd0' org.eventb.core.predicate='T3_state=T3_WAIT' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n158' org.eventb.core.assignment='T3_state ≔ T3_READY' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n159' org.eventb.core.assignment='T3_evaluated ≔ TRUE' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n164' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3Poll' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n165' org.eventb.core.label='grd0' org.eventb.core.predicate='T3_readpriority&lt;5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n166' org.eventb.core.label='grd1' org.eventb.core.predicate='T3_state=T3_PROC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n167' org.eventb.core.assignment='T3_state ≔ T3_WAIT' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n160' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3ReEnableWait' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n161' org.eventb.core.label='grd0' org.eventb.core.predicate='T3_state=T3_RELEASE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n162' org.eventb.core.assignment='T3_state ≔ T3_READY' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n163' org.eventb.core.assignment='T3_evaluated ≔ TRUE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n164' org.eventb.core.assignment='T3_enabled ≔ TRUE' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n168' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3ReleaseBus' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n169' org.eventb.core.identifier='ppriority' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n170' org.eventb.core.label='grd0' org.eventb.core.predicate='ppriority=4' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n171' org.eventb.core.label='grd1' org.eventb.core.predicate='T3_readpriority=5' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n172' org.eventb.core.label='grd2' org.eventb.core.predicate='T3_state=T3_PROC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n173' org.eventb.core.assignment='BUSwrite ≔ {ppriority}⩤BUSwrite' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n174' org.eventb.core.assignment='T3_state ≔ T3_RELEASE' org.eventb.core.label='act1' org.eventb.core.comment='' />
-  </org.eventb.core.event>
-  <org.eventb.core.event name='n175' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3Wait' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n176' org.eventb.core.label='grd0' org.eventb.core.predicate='T3_state=T3_WAIT' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n177' org.eventb.core.assignment='T3_state ≔ T3_READY' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n178' org.eventb.core.assignment='T3_evaluated ≔ TRUE' org.eventb.core.label='act1' org.eventb.core.comment='' />
-  </org.eventb.core.event>
-  <org.eventb.core.event name='n179' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='T3ReEnableWait' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n180' org.eventb.core.label='grd0' org.eventb.core.predicate='T3_state=T3_RELEASE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n181' org.eventb.core.assignment='T3_state ≔ T3_READY' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n182' org.eventb.core.assignment='T3_evaluated ≔ TRUE' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n183' org.eventb.core.assignment='T3_enabled ≔ TRUE' org.eventb.core.label='act2' org.eventb.core.comment='' />
-  </org.eventb.core.event>
-  <org.eventb.core.event name='n184' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Update' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n185' org.eventb.core.identifier='pmax' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n186' org.eventb.core.label='grd0' org.eventb.core.predicate='pmax=max(dom(BUSwrite))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n187' org.eventb.core.label='grd1' org.eventb.core.predicate='T1_timer&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n188' org.eventb.core.label='grd2' org.eventb.core.predicate='T2_timer&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n189' org.eventb.core.label='grd3' org.eventb.core.predicate='T3_enabled=TRUE ∨ T3_evaluated=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n190' org.eventb.core.assignment='BUSvalue ≔ BUSwrite(pmax)' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n191' org.eventb.core.assignment='BUSpriority ≔ pmax' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n192' org.eventb.core.assignment='T1_timer ≔ T1_timer−1' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n193' org.eventb.core.assignment='T2_timer ≔ T2_timer−1' org.eventb.core.label='act3' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n194' org.eventb.core.assignment='T3_evaluated ≔ FALSE' org.eventb.core.label='act4' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n165' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Update' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n166' org.eventb.core.identifier='pmax' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n167' org.eventb.core.label='grd0' org.eventb.core.predicate='pmax=max(dom(BUSwrite))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n168' org.eventb.core.label='grd1' org.eventb.core.predicate='T1_timer&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n169' org.eventb.core.label='grd2' org.eventb.core.predicate='T2_timer&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n170' org.eventb.core.label='grd3' org.eventb.core.predicate='T3_enabled=TRUE ∨ T3_evaluated=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n171' org.eventb.core.assignment='BUSvalue ≔ BUSwrite(pmax)' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n172' org.eventb.core.assignment='BUSpriority ≔ pmax' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n173' org.eventb.core.assignment='T1_timer ≔ T1_timer−1' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n174' org.eventb.core.assignment='T2_timer ≔ T2_timer−1' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n175' org.eventb.core.assignment='T3_evaluated ≔ FALSE' org.eventb.core.label='act4' org.eventb.core.comment='' />
   </org.eventb.core.event>
 </org.eventb.core.machineFile>

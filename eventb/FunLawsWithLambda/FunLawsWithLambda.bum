@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<org.eventb.core.machineFile org.eventb.core.configuration='org.eventb.core.fwd' version='5' org.eventb.core.comment=''>
+  <org.eventb.core.seesContext name='n0' org.eventb.core.target='FunLawsWithLambda_ctx' />
+  <org.eventb.core.variable name='n1' org.eventb.core.identifier='ff' />
+  <org.eventb.core.variable name='n2' org.eventb.core.identifier='gg' />
+  <org.eventb.core.invariant name='n3' org.eventb.core.label='inv0' org.eventb.core.predicate='ff∈setX↔setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n4' org.eventb.core.label='inv1' org.eventb.core.predicate='gg∈setX↔setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n5' org.eventb.core.label='inv2' org.eventb.core.predicate='ff∪∅=ff' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n6' org.eventb.core.label='inv3' org.eventb.core.predicate='ff∪ff=ff' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n7' org.eventb.core.label='inv4' org.eventb.core.predicate='ff∩ff=ff' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n8' org.eventb.core.label='inv5' org.eventb.core.predicate='ff∩∅=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n9' org.eventb.core.label='inv6' org.eventb.core.predicate='dom(ff∪gg)=(dom(ff))∪(dom(gg))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n10' org.eventb.core.label='inv7' org.eventb.core.predicate='ran(ff∪gg)=(ran(ff))∪(ran(gg))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n11' org.eventb.core.label='inv8' org.eventb.core.predicate='dom(ff∩gg)⊆(dom(ff))∩(dom(gg))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n12' org.eventb.core.label='inv9' org.eventb.core.predicate='ran(ff∩gg)⊆(ran(ff))∩(ran(gg))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n13' org.eventb.core.label='inv10' org.eventb.core.predicate='ff∪gg∼=(ff∼)∪(gg∼)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n14' org.eventb.core.label='inv11' org.eventb.core.predicate='dom(ff;(gg∼))⊆dom(ff)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n15' org.eventb.core.label='inv12' org.eventb.core.predicate='∀xx,yy·xx∈setX∧yy∈setY∧xx↦yy∈ff⇒yy∈ran(gg)⇒dom(ff;(gg∼))=dom(ff)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n16' org.eventb.core.label='inv13' org.eventb.core.predicate='ff∈setX→setY⇔ff∈setX⇸setY∧dom(ff)=setX' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n17' org.eventb.core.label='inv14' org.eventb.core.predicate='ff∈setX⇸setY⇔∀xx,yy,zz·xx∈setX∧yy∈setY∧zz∈setY∧xx↦yy∈ff∧xx↦zz∈ff⇒yy=zz' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n18' org.eventb.core.label='inv15' org.eventb.core.predicate='ff∈setX⤖setY⇔ff∈setX↣setY∧ff∼∈setY↣setX' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n19' org.eventb.core.label='inv16' org.eventb.core.predicate='ff∈setX⤔setY⇔ff∈setX⇸setY∧∀xx,yy·xx∈setX∧yy∈setX∧xx≠yy∧xx∈dom(ff)∧yy∈dom(ff)⇒ff(xx)≠ff(yy)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n20' org.eventb.core.label='inv17' org.eventb.core.predicate='ff∈setX⇸&gt;setY⇔ff∈setX⇸setY∧∀yy·yy∈setY⇒yy∈ran(ff)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n21' org.eventb.core.label='inv18' org.eventb.core.predicate='ff∈setX↣setY⇔ff∈setX⤔setY∧ff∈setX→setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n22' org.eventb.core.label='inv19' org.eventb.core.predicate='ff∈setX→&gt;setY⇔ff∈setX⇸&gt;setY∧ff∈setX→setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n23' org.eventb.core.label='inv20' org.eventb.core.predicate='ff∈setX⤖setY⇔ff∈setX→&gt;setY∧ff∈setX↣setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n24' org.eventb.core.label='inv21' org.eventb.core.predicate='ff∈setX→setY⇒ff∈setX⇸setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n25' org.eventb.core.label='inv22' org.eventb.core.predicate='ff∈setX⤔setY⇒ff∈setX⇸setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n26' org.eventb.core.label='inv23' org.eventb.core.predicate='ff∈setX↣setY⇒ff∈setX⤔setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n27' org.eventb.core.label='inv24' org.eventb.core.predicate='ff∈setX↣setY⇒ff∈setX→setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n28' org.eventb.core.label='inv25' org.eventb.core.predicate='ff∈setX⤖setY⇒ff∈setX→setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n29' org.eventb.core.label='inv26' org.eventb.core.predicate='ff∈setX⇸&gt;setY⇒ff∈setX⇸setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n30' org.eventb.core.label='inv27' org.eventb.core.predicate='ff∈setX→&gt;setY⇒ff∈setX→setY∧ff∈setX⇸&gt;setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n31' org.eventb.core.label='inv28' org.eventb.core.predicate='ff∈setX⇸&gt;setY⇒ran(ff)=setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n32' org.eventb.core.label='inv29' org.eventb.core.predicate='ran(ff)⊂setY⇒¬(ff∈setX⇸&gt;setY)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n33' org.eventb.core.label='inv30' org.eventb.core.predicate='ff∈setX→&gt;setY ∨ ¬(ff∈setX→&gt;setY)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n34' org.eventb.core.label='inv31' org.eventb.core.predicate='¬(ff∈setX→&gt;setY∧¬(ff∈setX→&gt;setY))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n35' org.eventb.core.label='inv32' org.eventb.core.predicate='ff∈setX⤔setY ∨ ¬(ff∈setX⤔setY)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n36' org.eventb.core.label='inv33' org.eventb.core.predicate='¬(ff∈setX⤔setY∧¬(ff∈setX⤔setY))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n37' org.eventb.core.label='inv34' org.eventb.core.predicate='ff∈setX↣setY ∨ ¬(ff∈setX↣setY)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n38' org.eventb.core.label='inv35' org.eventb.core.predicate='¬(ff∈setX↣setY∧¬(ff∈setX↣setY))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n39' org.eventb.core.label='inv36' org.eventb.core.predicate='ff∈setX⇸&gt;setY ∨ ¬(ff∈setX⇸&gt;setY)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n40' org.eventb.core.label='inv37' org.eventb.core.predicate='¬(ff∈setX⇸&gt;setY∧¬(ff∈setX⇸&gt;setY))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n41' org.eventb.core.label='inv38' org.eventb.core.predicate='ff∈setX⤖setY ∨ ¬(ff∈setX⤖setY)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n42' org.eventb.core.label='inv39' org.eventb.core.predicate='¬(ff∈setX⤖setY∧¬(ff∈setX⤖setY))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n43' org.eventb.core.label='inv40' org.eventb.core.predicate='ff∈setX→setY ∨ ¬(ff∈setX→setY)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n44' org.eventb.core.label='inv41' org.eventb.core.predicate='¬(ff∈setX→setY∧¬(ff∈setX→setY))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n45' org.eventb.core.label='inv42' org.eventb.core.predicate='ff∈setX⇸setY ∨ ¬(ff∈setX⇸setY)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n46' org.eventb.core.label='inv43' org.eventb.core.predicate='¬(ff∈setX⇸setY∧¬(ff∈setX⇸setY))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n47' org.eventb.core.label='inv44' org.eventb.core.predicate='ff∈setX⇸setY⇒∀xx·xx∈setX∧xx∈dom(ff)⇒ff(xx)∈ran(ff)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n48' org.eventb.core.label='inv45' org.eventb.core.predicate='dom(ff)={xx∣xx∈setX∧∃yy·yy∈setY∧xx↦yy∈ff}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n49' org.eventb.core.label='inv46' org.eventb.core.predicate='ran(ff)={yy∣yy∈setY∧∃xx·xx∈setX∧xx↦yy∈ff}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n50' org.eventb.core.label='inv47' org.eventb.core.predicate='ff∈setX⇸setY⇒∀xx·xx∈setY∧xx∈ran(ff)⇒∃ii·ii∈setX∧ii∈dom(ff)∧ff(ii)=xx' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n51' org.eventb.core.label='inv48' org.eventb.core.predicate='ff[dom(ff)]=ran(ff)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n52' org.eventb.core.label='inv49' org.eventb.core.predicate='∀xx·xx∈setX⇒ff[{xx}]={yy∣yy∈setY∧xx↦yy∈ff}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n53' org.eventb.core.label='inv50' org.eventb.core.predicate='∀xx,xx2·xx∈setX∧xx2∈setX⇒ff[{xx,xx2}]={yy∣yy∈setY∧xx↦yy∈ff ∨ xx2↦yy∈ff}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n54' org.eventb.core.label='inv51' org.eventb.core.predicate='ff∼[ff[setX]]=dom(ff)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n55' org.eventb.core.label='inv52' org.eventb.core.predicate='ff∼[setY]=dom(ff)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n56' org.eventb.core.label='inv53' org.eventb.core.predicate='ff[setX]=ran(ff)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n57' org.eventb.core.label='inv54' org.eventb.core.predicate='ff∈setX⤔setY⇒∀xx·xx⊆dom(ff)⇒ff∼[ff[xx]]=xx' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n58' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='add_ff' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n59' org.eventb.core.identifier='xx' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n60' org.eventb.core.identifier='yy' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n61' org.eventb.core.label='grd0' org.eventb.core.predicate='xx∈setX' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n62' org.eventb.core.label='grd1' org.eventb.core.predicate='yy∈setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n63' org.eventb.core.label='grd2' org.eventb.core.predicate='¬(xx↦yy∈ff)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n64' org.eventb.core.assignment='ff ≔ ff∪{xx↦yy}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n65' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='add_gg' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n66' org.eventb.core.identifier='xx' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n67' org.eventb.core.identifier='yy' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n68' org.eventb.core.label='grd0' org.eventb.core.predicate='xx∈setX' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n69' org.eventb.core.label='grd1' org.eventb.core.predicate='yy∈setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n70' org.eventb.core.label='grd2' org.eventb.core.predicate='¬(xx↦yy∈gg)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n71' org.eventb.core.assignment='gg ≔ gg∪{xx↦yy}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n72' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='set_ff' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n73' org.eventb.core.identifier='yy' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n74' org.eventb.core.label='grd0' org.eventb.core.predicate='yy∈setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n75' org.eventb.core.assignment='ff ≔ λxx1·xx1∈setX∣yy' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n76' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='set_gg' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n77' org.eventb.core.identifier='yy' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n78' org.eventb.core.label='grd0' org.eventb.core.predicate='yy∈setY' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n79' org.eventb.core.assignment='gg ≔ λxx2·xx2∈setX∣yy' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+</org.eventb.core.machineFile>

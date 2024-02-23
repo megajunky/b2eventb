@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <org.eventb.core.contextFile org.eventb.core.configuration='org.eventb.core.fwd' version='3' org.eventb.core.comment=''>
-  <org.eventb.core.carrierSet name='n20' org.eventb.core.identifier='ID' org.eventb.core.comment='' />
-  <org.eventb.core.constant name='n21' org.eventb.core.identifier='iv' org.eventb.core.comment='' />
-  <org.eventb.core.constant name='n22' org.eventb.core.identifier='aa' org.eventb.core.comment='' />
-  <org.eventb.core.constant name='n23' org.eventb.core.identifier='bb' org.eventb.core.comment='' />
-  <org.eventb.core.axiom name='n24' org.eventb.core.label='axm0' org.eventb.core.predicate='partition(ID,{aa},{bb})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.axiom name='n25' org.eventb.core.label='axm1' org.eventb.core.predicate='iv∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.carrierSet name='n18' org.eventb.core.identifier='ID' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n19' org.eventb.core.identifier='iv' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n20' org.eventb.core.identifier='aa' org.eventb.core.comment='' />
+  <org.eventb.core.constant name='n21' org.eventb.core.identifier='bb' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n22' org.eventb.core.label='axm0' org.eventb.core.predicate='partition(ID,{aa},{bb})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.axiom name='n23' org.eventb.core.label='axm1' org.eventb.core.predicate='iv∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
 </org.eventb.core.contextFile>

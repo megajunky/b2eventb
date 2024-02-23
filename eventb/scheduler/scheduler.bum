@@ -11,48 +11,43 @@
   <org.eventb.core.invariant name='n8' org.eventb.core.label='inv4' org.eventb.core.predicate='active∩(ready∪waiting)=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n9' org.eventb.core.label='inv5' org.eventb.core.predicate='(card(active))≤1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n10' org.eventb.core.label='inv6' org.eventb.core.predicate='active=∅⇒ready=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.event name='n11' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n12' org.eventb.core.assignment='active ≔ ∅' org.eventb.core.label='init0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n13' org.eventb.core.assignment='ready ≔ ∅' org.eventb.core.label='init1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n14' org.eventb.core.assignment='waiting ≔ ∅' org.eventb.core.label='init2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n11' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='new' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n12' org.eventb.core.identifier='pp' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n13' org.eventb.core.label='grd0' org.eventb.core.predicate='pp∈PID∧¬(pp∈active)∧¬(pp∈ready∪waiting)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n14' org.eventb.core.assignment='waiting ≔ waiting∪{pp}' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n15' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='new' org.eventb.core.comment=''>
+  <org.eventb.core.event name='n15' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='del' org.eventb.core.comment=''>
     <org.eventb.core.parameter name='n16' org.eventb.core.identifier='pp' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n17' org.eventb.core.label='grd0' org.eventb.core.predicate='pp∈PID∧¬(pp∈active)∧¬(pp∈ready∪waiting)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n18' org.eventb.core.assignment='waiting ≔ waiting∪{pp}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n17' org.eventb.core.label='grd0' org.eventb.core.predicate='pp∈waiting' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n18' org.eventb.core.assignment='waiting ≔ waiting∖{pp}' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n19' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='del' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n20' org.eventb.core.identifier='pp' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n21' org.eventb.core.label='grd0' org.eventb.core.predicate='pp∈waiting' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n22' org.eventb.core.assignment='waiting ≔ waiting∖{pp}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n19' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ready_then' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n20' org.eventb.core.identifier='rr' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n21' org.eventb.core.label='grd0' org.eventb.core.predicate='rr∈waiting' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n22' org.eventb.core.label='grd1' org.eventb.core.predicate='active=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n23' org.eventb.core.assignment='waiting ≔ waiting∖{rr}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n24' org.eventb.core.assignment='active ≔ {rr}' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n23' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ready_then' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n24' org.eventb.core.identifier='rr' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n25' org.eventb.core.label='grd0' org.eventb.core.predicate='rr∈waiting' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n26' org.eventb.core.label='grd1' org.eventb.core.predicate='active=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n27' org.eventb.core.assignment='waiting ≔ waiting∖{rr}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n28' org.eventb.core.assignment='active ≔ {rr}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n25' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ready_else' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n26' org.eventb.core.identifier='rr' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n27' org.eventb.core.label='grd0' org.eventb.core.predicate='rr∈waiting' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n28' org.eventb.core.label='grd1' org.eventb.core.predicate='¬(active=∅)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n29' org.eventb.core.assignment='waiting ≔ waiting∖{rr}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n30' org.eventb.core.assignment='ready ≔ ready∪{rr}' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n29' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='ready_else' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n30' org.eventb.core.identifier='rr' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n31' org.eventb.core.label='grd0' org.eventb.core.predicate='rr∈waiting' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n32' org.eventb.core.label='grd1' org.eventb.core.predicate='¬(active=∅)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n33' org.eventb.core.assignment='waiting ≔ waiting∖{rr}' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n34' org.eventb.core.assignment='ready ≔ ready∪{rr}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n31' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='swap_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n32' org.eventb.core.label='grd0' org.eventb.core.predicate='active≠∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n33' org.eventb.core.label='grd1' org.eventb.core.predicate='ready=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n34' org.eventb.core.assignment='waiting ≔ waiting∪active' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n35' org.eventb.core.assignment='active ≔ ∅' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n35' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='swap_then' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n36' org.eventb.core.label='grd0' org.eventb.core.predicate='active≠∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n37' org.eventb.core.label='grd1' org.eventb.core.predicate='ready=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n38' org.eventb.core.assignment='waiting ≔ waiting∪active' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n39' org.eventb.core.assignment='active ≔ ∅' org.eventb.core.label='act1' org.eventb.core.comment='' />
-  </org.eventb.core.event>
-  <org.eventb.core.event name='n40' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='swap_else' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n41' org.eventb.core.identifier='pp' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n42' org.eventb.core.label='grd0' org.eventb.core.predicate='active≠∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n43' org.eventb.core.label='grd1' org.eventb.core.predicate='¬(ready=∅)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n44' org.eventb.core.label='grd2' org.eventb.core.predicate='pp∈ready' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n45' org.eventb.core.assignment='waiting ≔ waiting∪active' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n46' org.eventb.core.assignment='active ≔ {pp}' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n47' org.eventb.core.assignment='ready ≔ ready∖{pp}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n36' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='swap_else' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n37' org.eventb.core.identifier='pp' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n38' org.eventb.core.label='grd0' org.eventb.core.predicate='active≠∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n39' org.eventb.core.label='grd1' org.eventb.core.predicate='¬(ready=∅)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n40' org.eventb.core.label='grd2' org.eventb.core.predicate='pp∈ready' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n41' org.eventb.core.assignment='waiting ≔ waiting∪active' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n42' org.eventb.core.assignment='active ≔ {pp}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n43' org.eventb.core.assignment='ready ≔ ready∖{pp}' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
 </org.eventb.core.machineFile>
