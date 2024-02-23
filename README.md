@@ -8,31 +8,14 @@ Download from https://github.com/megajunky/b2eventb
 
 ## Usage
 
-FIXME: explanation
+Run the translate one or more B machines to Rodin projects directly.
+For each .mch file a project new is created at the path specified with `-o`.
 
-Run the project directly, via `:exec-fn`:
+    $ clojure -M:run-m -o eventb b/Benchmarks/scheduler.mch
 
-    $ clojure -X:run-x
-    Hello, Clojure!
+ABZ 2020 example can be run with:
 
-Run the project, overriding the name to be greeted:
-
-    $ clojure -X:run-x :name '"Someone"'
-    Hello, Someone!
-
-Run the project directly, via `:main-opts` (`-m b2eventb.main`):
-
-    $ clojure -M:run-m
-    Hello, World!
-
-Run the project, overriding the name to be greeted:
-
-    $ clojure -M:run-m Via-Main
-    Hello, Via-Main!
-
-Run the project's tests (they'll fail until you edit them):
-
-    $ clojure -T:build test
+    $ clojure -X b2eventb.b2eventb/abz-2020
 
 Run the project's CI pipeline and build an uberjar (this will fail until you edit the tests to pass):
 
@@ -49,10 +32,6 @@ from `build.clj`.
 Run that uberjar:
 
     $ java -jar target/net.clojars.b2eventb/b2eventb-0.1.0-SNAPSHOT.jar
-
-## Options
-
-FIXME: listing of options this app accepts.
 
 ## Examples
 
