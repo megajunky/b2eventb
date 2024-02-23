@@ -1,0 +1,380 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{PitmanController2\_TIME}
+\MACHINE{PitmanController2\_TIME}{PitmanController}{c1}{}
+\VARIABLES{
+	\Variable{active\_blinkers}{}
+	\Variable{blinkLeft}{}
+	\Variable{blinkRight}{}
+	\Variable{remaining\_blinks}{}
+	\Variable{onCycle}{}
+	\Variable{engineOn}{}
+	\Variable{pitmanArmUpDown}{}
+	\Variable{hazardWarningSwitchOn}{}
+	\Variable{keyState}{}
+	\Variable{curTime}{}
+	\Variable{tipStartTime}{}
+}
+\INVARIANTS{
+	\Invariant{invTime}{false}{$curTime \in{} \nat{}$}{}
+	\Invariant{invTip1}{false}{$tipStartTime \in{} \nat{}$}{}
+	\Invariant{invTip2}{false}{$tipStartTime \leq{} curTime$}{}
+}
+\EVENTS{
+\INITIALISATION{true}{}{
+	\ACTIONS{false}{
+		\Action{ini1}{$active\_blinkers \bcmeq{} \emptyset{}$}{false}{}
+		\Action{ini2}{$blinkLeft,blinkRight \bcmeq{} lamp\_off,lamp\_off$}{false}{}
+		\Action{ini3}{$remaining\_blinks \bcmeq{} 0$}{false}{}
+		\Action{ini4}{$onCycle \bcmeq{} FALSE$}{false}{}
+		\Action{ini\_eng}{$engineOn \bcmeq{} FALSE$}{false}{}
+		\Action{ini\_pit}{$pitmanArmUpDown \bcmeq{} Neutral$}{false}{}
+		\Action{ini\_hsw}{$hazardWarningSwitchOn \bcmeq{}  switch\_off$}{false}{}
+		\Action{ini\_key}{$keyState \bcmeq{} KeyInsertedOnPosition$}{false}{}
+		\Action{iniTime}{$curTime \bcmeq{}0$}{true}{}
+		\Action{iniTipTme}{$tipStartTime \bcmeq{}0$}{true}{}
+	}
+}
+\EVT{ENV\_Turn\_EngineOn\_Noblink}{true}{ordinary}{ENV\_Turn\_EngineOn\_Noblink}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engineOn=FALSE \land{} keyState = KeyInsertedOnPosition$}{false}{}
+		\Guard{grd2}{false}{$\\pitmanArmUpDown \notin{}PITMAN\_DIRECTION\_BLINKING \lor{}\\~         hazardWarningSwitchOn = switch\_on$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$engineOn \bcmeq{} TRUE$}{false}{}
+	}
+}
+\EVT{ENV\_Turn\_EngineOn\_BlinkLeft}{true}{ordinary}{ENV\_Turn\_EngineOn\_BlinkLeft}{}{
+	\ANY{
+		\Param{rem}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{false}{}
+		\Guard{grd2}{false}{$rem \neq{} 0$}{false}{}
+		\Guard{grd11}{false}{$engineOn=FALSE \land{} keyState = KeyInsertedOnPosition$}{false}{}
+		\Guard{grd12}{false}{$pitmanArmUpDown \in{}PITMAN\_DIRECTION\_BLINKING$}{false}{}
+		\Guard{grd13}{false}{$pitman\_direction(pitmanArmUpDown)=left\_blink$}{false}{}
+		\Guard{grd14}{false}{$hazardWarningSwitchOn = switch\_off$}{false}{}
+		\Guard{grd15}{false}{$rem = continuousBlink$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \{left\_blink\}$}{false}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} rem$}{false}{}
+		\Action{act3}{$blinkLeft \bcmeq{} cycleMaxLampStatus(onCycle)$}{false}{}
+		\Action{act4}{$blinkRight \bcmeq{} lamp\_off$}{false}{}
+		\Action{act11}{$engineOn \bcmeq{} TRUE$}{false}{}
+	}
+}
+\EVT{ENV\_Turn\_EngineOn\_BlinkRight}{true}{ordinary}{ENV\_Turn\_EngineOn\_BlinkRight}{}{
+	\ANY{
+		\Param{rem}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{false}{}
+		\Guard{grd2}{false}{$rem \neq{} 0$}{false}{}
+		\Guard{grd11}{false}{$engineOn=FALSE \land{} keyState = KeyInsertedOnPosition$}{false}{}
+		\Guard{grd12}{false}{$pitmanArmUpDown \in{}PITMAN\_DIRECTION\_BLINKING$}{false}{}
+		\Guard{grd13}{false}{$pitman\_direction(pitmanArmUpDown)=right\_blink$}{false}{}
+		\Guard{grd14}{false}{$hazardWarningSwitchOn = switch\_off$}{false}{}
+		\Guard{grd15}{false}{$rem = continuousBlink$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \{right\_blink\}$}{false}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} rem$}{false}{}
+		\Action{act3}{$blinkRight \bcmeq{} cycleMaxLampStatus(onCycle)$}{false}{}
+		\Action{act4}{$blinkLeft \bcmeq{} lamp\_off$}{false}{}
+		\Action{act11}{$engineOn \bcmeq{} TRUE$}{false}{}
+	}
+}
+\EVT{ENV\_TurnEngineOff\_Blink}{true}{ordinary}{ENV\_TurnEngineOff\_Blink}{}{
+	\GUARDS{false}{
+		\Guard{grd11}{false}{$engineOn=TRUE$}{false}{}
+		\Guard{grd12}{false}{$hazardWarningSwitchOn=switch\_on$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act11}{$engineOn \bcmeq{} FALSE$}{false}{}
+	}
+}
+\EVT{ENV\_TurnEngineOff\_Noblink}{true}{ordinary}{ENV\_TurnEngineOff\_Noblink}{}{
+	\GUARDS{false}{
+		\Guard{grd11}{false}{$engineOn=TRUE$}{false}{}
+		\Guard{grd12}{false}{$hazardWarningSwitchOn=switch\_off$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \emptyset{}$}{false}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} 0$}{false}{}
+		\Action{act3}{$blinkLeft \bcmeq{} lamp\_off$}{false}{}
+		\Action{act4}{$blinkRight \bcmeq{} lamp\_off$}{false}{}
+		\Action{act11}{$engineOn \bcmeq{} FALSE$}{false}{}
+	}
+}
+\EVT{ENV\_Pitman\_Update\_Nochange}{true}{ordinary}{ENV\_Pitman\_Update\_Nochange}{}{
+	\ANY{
+		\Param{newPos}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd11}{false}{$pitmanArmUpDown \neq{} newPos$}{false}{}
+		\Guard{grd12}{false}{$\\\lnot{}(hazardWarningSwitchOn=switch\_off\\~               \land{} engineOn = TRUE)$}{false}{}
+		\Guard{grd13}{false}{$newPos \neq{} Neutral$}{false}{\\covered by ENV$\_$Pitman$\_$Reset$\_$to$\_$Neutral$\_$Nochange}
+	}
+	\ACTIONS{true}{
+		\Action{act11}{$pitmanArmUpDown \bcmeq{} newPos$}{false}{}
+	}
+}
+\EVT{ENV\_Pitman\_DirectionBlinkingLeft\_Blink}{true}{ordinary}{ENV\_Pitman\_DirectionBlinkingLeft\_Blink}{}{
+	\ANY{
+		\Param{rem}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{false}{}
+		\Guard{grd2}{false}{$rem \neq{} 0$}{false}{}
+		\Guard{grd11}{false}{$pitmanArmUpDown \neq{} Downward7$}{false}{}
+		\Guard{grd12a}{false}{$hazardWarningSwitchOn=switch\_off$}{false}{}
+		\Guard{grd12b}{false}{$engineOn = TRUE$}{false}{}
+		\Guard{grd13}{false}{$rem = continuousBlink$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \{left\_blink\}$}{false}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} rem$}{false}{}
+		\Action{act3}{$blinkLeft \bcmeq{} cycleMaxLampStatus(onCycle)$}{false}{}
+		\Action{act4}{$blinkRight \bcmeq{} lamp\_off$}{false}{}
+		\Action{act11}{$pitmanArmUpDown \bcmeq{} Downward7$}{false}{}
+	}
+}
+\EVT{ENV\_Pitman\_DirectionBlinkingRight\_Blink}{true}{ordinary}{ENV\_Pitman\_DirectionBlinkingRight\_Blink}{}{
+	\ANY{
+		\Param{rem}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{false}{}
+		\Guard{grd2}{false}{$rem \neq{} 0$}{false}{}
+		\Guard{grd11}{false}{$pitmanArmUpDown \neq{} Upward7$}{false}{}
+		\Guard{grd12a}{false}{$hazardWarningSwitchOn=switch\_off$}{false}{}
+		\Guard{grd12b}{false}{$engineOn = TRUE$}{false}{}
+		\Guard{grd13}{false}{$rem = continuousBlink$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \{right\_blink\}$}{false}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} rem$}{false}{}
+		\Action{act3}{$blinkRight \bcmeq{} cycleMaxLampStatus(onCycle)$}{false}{}
+		\Action{act4}{$blinkLeft \bcmeq{} lamp\_off$}{false}{}
+		\Action{act11}{$pitmanArmUpDown \bcmeq{} Upward7$}{false}{}
+	}
+}
+\EVT{ENV\_Pitman\_TipBlinkingLeft\_Blink}{true}{ordinary}{ENV\_Pitman\_TipBlinkingLeft\_Blink}{}{
+	\ANY{
+		\Param{rem}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{false}{}
+		\Guard{grd2}{false}{$rem \neq{} 0$}{false}{}
+		\Guard{grd11}{false}{$pitmanArmUpDown \neq{} Downward5$}{false}{}
+		\Guard{grd12a}{false}{$hazardWarningSwitchOn=switch\_off$}{false}{}
+		\Guard{grd12b}{false}{$engineOn = TRUE$}{false}{}
+		\Guard{grd13}{false}{$rem = 3$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \{left\_blink\}$}{false}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} rem$}{false}{}
+		\Action{act3}{$blinkLeft \bcmeq{} cycleMaxLampStatus(onCycle)$}{false}{}
+		\Action{act4}{$blinkRight \bcmeq{} lamp\_off$}{false}{}
+		\Action{act11}{$pitmanArmUpDown \bcmeq{} Downward5$}{false}{}
+		\Action{tip}{$tipStartTime \bcmeq{} curTime$}{true}{}
+	}
+}
+\EVT{ENV\_Pitman\_TipBlinkingRight\_Blink}{true}{ordinary}{ENV\_Pitman\_TipBlinkingRight\_Blink}{}{
+	\ANY{
+		\Param{rem}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{false}{}
+		\Guard{grd2}{false}{$rem \neq{} 0$}{false}{}
+		\Guard{grd11}{false}{$pitmanArmUpDown \neq{} Upward5$}{false}{}
+		\Guard{grd12a}{false}{$hazardWarningSwitchOn=switch\_off$}{false}{}
+		\Guard{grd12b}{false}{$engineOn = TRUE$}{false}{}
+		\Guard{grd13}{false}{$rem = 3$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \{right\_blink\}$}{false}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} rem$}{false}{}
+		\Action{act3}{$blinkRight \bcmeq{} cycleMaxLampStatus(onCycle)$}{false}{}
+		\Action{act4}{$blinkLeft \bcmeq{} lamp\_off$}{false}{}
+		\Action{act11}{$pitmanArmUpDown \bcmeq{} Upward5$}{false}{}
+		\Action{tip}{$tipStartTime \bcmeq{} curTime$}{true}{}
+	}
+}
+\EVT{ENV\_Pitman\_Reset\_to\_Neutral\_Nochange}{true}{ordinary}{ENV\_Pitman\_Reset\_to\_Neutral\_Nochange}{}{
+	\GUARDS{false}{
+		\Guard{grd11}{false}{$pitmanArmUpDown \neq{} Neutral$}{false}{}
+		\Guard{grd12}{false}{$\\\lnot{}(hazardWarningSwitchOn=switch\_off\\~               \land{} remaining\_blinks = continuousBlink)$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act11}{$pitmanArmUpDown \bcmeq{} Neutral$}{false}{}
+	}
+}
+\EVT{ENV\_Pitman\_Reset\_to\_Neutral\_Noblink}{true}{ordinary}{ENV\_Pitman\_Reset\_to\_Neutral\_Noblink}{}{
+	\GUARDS{false}{
+		\Guard{grd11}{false}{$pitmanArmUpDown \neq{} Neutral$}{false}{}
+		\Guard{grd12}{false}{$hazardWarningSwitchOn=switch\_off$}{false}{}
+		\Guard{grd13}{false}{$(remaining\_blinks = continuousBlink)$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \emptyset{}$}{false}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} 0$}{false}{}
+		\Action{act3}{$blinkLeft \bcmeq{} lamp\_off$}{false}{}
+		\Action{act4}{$blinkRight \bcmeq{} lamp\_off$}{false}{}
+		\Action{act11}{$pitmanArmUpDown \bcmeq{} Neutral$}{false}{}
+	}
+}
+\EVT{ENV\_HazardBlinkingOn}{true}{ordinary}{ENV\_HazardBlinkingOn}{}{
+	\GUARDS{false}{
+		\Guard{grd11}{false}{$hazardWarningSwitchOn=switch\_off$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} BLINK\_DIRECTION$}{false}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} continuousBlink$}{false}{}
+		\Action{act3}{$blinkLeft \bcmeq{} cycleMaxLampStatus(onCycle)$}{false}{}
+		\Action{act4}{$blinkRight \bcmeq{} cycleMaxLampStatus(onCycle)$}{false}{}
+		\Action{grd12}{$hazardWarningSwitchOn \bcmeq{} switch\_on$}{false}{}
+	}
+}
+\EVT{ENV\_HazardBlinkingOff}{true}{ordinary}{ENV\_HazardBlinkingOff}{}{
+	\GUARDS{false}{
+		\Guard{grd11}{false}{$hazardWarningSwitchOn=switch\_on$}{false}{}
+		\Guard{grd12}{false}{$\\pitmanArmUpDown = Neutral \lor{} engineOn = FALSE \lor{}\\~          pitmanArmUpDown \notin{} PITMAN\_DIRECTION\_BLINKING$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \emptyset{}$}{false}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} 0$}{false}{}
+		\Action{act3}{$blinkLeft \bcmeq{} lamp\_off$}{false}{}
+		\Action{act4}{$blinkRight \bcmeq{} lamp\_off$}{false}{}
+		\Action{act11}{$hazardWarningSwitchOn \bcmeq{} switch\_off$}{false}{}
+	}
+}
+\EVT{ENV\_HazardBlinkingOff\_LeftBlink}{true}{ordinary}{ENV\_HazardBlinkingOff\_LeftBlink}{}{
+	\ANY{
+		\Param{rem}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{false}{}
+		\Guard{grd2}{false}{$rem \neq{} 0$}{false}{}
+		\Guard{grd11}{false}{$hazardWarningSwitchOn=switch\_on$}{false}{}
+		\Guard{grd12}{false}{$\lnot{}(pitmanArmUpDown = Neutral \lor{} engineOn = FALSE)$}{false}{}
+		\Guard{grd13}{false}{$pitmanArmUpDown \in{} PITMAN\_DIRECTION\_BLINKING$}{false}{}
+		\Guard{grd14}{false}{$pitman\_direction(pitmanArmUpDown)=left\_blink$}{false}{}
+		\Guard{grd15}{false}{$rem = remaining\_blinks$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \{left\_blink\}$}{false}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} rem$}{false}{}
+		\Action{act3}{$blinkLeft \bcmeq{} cycleMaxLampStatus(onCycle)$}{false}{}
+		\Action{act4}{$blinkRight \bcmeq{} lamp\_off$}{false}{}
+		\Action{act11}{$hazardWarningSwitchOn \bcmeq{} switch\_off$}{false}{}
+	}
+}
+\EVT{ENV\_HazardBlinkingOff\_RightBlink}{true}{ordinary}{ENV\_HazardBlinkingOff\_RightBlink}{}{
+	\ANY{
+		\Param{rem}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{false}{}
+		\Guard{grd2}{false}{$rem \neq{} 0$}{false}{}
+		\Guard{grd11}{false}{$hazardWarningSwitchOn=switch\_on$}{false}{}
+		\Guard{grd12}{false}{$\lnot{}(pitmanArmUpDown = Neutral \lor{} engineOn = FALSE)$}{false}{}
+		\Guard{grd13}{false}{$pitmanArmUpDown \in{} PITMAN\_DIRECTION\_BLINKING$}{false}{}
+		\Guard{grd14}{false}{$pitman\_direction(pitmanArmUpDown)=right\_blink$}{false}{}
+		\Guard{grd15}{false}{$rem = remaining\_blinks$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \{right\_blink\}$}{false}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} rem$}{false}{}
+		\Action{act3}{$blinkRight \bcmeq{} cycleMaxLampStatus(onCycle)$}{false}{}
+		\Action{act4}{$blinkLeft \bcmeq{} lamp\_off$}{false}{}
+		\Action{act11}{$hazardWarningSwitchOn \bcmeq{} switch\_off$}{false}{}
+	}
+}
+\EVT{TIME\_Tip\_blinking\_Timeout}{true}{ordinary}{TIME\_Tip\_blinking\_Timeout}{}{
+	\ANY{
+		\Param{rem}{false}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{false}{}
+		\Guard{grd2}{false}{$rem \neq{} 0$}{false}{}
+		\Guard{grd3}{false}{$remaining\_blinks \neq{} 0$}{false}{}
+		\Guard{grd11}{false}{$remaining\_blinks > 1$}{false}{}
+		\Guard{grd13}{false}{$pitmanArmUpDown \in{} PITMAN\_TIP\_BLINKING$}{false}{}
+		\Guard{grd14}{false}{$active\_blinkers=\{pitman\_direction(pitmanArmUpDown)\}$}{false}{}
+		\Guard{grd15}{false}{$rem = continuousBlink$}{false}{}
+		\Guard{grdTip}{false}{$curTime \geq{} tipStartTime+500$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$remaining\_blinks \bcmeq{} rem$}{false}{}
+	}
+}
+\EVT{TIME\_BlinkerOn}{true}{ordinary}{TIME\_BlinkerOn}{}{
+	\ANY{
+		\Param{delta}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$(blinkLeft=lamp\_off \land{} blinkRight=lamp\_off)$}{false}{}
+		\Guard{grd2}{false}{$remaining\_blinks \neq{} 0$}{false}{}
+		\Guard{grdDelta}{false}{$delta \in{} 1\upto{}500$}{true}{}
+		\Guard{grdTm}{false}{$(curTime+delta) mod 500 = 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$blinkLeft \bcmeq{} \{TRUE\mapsto{}lamp\_on,FALSE\mapsto{}lamp\_off\}(bool(left\_blink\in{}active\_blinkers))$}{false}{}
+		\Action{act2}{$blinkRight \bcmeq{} \{TRUE\mapsto{}lamp\_on,FALSE\mapsto{}lamp\_off\}(bool(right\_blink\in{}active\_blinkers))$}{false}{}
+		\Action{act3}{$remaining\_blinks \bcmeq{} max(\{continuousBlink,remaining\_blinks-1\})$}{false}{}
+		\Action{act4}{$onCycle \bcmeq{} TRUE$}{false}{}
+		\Action{actTm}{$curTime \bcmeq{} curTime+delta$}{true}{}
+	}
+}
+\EVT{TIME\_BlinkerOff}{true}{ordinary}{TIME\_BlinkerOff}{}{
+	\ANY{
+		\Param{delta}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$\lnot{}(blinkLeft=lamp\_off \land{} blinkRight=lamp\_off)$}{false}{}
+		\Guard{grdDelta}{false}{$delta \in{} 1\upto{}500$}{true}{}
+		\Guard{grdTm}{false}{$(curTime+delta) mod 500 = 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$blinkLeft,blinkRight \bcmeq{} lamp\_off, lamp\_off$}{false}{}
+		\Action{act2}{$active\_blinkers \bcmeq{} \{x|x\in{}active\_blinkers \land{} remaining\_blinks \neq{} 0\}$}{false}{\\one encoding of IF ...}
+		\Action{act3}{$onCycle \bcmeq{} FALSE$}{false}{}
+		\Action{actTm}{$curTime \bcmeq{} curTime+delta$}{true}{}
+	}
+}
+\EVT{TIME\_Nothing}{true}{ordinary}{TIME\_Nothing}{}{
+	\ANY{
+		\Param{newOnCycle}{false}{}
+		\Param{delta}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$newOnCycle \neq{} onCycle$}{false}{}
+		\Guard{grd2}{false}{$(blinkLeft=lamp\_off \land{} blinkRight=lamp\_off)$}{false}{}
+		\Guard{grd3}{false}{$active\_blinkers=\emptyset{}$}{false}{}
+		\Guard{grdDelta}{false}{$delta \in{} 1\upto{}500$}{true}{}
+		\Guard{grdTm}{false}{$(curTime+delta) mod 500 = 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$onCycle \bcmeq{} newOnCycle$}{false}{}
+		\Action{actTm}{$curTime \bcmeq{} curTime+delta$}{true}{}
+	}
+}
+\EVT{TIME\_Passes}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{delta}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grdDelta}{false}{$delta \in{} \{100\}$}{true}{}
+		\Guard{grdTm}{false}{$\forall{}d\qdot{}d\in{}1\upto{}delta \limp{} (curTime+d) mod 500 \neq{} 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{actTm}{$curTime \bcmeq{} curTime+delta$}{true}{}
+	}
+}
+}
+\END
+\end{document}

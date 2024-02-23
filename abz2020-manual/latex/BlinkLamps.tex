@@ -1,0 +1,132 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{BlinkLamps}
+\MACHINE{BlinkLamps}{}{c0}{}
+\VARIABLES{
+	\Variable{active\_blinkers}{}
+	\Variable{blinkLeft}{}
+	\Variable{blinkRight}{}
+	\Variable{remaining\_blinks}{}
+	\Variable{onCycle}{}
+}
+\INVARIANTS{
+	\Invariant{inv1}{false}{$active\_blinkers \subseteq{} BLINK\_DIRECTION$}{}
+	\Invariant{inv2}{false}{$blinkLeft\in{} LAMP\_STATUS \land{} blinkRight \in{} LAMP\_STATUS$}{}
+	\Invariant{inv3}{false}{$remaining\_blinks\in{}BLINK\_CYCLE\_COUNTER$}{}
+	\Invariant{inv4}{false}{$onCycle\in{}BOOL$}{}
+	\Invariant{SAF1
+}{false}{$((remaining\_blinks=0 \land{} (blinkLeft=lamp\_off \land{} blinkRight=lamp\_off)) \leqv{} active\_blinkers = \emptyset{})$}{}
+	\Invariant{SAF2
+}{false}{$(blinkRight\neq{}lamp\_off \limp{} right\_blink\in{}active\_blinkers)$}{\\strengthened after finding issue with VisB}
+	\Invariant{SAF3}{false}{$(blinkLeft\neq{}lamp\_off  \limp{} left\_blink\in{}active\_blinkers)$}{\\ditto}
+	\Invariant{SAF4}{false}{$(active\_blinkers=BLINK\_DIRECTION \limp{} blinkLeft=blinkRight)$}{\\invariant added after finding issue with VisB}
+	\Invariant{SAF5"}{false}{$(onCycle=FALSE \limp{} (blinkLeft=lamp\_off \land{} blinkRight=lamp\_off))$}{}
+	\Invariant{SAF6"}{false}{$(onCycle=TRUE \land{} active\_blinkers \neq{}\emptyset{} \limp{} \lnot{}(blinkLeft=lamp\_off \land{} blinkRight=lamp\_off))$}{}
+}
+\EVENTS{
+\INITIALISATION{false}{}{
+	\ACTIONS{false}{
+		\Action{ini1}{$active\_blinkers \bcmeq{} \emptyset{}$}{true}{}
+		\Action{ini2}{$blinkLeft,blinkRight \bcmeq{} lamp\_off,lamp\_off$}{true}{}
+		\Action{ini3}{$remaining\_blinks \bcmeq{} 0$}{true}{}
+		\Action{ini4}{$onCycle \bcmeq{} FALSE$}{true}{}
+	}
+}
+\EVT{SET\_AllBlinkersOff}{false}{ordinary}{}{}{
+	\ACTIONS{false}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \emptyset{}$}{true}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} 0$}{true}{}
+		\Action{act3}{$blinkLeft \bcmeq{} lamp\_off$}{true}{}
+		\Action{act4}{$blinkRight \bcmeq{} lamp\_off$}{true}{}
+	}
+}
+\EVT{SET\_AllBlinkersOn}{false}{ordinary}{}{}{
+	\ACTIONS{false}{
+		\Action{act1}{$active\_blinkers \bcmeq{} BLINK\_DIRECTION$}{true}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} continuousBlink$}{true}{}
+		\Action{act3}{$blinkLeft \bcmeq{} cycleMaxLampStatus(onCycle)$}{true}{}
+		\Action{act4}{$blinkRight \bcmeq{} cycleMaxLampStatus(onCycle)$}{true}{}
+	}
+}
+\EVT{SET\_LeftBlinkersOn}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{rem}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{true}{}
+		\Guard{grd2}{false}{$rem \neq{} 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \{left\_blink\}$}{true}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} rem$}{true}{}
+		\Action{act3}{$blinkLeft \bcmeq{} cycleMaxLampStatus(onCycle)$}{true}{}
+		\Action{act4}{$blinkRight \bcmeq{} lamp\_off$}{true}{}
+	}
+}
+\EVT{SET\_RightBlinkersOn}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{rem}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{true}{}
+		\Guard{grd2}{false}{$rem \neq{} 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$active\_blinkers \bcmeq{} \{right\_blink\}$}{true}{}
+		\Action{act2}{$remaining\_blinks \bcmeq{} rem$}{true}{}
+		\Action{act3}{$blinkRight \bcmeq{} cycleMaxLampStatus(onCycle)$}{true}{}
+		\Action{act4}{$blinkLeft \bcmeq{} lamp\_off$}{true}{}
+	}
+}
+\EVT{SET\_RemainingBlinks}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{rem}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{true}{}
+		\Guard{grd2}{false}{$rem \neq{} 0$}{true}{}
+		\Guard{grd3}{false}{$remaining\_blinks \neq{} 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$remaining\_blinks \bcmeq{} rem$}{true}{}
+	}
+}
+\EVT{TIME\_BlinkerOn}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$(blinkLeft=lamp\_off \land{} blinkRight=lamp\_off)$}{true}{}
+		\Guard{grd2}{false}{$remaining\_blinks \neq{} 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$blinkLeft \bcmeq{} \{TRUE\mapsto{}lamp\_on,FALSE\mapsto{}lamp\_off\}(bool(left\_blink\in{}active\_blinkers))$}{true}{}
+		\Action{act2}{$blinkRight \bcmeq{} \{TRUE\mapsto{}lamp\_on,FALSE\mapsto{}lamp\_off\}(bool(right\_blink\in{}active\_blinkers))$}{true}{}
+		\Action{act3}{$remaining\_blinks \bcmeq{} max(\{continuousBlink,remaining\_blinks-1\})$}{true}{}
+		\Action{act4}{$onCycle \bcmeq{} TRUE$}{true}{}
+	}
+}
+\EVT{TIME\_BlinkerOff}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$\lnot{}(blinkLeft=lamp\_off \land{} blinkRight=lamp\_off)$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$blinkLeft,blinkRight \bcmeq{} lamp\_off, lamp\_off$}{true}{}
+		\Action{act2}{$active\_blinkers \bcmeq{} \{x|x\in{}active\_blinkers \land{} remaining\_blinks \neq{} 0\}$}{true}{\\one encoding of IF ...}
+		\Action{act3}{$onCycle \bcmeq{} FALSE$}{true}{}
+	}
+}
+\EVT{TIME\_Nothing}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{newOnCycle}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd1}{false}{$newOnCycle \neq{} onCycle$}{true}{}
+		\Guard{grd2}{false}{$(blinkLeft=lamp\_off \land{} blinkRight=lamp\_off)$}{true}{}
+		\Guard{grd3}{false}{$active\_blinkers=\emptyset{}$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$onCycle \bcmeq{} newOnCycle$}{true}{}
+	}
+}
+}
+\END
+\end{document}

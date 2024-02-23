@@ -1,0 +1,17 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{ctimers}
+\CONTEXT{ctimers}{}{}
+\SETS{
+	\Set{TIMERS}{}
+}
+\CONSTANTS{
+	\Constant{tip\_deadline}{}
+	\Constant{blink\_deadline}{}
+}
+\AXIOMS{
+	\Axiom{axm1}{false}{$partition(TIMERS,\{tip\_deadline\},\{blink\_deadline\})$}{}
+}
+\END
+\end{document}

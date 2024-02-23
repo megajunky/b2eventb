@@ -1,0 +1,33 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{c0}
+\CONTEXT{c0}{}{}
+\SETS{
+	\Set{DIRECTIONS}{}
+}
+\CONSTANTS{
+	\Constant{left\_blink}{}
+	\Constant{right\_blink}{}
+	\Constant{neutral\_blink}{}
+	\Constant{BLINK\_DIRECTION}{}
+	\Constant{LAMP\_STATUS}{}
+	\Constant{lamp\_off}{}
+	\Constant{lamp\_on}{}
+	\Constant{BLINK\_CYCLE\_COUNTER}{}
+	\Constant{continuousBlink}{}
+	\Constant{cycleMaxLampStatus}{}
+}
+\AXIOMS{
+	\Axiom{axm1}{false}{$DIRECTIONS = \{left\_blink,right\_blink,neutral\_blink\}$}{}
+	\Axiom{axm2}{false}{$card(DIRECTIONS)=3$}{}
+	\Axiom{axm3}{false}{$BLINK\_DIRECTION = \{left\_blink, right\_blink\}$}{}
+	\Axiom{axm4}{false}{$LAMP\_STATUS = \{0,100\}$}{}
+	\Axiom{axm5}{false}{$lamp\_off = 0 \land{} lamp\_on = 100$}{}
+	\Axiom{axm6}{false}{$BLINK\_CYCLE\_COUNTER = -1\upto{}3$}{}
+	\Axiom{axm7}{false}{$continuousBlink=-1$}{}
+	\Axiom{axm8}{false}{$cycleMaxLampStatus = \{FALSE \mapsto{} lamp\_off, TRUE \mapsto{} lamp\_on\}$}{}
+	\Axiom{thm0}{true}{$cycleMaxLampStatus \in{} BOOL \tfun{} LAMP\_STATUS$}{}
+}
+\END
+\end{document}
