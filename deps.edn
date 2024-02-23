@@ -5,9 +5,6 @@
         org.clojars.pkoerner/lisb {:mvn/version "0.0.5-SNAPSHOT"}}
  :aliases
  {:run-m {:main-opts ["-m" "b2eventb.main"]}
-  :run-x {:ns-default b2eventb.main
-          :exec-fn greet
-          :exec-args {:name "Clojure"}}
   :build {:deps {io.github.clojure/tools.build
                  {:mvn/version "0.9.6"}}
           :ns-default build}
