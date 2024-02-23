@@ -1,0 +1,137 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{BlinkLamps\_v3}
+\MACHINE{BlinkLamps\_v3}{}{BlinkLamps\_v3\_ctx}{}
+\VARIABLES{
+	\Variable{active\_blinkers}{}
+	\Variable{remaining\_blinks}{}
+	\Variable{onCycle}{}
+	\Variable{blinkLeft}{}
+	\Variable{blinkRight}{}
+}
+\INVARIANTS{
+	\Invariant{inv20}{false}{$active\_blinkers\subseteq{}BLINK\_DIRECTION$}{}
+	\Invariant{inv21}{false}{$remaining\_blinks\in{}BLINK\_CYCLE\_COUNTER$}{}
+	\Invariant{inv22}{false}{$blinkLeft\in{}LAMP\_STATUS$}{}
+	\Invariant{inv23}{false}{$blinkRight\in{}LAMP\_STATUS$}{}
+	\Invariant{inv24}{false}{$onCycle\in{}BOOL$}{}
+	\Invariant{inv25}{false}{$remaining\_blinks=0\land{}blinkLeft=lamp\_off\land{}blinkRight=lamp\_off\leqv{}active\_blinkers=\emptyset{}$}{}
+	\Invariant{inv26}{false}{$blinkRight\neq{}lamp\_off\limp{}right\_blink\in{}active\_blinkers$}{}
+	\Invariant{inv27}{false}{$blinkLeft\neq{}lamp\_off\limp{}left\_blink\in{}active\_blinkers$}{}
+	\Invariant{inv28}{false}{$active\_blinkers=BLINK\_DIRECTION\limp{}blinkLeft=blinkRight$}{}
+	\Invariant{inv29}{false}{$onCycle=FALSE\limp{}blinkLeft=lamp\_off\land{}blinkRight=lamp\_off$}{}
+	\Invariant{inv210}{false}{$onCycle=TRUE\land{}active\_blinkers\neq{}\emptyset{}\limp{}\lnot{}(blinkLeft=lamp\_off\land{}blinkRight=lamp\_off)$}{}
+}
+\EVENTS{
+\INITIALISATION{false}{}{
+	\ACTIONS{false}{
+		\Action{init0}{$active\_blinkers \bcmeq{} \emptyset{}$}{true}{}
+		\Action{init1}{$blinkLeft,blinkRight \bcmeq{} lamp\_off,lamp\_off$}{true}{}
+		\Action{init2}{$remaining\_blinks \bcmeq{} 0$}{true}{}
+		\Action{init3}{$onCycle \bcmeq{} FALSE$}{true}{}
+	}
+}
+\EVT{SET\_AllBlinkersOff}{false}{ordinary}{}{}{
+	\ACTIONS{false}{
+		\Action{act20}{$active\_blinkers \bcmeq{} \emptyset{}$}{true}{}
+		\Action{act21}{$remaining\_blinks \bcmeq{} 0$}{true}{}
+		\Action{act22}{$blinkLeft,blinkRight \bcmeq{} lamp\_off,lamp\_off$}{true}{}
+	}
+}
+\EVT{SET\_AllBlinkersOn}{false}{ordinary}{}{}{
+	\ACTIONS{false}{
+		\Action{act20}{$active\_blinkers \bcmeq{} BLINK\_DIRECTION$}{true}{}
+		\Action{act21}{$remaining\_blinks \bcmeq{} -1$}{true}{}
+		\Action{act22}{$blinkLeft \bcmeq{} cycleMaxLampStatus(onCycle)$}{true}{}
+		\Action{act23}{$blinkRight \bcmeq{} cycleMaxLampStatus(onCycle)$}{true}{}
+	}
+}
+\EVT{SET\_BlinkersOn\_then}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{direction}{true}{}
+		\Param{rem}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd20}{false}{$direction\in{}BLINK\_DIRECTION$}{true}{}
+		\Guard{grd21}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{true}{}
+		\Guard{grd22}{false}{$rem\neq{}0$}{true}{}
+		\Guard{grd23}{false}{$direction=right\_blink$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act20}{$active\_blinkers \bcmeq{} \{direction\}$}{true}{}
+		\Action{act21}{$remaining\_blinks \bcmeq{} rem$}{true}{}
+		\Action{act22}{$blinkLeft \bcmeq{} lamp\_off$}{true}{}
+		\Action{act23}{$blinkRight \bcmeq{} cycleMaxLampStatus(onCycle)$}{true}{}
+	}
+}
+\EVT{SET\_BlinkersOn\_else}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{direction}{true}{}
+		\Param{rem}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd20}{false}{$direction\in{}BLINK\_DIRECTION$}{true}{}
+		\Guard{grd21}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{true}{}
+		\Guard{grd22}{false}{$rem\neq{}0$}{true}{}
+		\Guard{grd23}{false}{$\lnot{}(direction=right\_blink)$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act20}{$active\_blinkers \bcmeq{} \{direction\}$}{true}{}
+		\Action{act21}{$remaining\_blinks \bcmeq{} rem$}{true}{}
+		\Action{act22}{$blinkLeft \bcmeq{} cycleMaxLampStatus(onCycle)$}{true}{}
+		\Action{act23}{$blinkRight \bcmeq{} lamp\_off$}{true}{}
+	}
+}
+\EVT{SET\_RemainingBlinks}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{rem}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd20}{false}{$rem\in{}BLINK\_CYCLE\_COUNTER$}{true}{}
+		\Guard{grd21}{false}{$rem\neq{}0$}{true}{}
+		\Guard{grd22}{false}{$remaining\_blinks\neq{}0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act20}{$remaining\_blinks \bcmeq{} rem$}{true}{}
+	}
+}
+\EVT{TIME\_BlinkerOn\_then\_then\_then}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd20}{false}{$blinkLeft=lamp\_off\land{}blinkRight=lamp\_off\land{}remaining\_blinks\neq{}0$}{true}{}
+		\Guard{grd21}{false}{$left\_blink\in{}active\_blinkers$}{true}{}
+		\Guard{grd22}{false}{$right\_blink\in{}active\_blinkers$}{true}{}
+		\Guard{grd23}{false}{$remaining\_blinks>0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act20}{$onCycle \bcmeq{} TRUE$}{true}{}
+		\Action{act21}{$blinkLeft \bcmeq{} lamp\_on$}{true}{}
+		\Action{act22}{$blinkRight \bcmeq{} lamp\_on$}{true}{}
+		\Action{act23}{$remaining\_blinks \bcmeq{} remaining\_blinks-1$}{true}{}
+	}
+}
+\EVT{TIME\_BlinkerOff\_then}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd20}{false}{$\lnot{}(blinkLeft=lamp\_off\land{}blinkRight=lamp\_off)$}{true}{}
+		\Guard{grd21}{false}{$remaining\_blinks=0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act20}{$blinkLeft,blinkRight \bcmeq{} lamp\_off,lamp\_off$}{true}{}
+		\Action{act21}{$onCycle \bcmeq{} FALSE$}{true}{}
+		\Action{act22}{$active\_blinkers \bcmeq{} \emptyset{}$}{true}{}
+	}
+}
+\EVT{TIME\_Nothing}{false}{ordinary}{}{}{
+	\ANY{
+		\Param{newOnCycle}{true}{}
+	}
+	\GUARDS{true}{
+		\Guard{grd20}{false}{$blinkLeft=lamp\_off\land{}blinkRight=lamp\_off\land{}active\_blinkers=\emptyset{}\land{}newOnCycle=FALSE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act20}{$onCycle \bcmeq{} newOnCycle$}{true}{}
+	}
+}
+}
+\END
+\end{document}

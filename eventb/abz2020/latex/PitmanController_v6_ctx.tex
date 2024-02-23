@@ -1,0 +1,35 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{PitmanController\_v6\_ctx}
+\CONTEXT{PitmanController\_v6\_ctx}{BlinkLamps\_v3\_ctx}{}
+\SETS{
+	\Set{PITMAN\_POSITION}{}
+	\Set{SWITCH\_STATUS}{}
+	\Set{KEY\_STATE}{}
+}
+\CONSTANTS{
+	\Constant{pitman\_direction}{}
+	\Constant{PITMAN\_DIRECTION\_BLINKING}{}
+	\Constant{PITMAN\_TIP\_BLINKING}{}
+	\Constant{Neutral}{}
+	\Constant{Downward5}{}
+	\Constant{Downward7}{}
+	\Constant{Upward5}{}
+	\Constant{Upward7}{}
+	\Constant{switch\_on}{}
+	\Constant{switch\_off}{}
+	\Constant{NoKeyInserted}{}
+	\Constant{KeyInserted}{}
+	\Constant{KeyInsertedOnPosition}{}
+}
+\AXIOMS{
+	\Axiom{axm0}{false}{$partition(PITMAN\_POSITION,\{Neutral\},\{Downward5\},\{Downward7\},\{Upward5\},\{Upward7\})$}{}
+	\Axiom{axm1}{false}{$partition(SWITCH\_STATUS,\{switch\_on\},\{switch\_off\})$}{}
+	\Axiom{axm2}{false}{$partition(KEY\_STATE,\{NoKeyInserted\},\{KeyInserted\},\{KeyInsertedOnPosition\})$}{}
+	\Axiom{axm3}{false}{$PITMAN\_TIP\_BLINKING=\{Downward5,Upward5\}$}{}
+	\Axiom{axm4}{false}{$PITMAN\_DIRECTION\_BLINKING=\{Upward7,Downward7\}$}{}
+	\Axiom{axm5}{false}{$pitman\_direction=\{Upward7\mapsto{}right\_blink,Neutral\mapsto{}neutral\_blink,Upward5\mapsto{}right\_blink,Downward5\mapsto{}left\_blink,Downward7\mapsto{}left\_blink\}$}{}
+}
+\END
+\end{document}
