@@ -1,90 +1,84 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <org.eventb.core.machineFile org.eventb.core.configuration='org.eventb.core.fwd' version='5' org.eventb.core.comment=''>
-  <org.eventb.core.seesContext name='n139' org.eventb.core.target='BlinkLamps_v3_ctx' />
-  <org.eventb.core.variable name='n140' org.eventb.core.identifier='active_blinkers' />
-  <org.eventb.core.variable name='n141' org.eventb.core.identifier='remaining_blinks' />
-  <org.eventb.core.variable name='n142' org.eventb.core.identifier='onCycle' />
-  <org.eventb.core.variable name='n143' org.eventb.core.identifier='blinkLeft' />
-  <org.eventb.core.variable name='n144' org.eventb.core.identifier='blinkRight' />
-  <org.eventb.core.invariant name='n145' org.eventb.core.label='inv20' org.eventb.core.predicate='active_blinkers⊆BLINK_DIRECTION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n146' org.eventb.core.label='inv21' org.eventb.core.predicate='remaining_blinks∈BLINK_CYCLE_COUNTER' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n147' org.eventb.core.label='inv22' org.eventb.core.predicate='blinkLeft∈LAMP_STATUS' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n148' org.eventb.core.label='inv23' org.eventb.core.predicate='blinkRight∈LAMP_STATUS' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n149' org.eventb.core.label='inv24' org.eventb.core.predicate='onCycle∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n150' org.eventb.core.label='inv25' org.eventb.core.predicate='remaining_blinks=0∧blinkLeft=lamp_off∧blinkRight=lamp_off⇔active_blinkers=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n151' org.eventb.core.label='inv26' org.eventb.core.predicate='blinkRight≠lamp_off⇒right_blink∈active_blinkers' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n152' org.eventb.core.label='inv27' org.eventb.core.predicate='blinkLeft≠lamp_off⇒left_blink∈active_blinkers' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n153' org.eventb.core.label='inv28' org.eventb.core.predicate='active_blinkers=BLINK_DIRECTION⇒blinkLeft=blinkRight' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n154' org.eventb.core.label='inv29' org.eventb.core.predicate='onCycle=FALSE⇒blinkLeft=lamp_off∧blinkRight=lamp_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n155' org.eventb.core.label='inv210' org.eventb.core.predicate='onCycle=TRUE∧active_blinkers≠∅⇒¬(blinkLeft=lamp_off∧blinkRight=lamp_off)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.event name='n156' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n157' org.eventb.core.assignment='active_blinkers ≔ ∅' org.eventb.core.label='init0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n158' org.eventb.core.assignment='blinkLeft,blinkRight ≔ lamp_off,lamp_off' org.eventb.core.label='init1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n159' org.eventb.core.assignment='remaining_blinks ≔ 0' org.eventb.core.label='init2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n160' org.eventb.core.assignment='onCycle ≔ FALSE' org.eventb.core.label='init3' org.eventb.core.comment='' />
+  <org.eventb.core.seesContext name='n134' org.eventb.core.target='BlinkLamps_v3_ctx' />
+  <org.eventb.core.variable name='n135' org.eventb.core.identifier='active_blinkers' />
+  <org.eventb.core.variable name='n136' org.eventb.core.identifier='remaining_blinks' />
+  <org.eventb.core.variable name='n137' org.eventb.core.identifier='onCycle' />
+  <org.eventb.core.variable name='n138' org.eventb.core.identifier='blinkLeft' />
+  <org.eventb.core.variable name='n139' org.eventb.core.identifier='blinkRight' />
+  <org.eventb.core.invariant name='n140' org.eventb.core.label='inv0' org.eventb.core.predicate='active_blinkers⊆BLINK_DIRECTION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n141' org.eventb.core.label='inv1' org.eventb.core.predicate='remaining_blinks∈BLINK_CYCLE_COUNTER' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n142' org.eventb.core.label='inv2' org.eventb.core.predicate='blinkLeft∈LAMP_STATUS' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n143' org.eventb.core.label='inv3' org.eventb.core.predicate='blinkRight∈LAMP_STATUS' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n144' org.eventb.core.label='inv4' org.eventb.core.predicate='onCycle∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n145' org.eventb.core.label='inv5' org.eventb.core.predicate='remaining_blinks=0∧blinkLeft=lamp_off∧blinkRight=lamp_off⇔active_blinkers=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n146' org.eventb.core.label='inv6' org.eventb.core.predicate='blinkRight≠lamp_off⇒right_blink∈active_blinkers' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n147' org.eventb.core.label='inv7' org.eventb.core.predicate='blinkLeft≠lamp_off⇒left_blink∈active_blinkers' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n148' org.eventb.core.label='inv8' org.eventb.core.predicate='active_blinkers=BLINK_DIRECTION⇒blinkLeft=blinkRight' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n149' org.eventb.core.label='inv9' org.eventb.core.predicate='onCycle=FALSE⇒blinkLeft=lamp_off∧blinkRight=lamp_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n150' org.eventb.core.label='inv10' org.eventb.core.predicate='onCycle=TRUE∧active_blinkers≠∅⇒¬(blinkLeft=lamp_off∧blinkRight=lamp_off)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n151' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SET_AllBlinkersOff' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n152' org.eventb.core.assignment='active_blinkers ≔ ∅' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n153' org.eventb.core.assignment='remaining_blinks ≔ 0' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n154' org.eventb.core.assignment='blinkLeft,blinkRight ≔ lamp_off,lamp_off' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n161' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SET_AllBlinkersOff' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n162' org.eventb.core.assignment='active_blinkers ≔ ∅' org.eventb.core.label='act20' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n163' org.eventb.core.assignment='remaining_blinks ≔ 0' org.eventb.core.label='act21' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n164' org.eventb.core.assignment='blinkLeft,blinkRight ≔ lamp_off,lamp_off' org.eventb.core.label='act22' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n155' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SET_AllBlinkersOn' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n156' org.eventb.core.assignment='active_blinkers ≔ BLINK_DIRECTION' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n157' org.eventb.core.assignment='remaining_blinks ≔ −1' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n158' org.eventb.core.assignment='blinkLeft ≔ cycleMaxLampStatus(onCycle)' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n159' org.eventb.core.assignment='blinkRight ≔ cycleMaxLampStatus(onCycle)' org.eventb.core.label='act3' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n165' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SET_AllBlinkersOn' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n166' org.eventb.core.assignment='active_blinkers ≔ BLINK_DIRECTION' org.eventb.core.label='act20' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n167' org.eventb.core.assignment='remaining_blinks ≔ −1' org.eventb.core.label='act21' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n168' org.eventb.core.assignment='blinkLeft ≔ cycleMaxLampStatus(onCycle)' org.eventb.core.label='act22' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n169' org.eventb.core.assignment='blinkRight ≔ cycleMaxLampStatus(onCycle)' org.eventb.core.label='act23' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n160' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SET_BlinkersOn_then' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n161' org.eventb.core.identifier='direction' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n162' org.eventb.core.identifier='rem' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n163' org.eventb.core.label='grd0' org.eventb.core.predicate='direction∈BLINK_DIRECTION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n164' org.eventb.core.label='grd1' org.eventb.core.predicate='rem∈BLINK_CYCLE_COUNTER' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n165' org.eventb.core.label='grd2' org.eventb.core.predicate='rem≠0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n166' org.eventb.core.label='grd3' org.eventb.core.predicate='direction=right_blink' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n167' org.eventb.core.assignment='active_blinkers ≔ {direction}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n168' org.eventb.core.assignment='remaining_blinks ≔ rem' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n169' org.eventb.core.assignment='blinkLeft ≔ lamp_off' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n170' org.eventb.core.assignment='blinkRight ≔ cycleMaxLampStatus(onCycle)' org.eventb.core.label='act3' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n170' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SET_BlinkersOn_then' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n171' org.eventb.core.identifier='direction' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n172' org.eventb.core.identifier='rem' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n173' org.eventb.core.label='grd20' org.eventb.core.predicate='direction∈BLINK_DIRECTION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n174' org.eventb.core.label='grd21' org.eventb.core.predicate='rem∈BLINK_CYCLE_COUNTER' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n175' org.eventb.core.label='grd22' org.eventb.core.predicate='rem≠0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n176' org.eventb.core.label='grd23' org.eventb.core.predicate='direction=right_blink' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n177' org.eventb.core.assignment='active_blinkers ≔ {direction}' org.eventb.core.label='act20' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n178' org.eventb.core.assignment='remaining_blinks ≔ rem' org.eventb.core.label='act21' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n179' org.eventb.core.assignment='blinkLeft ≔ lamp_off' org.eventb.core.label='act22' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n180' org.eventb.core.assignment='blinkRight ≔ cycleMaxLampStatus(onCycle)' org.eventb.core.label='act23' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n171' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SET_BlinkersOn_else' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n172' org.eventb.core.identifier='direction' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n173' org.eventb.core.identifier='rem' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n174' org.eventb.core.label='grd0' org.eventb.core.predicate='direction∈BLINK_DIRECTION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n175' org.eventb.core.label='grd1' org.eventb.core.predicate='rem∈BLINK_CYCLE_COUNTER' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n176' org.eventb.core.label='grd2' org.eventb.core.predicate='rem≠0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n177' org.eventb.core.label='grd3' org.eventb.core.predicate='¬(direction=right_blink)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n178' org.eventb.core.assignment='active_blinkers ≔ {direction}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n179' org.eventb.core.assignment='remaining_blinks ≔ rem' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n180' org.eventb.core.assignment='blinkLeft ≔ cycleMaxLampStatus(onCycle)' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n181' org.eventb.core.assignment='blinkRight ≔ lamp_off' org.eventb.core.label='act3' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n181' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SET_BlinkersOn_else' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n182' org.eventb.core.identifier='direction' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n182' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SET_RemainingBlinks' org.eventb.core.comment=''>
     <org.eventb.core.parameter name='n183' org.eventb.core.identifier='rem' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n184' org.eventb.core.label='grd20' org.eventb.core.predicate='direction∈BLINK_DIRECTION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n185' org.eventb.core.label='grd21' org.eventb.core.predicate='rem∈BLINK_CYCLE_COUNTER' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n186' org.eventb.core.label='grd22' org.eventb.core.predicate='rem≠0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n187' org.eventb.core.label='grd23' org.eventb.core.predicate='¬(direction=right_blink)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n188' org.eventb.core.assignment='active_blinkers ≔ {direction}' org.eventb.core.label='act20' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n189' org.eventb.core.assignment='remaining_blinks ≔ rem' org.eventb.core.label='act21' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n190' org.eventb.core.assignment='blinkLeft ≔ cycleMaxLampStatus(onCycle)' org.eventb.core.label='act22' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n191' org.eventb.core.assignment='blinkRight ≔ lamp_off' org.eventb.core.label='act23' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n184' org.eventb.core.label='grd0' org.eventb.core.predicate='rem∈BLINK_CYCLE_COUNTER' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n185' org.eventb.core.label='grd1' org.eventb.core.predicate='rem≠0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n186' org.eventb.core.label='grd2' org.eventb.core.predicate='remaining_blinks≠0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n187' org.eventb.core.assignment='remaining_blinks ≔ rem' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n192' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='SET_RemainingBlinks' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n193' org.eventb.core.identifier='rem' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n194' org.eventb.core.label='grd20' org.eventb.core.predicate='rem∈BLINK_CYCLE_COUNTER' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n195' org.eventb.core.label='grd21' org.eventb.core.predicate='rem≠0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n196' org.eventb.core.label='grd22' org.eventb.core.predicate='remaining_blinks≠0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n197' org.eventb.core.assignment='remaining_blinks ≔ rem' org.eventb.core.label='act20' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n188' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='TIME_BlinkerOn_then_then_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n189' org.eventb.core.label='grd0' org.eventb.core.predicate='blinkLeft=lamp_off∧blinkRight=lamp_off∧remaining_blinks≠0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n190' org.eventb.core.label='grd1' org.eventb.core.predicate='left_blink∈active_blinkers' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n191' org.eventb.core.label='grd2' org.eventb.core.predicate='right_blink∈active_blinkers' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n192' org.eventb.core.label='grd3' org.eventb.core.predicate='remaining_blinks&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n193' org.eventb.core.assignment='onCycle ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n194' org.eventb.core.assignment='blinkLeft ≔ lamp_on' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n195' org.eventb.core.assignment='blinkRight ≔ lamp_on' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n196' org.eventb.core.assignment='remaining_blinks ≔ remaining_blinks−1' org.eventb.core.label='act3' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n198' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='TIME_BlinkerOn_then_then_then' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n199' org.eventb.core.label='grd20' org.eventb.core.predicate='blinkLeft=lamp_off∧blinkRight=lamp_off∧remaining_blinks≠0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n200' org.eventb.core.label='grd21' org.eventb.core.predicate='left_blink∈active_blinkers' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n201' org.eventb.core.label='grd22' org.eventb.core.predicate='right_blink∈active_blinkers' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n202' org.eventb.core.label='grd23' org.eventb.core.predicate='remaining_blinks&gt;0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n203' org.eventb.core.assignment='onCycle ≔ TRUE' org.eventb.core.label='act20' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n204' org.eventb.core.assignment='blinkLeft ≔ lamp_on' org.eventb.core.label='act21' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n205' org.eventb.core.assignment='blinkRight ≔ lamp_on' org.eventb.core.label='act22' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n206' org.eventb.core.assignment='remaining_blinks ≔ remaining_blinks−1' org.eventb.core.label='act23' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n197' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='TIME_BlinkerOff_then' org.eventb.core.comment=''>
+    <org.eventb.core.guard name='n198' org.eventb.core.label='grd0' org.eventb.core.predicate='¬(blinkLeft=lamp_off∧blinkRight=lamp_off)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n199' org.eventb.core.label='grd1' org.eventb.core.predicate='remaining_blinks=0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n200' org.eventb.core.assignment='blinkLeft,blinkRight ≔ lamp_off,lamp_off' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n201' org.eventb.core.assignment='onCycle ≔ FALSE' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n202' org.eventb.core.assignment='active_blinkers ≔ ∅' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n207' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='TIME_BlinkerOff_then' org.eventb.core.comment=''>
-    <org.eventb.core.guard name='n208' org.eventb.core.label='grd20' org.eventb.core.predicate='¬(blinkLeft=lamp_off∧blinkRight=lamp_off)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n209' org.eventb.core.label='grd21' org.eventb.core.predicate='remaining_blinks=0' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n210' org.eventb.core.assignment='blinkLeft,blinkRight ≔ lamp_off,lamp_off' org.eventb.core.label='act20' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n211' org.eventb.core.assignment='onCycle ≔ FALSE' org.eventb.core.label='act21' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n212' org.eventb.core.assignment='active_blinkers ≔ ∅' org.eventb.core.label='act22' org.eventb.core.comment='' />
-  </org.eventb.core.event>
-  <org.eventb.core.event name='n213' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='TIME_Nothing' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n214' org.eventb.core.identifier='newOnCycle' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n215' org.eventb.core.label='grd20' org.eventb.core.predicate='blinkLeft=lamp_off∧blinkRight=lamp_off∧active_blinkers=∅∧newOnCycle=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n216' org.eventb.core.assignment='onCycle ≔ newOnCycle' org.eventb.core.label='act20' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n203' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='TIME_Nothing' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n204' org.eventb.core.identifier='newOnCycle' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n205' org.eventb.core.label='grd0' org.eventb.core.predicate='blinkLeft=lamp_off∧blinkRight=lamp_off∧active_blinkers=∅∧newOnCycle=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n206' org.eventb.core.assignment='onCycle ≔ newOnCycle' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
 </org.eventb.core.machineFile>

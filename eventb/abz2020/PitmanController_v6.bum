@@ -11,147 +11,141 @@
   <org.eventb.core.variable name='n8' org.eventb.core.identifier='blinkLeft' />
   <org.eventb.core.variable name='n9' org.eventb.core.identifier='hazardWarningSwitchOn' />
   <org.eventb.core.variable name='n10' org.eventb.core.identifier='engineOn' />
-  <org.eventb.core.invariant name='n11' org.eventb.core.label='inv00' org.eventb.core.predicate='pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING∧engineOn=TRUE⇒remaining_blinks=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n12' org.eventb.core.label='inv01' org.eventb.core.predicate='hazardWarningSwitchOn∈SWITCH_STATUS' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n13' org.eventb.core.label='inv02' org.eventb.core.predicate='engineOn=FALSE∧hazardWarningSwitchOn=switch_off⇒active_blinkers=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n14' org.eventb.core.label='inv03' org.eventb.core.predicate='pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING∧engineOn=TRUE⇒{pitman_direction(pitmanArmUpDown)}⊆active_blinkers' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n15' org.eventb.core.label='inv04' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off∧remaining_blinks=−1⇒active_blinkers={pitman_direction(pitmanArmUpDown)}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n16' org.eventb.core.label='inv05' org.eventb.core.predicate='hazardWarningSwitchOn=switch_on⇒active_blinkers=BLINK_DIRECTION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n17' org.eventb.core.label='inv06' org.eventb.core.predicate='pitmanArmUpDown∈PITMAN_POSITION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n18' org.eventb.core.label='inv07' org.eventb.core.predicate='hazardWarningSwitchOn=switch_on⇒remaining_blinks=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n19' org.eventb.core.label='inv08' org.eventb.core.predicate='engineOn∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n20' org.eventb.core.label='inv09' org.eventb.core.predicate='keyState∈KEY_STATE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.invariant name='n21' org.eventb.core.label='thm00' org.eventb.core.predicate='pitman_direction∈PITMAN_POSITION→DIRECTIONS' org.eventb.core.theorem='true' org.eventb.core.comment='' />
-  <org.eventb.core.event name='n22' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n23' org.eventb.core.assignment='hazardWarningSwitchOn ≔ switch_off' org.eventb.core.label='init0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n24' org.eventb.core.assignment='pitmanArmUpDown ≔ Neutral' org.eventb.core.label='init1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n25' org.eventb.core.assignment='keyState ≔ KeyInsertedOnPosition' org.eventb.core.label='init2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n26' org.eventb.core.assignment='engineOn ≔ FALSE' org.eventb.core.label='init3' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n11' org.eventb.core.label='inv0' org.eventb.core.predicate='pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING∧engineOn=TRUE⇒remaining_blinks=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n12' org.eventb.core.label='inv1' org.eventb.core.predicate='hazardWarningSwitchOn∈SWITCH_STATUS' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n13' org.eventb.core.label='inv2' org.eventb.core.predicate='engineOn=FALSE∧hazardWarningSwitchOn=switch_off⇒active_blinkers=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n14' org.eventb.core.label='inv3' org.eventb.core.predicate='pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING∧engineOn=TRUE⇒{pitman_direction(pitmanArmUpDown)}⊆active_blinkers' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n15' org.eventb.core.label='inv4' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off∧remaining_blinks=−1⇒active_blinkers={pitman_direction(pitmanArmUpDown)}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n16' org.eventb.core.label='inv5' org.eventb.core.predicate='hazardWarningSwitchOn=switch_on⇒active_blinkers=BLINK_DIRECTION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n17' org.eventb.core.label='inv6' org.eventb.core.predicate='pitmanArmUpDown∈PITMAN_POSITION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n18' org.eventb.core.label='inv7' org.eventb.core.predicate='hazardWarningSwitchOn=switch_on⇒remaining_blinks=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n19' org.eventb.core.label='inv8' org.eventb.core.predicate='engineOn∈BOOL' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n20' org.eventb.core.label='inv9' org.eventb.core.predicate='keyState∈KEY_STATE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n21' org.eventb.core.label='thm0' org.eventb.core.predicate='pitman_direction∈PITMAN_POSITION→DIRECTIONS' org.eventb.core.theorem='true' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n22' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Turn_EngineOn_then_0' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n23' org.eventb.core.target='SET_BlinkersOn_then' />
+    <org.eventb.core.guard name='n24' org.eventb.core.label='grd0' org.eventb.core.predicate='engineOn=FALSE∧keyState=KeyInsertedOnPosition' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n25' org.eventb.core.label='grd1' org.eventb.core.predicate='pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING∧hazardWarningSwitchOn=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n26' org.eventb.core.label='grd2' org.eventb.core.predicate='direction=pitman_direction(pitmanArmUpDown)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n27' org.eventb.core.label='grd3' org.eventb.core.predicate='rem=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n28' org.eventb.core.assignment='engineOn ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n27' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Turn_EngineOn_then_0' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n28' org.eventb.core.target='SET_BlinkersOn_then' />
-    <org.eventb.core.guard name='n29' org.eventb.core.label='grd00' org.eventb.core.predicate='engineOn=FALSE∧keyState=KeyInsertedOnPosition' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n30' org.eventb.core.label='grd01' org.eventb.core.predicate='pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING∧hazardWarningSwitchOn=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n31' org.eventb.core.label='grd02' org.eventb.core.predicate='direction=pitman_direction(pitmanArmUpDown)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n32' org.eventb.core.label='grd03' org.eventb.core.predicate='rem=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n33' org.eventb.core.assignment='engineOn ≔ TRUE' org.eventb.core.label='act00' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n29' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Turn_EngineOn_then_1' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n30' org.eventb.core.target='SET_BlinkersOn_else' />
+    <org.eventb.core.guard name='n31' org.eventb.core.label='grd0' org.eventb.core.predicate='engineOn=FALSE∧keyState=KeyInsertedOnPosition' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n32' org.eventb.core.label='grd1' org.eventb.core.predicate='pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING∧hazardWarningSwitchOn=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n33' org.eventb.core.label='grd2' org.eventb.core.predicate='direction=pitman_direction(pitmanArmUpDown)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n34' org.eventb.core.label='grd3' org.eventb.core.predicate='rem=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n35' org.eventb.core.assignment='engineOn ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n34' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Turn_EngineOn_then_1' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n35' org.eventb.core.target='SET_BlinkersOn_else' />
-    <org.eventb.core.guard name='n36' org.eventb.core.label='grd00' org.eventb.core.predicate='engineOn=FALSE∧keyState=KeyInsertedOnPosition' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n37' org.eventb.core.label='grd01' org.eventb.core.predicate='pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING∧hazardWarningSwitchOn=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n38' org.eventb.core.label='grd02' org.eventb.core.predicate='direction=pitman_direction(pitmanArmUpDown)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n39' org.eventb.core.label='grd03' org.eventb.core.predicate='rem=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n40' org.eventb.core.assignment='engineOn ≔ TRUE' org.eventb.core.label='act00' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n36' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Turn_EngineOff_then_0' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n37' org.eventb.core.target='SET_AllBlinkersOff' />
+    <org.eventb.core.guard name='n38' org.eventb.core.label='grd0' org.eventb.core.predicate='engineOn=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n39' org.eventb.core.label='grd1' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n40' org.eventb.core.assignment='engineOn ≔ FALSE' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n41' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Turn_EngineOff_then_0' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n42' org.eventb.core.target='SET_AllBlinkersOff' />
-    <org.eventb.core.guard name='n43' org.eventb.core.label='grd00' org.eventb.core.predicate='engineOn=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n44' org.eventb.core.label='grd01' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n45' org.eventb.core.assignment='engineOn ≔ FALSE' org.eventb.core.label='act00' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n41' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Pitman_DirectionBlinking_then_0' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n42' org.eventb.core.target='SET_BlinkersOn_then' />
+    <org.eventb.core.parameter name='n43' org.eventb.core.identifier='newPos' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n44' org.eventb.core.label='grd0' org.eventb.core.predicate='newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n45' org.eventb.core.label='grd1' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off∧engineOn=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n46' org.eventb.core.label='grd2' org.eventb.core.predicate='direction=pitman_direction(newPos)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n47' org.eventb.core.label='grd3' org.eventb.core.predicate='rem=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n48' org.eventb.core.label='grd4' org.eventb.core.predicate='newPos∈PITMAN_DIRECTION_BLINKING∧newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n49' org.eventb.core.assignment='pitmanArmUpDown ≔ newPos' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n46' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Pitman_DirectionBlinking_then_0' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n47' org.eventb.core.target='SET_BlinkersOn_then' />
-    <org.eventb.core.parameter name='n48' org.eventb.core.identifier='newPos' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n49' org.eventb.core.label='grd00' org.eventb.core.predicate='newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n50' org.eventb.core.label='grd01' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off∧engineOn=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n51' org.eventb.core.label='grd02' org.eventb.core.predicate='direction=pitman_direction(newPos)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n52' org.eventb.core.label='grd03' org.eventb.core.predicate='rem=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n53' org.eventb.core.label='grd04' org.eventb.core.predicate='newPos∈PITMAN_DIRECTION_BLINKING∧newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n54' org.eventb.core.assignment='pitmanArmUpDown ≔ newPos' org.eventb.core.label='act00' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n50' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Pitman_DirectionBlinking_then_1' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n51' org.eventb.core.target='SET_BlinkersOn_else' />
+    <org.eventb.core.parameter name='n52' org.eventb.core.identifier='newPos' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n53' org.eventb.core.label='grd0' org.eventb.core.predicate='newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n54' org.eventb.core.label='grd1' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off∧engineOn=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n55' org.eventb.core.label='grd2' org.eventb.core.predicate='direction=pitman_direction(newPos)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n56' org.eventb.core.label='grd3' org.eventb.core.predicate='rem=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n57' org.eventb.core.label='grd4' org.eventb.core.predicate='newPos∈PITMAN_DIRECTION_BLINKING∧newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n58' org.eventb.core.assignment='pitmanArmUpDown ≔ newPos' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n55' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Pitman_DirectionBlinking_then_1' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n56' org.eventb.core.target='SET_BlinkersOn_else' />
-    <org.eventb.core.parameter name='n57' org.eventb.core.identifier='newPos' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n58' org.eventb.core.label='grd00' org.eventb.core.predicate='newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n59' org.eventb.core.label='grd01' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off∧engineOn=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n60' org.eventb.core.label='grd02' org.eventb.core.predicate='direction=pitman_direction(newPos)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n61' org.eventb.core.label='grd03' org.eventb.core.predicate='rem=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n62' org.eventb.core.label='grd04' org.eventb.core.predicate='newPos∈PITMAN_DIRECTION_BLINKING∧newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n63' org.eventb.core.assignment='pitmanArmUpDown ≔ newPos' org.eventb.core.label='act00' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n59' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Pitman_Reset_to_Neutral_then_0' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n60' org.eventb.core.target='SET_AllBlinkersOff' />
+    <org.eventb.core.guard name='n61' org.eventb.core.label='grd0' org.eventb.core.predicate='pitmanArmUpDown≠Neutral' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n62' org.eventb.core.label='grd1' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off∧remaining_blinks=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n63' org.eventb.core.assignment='pitmanArmUpDown ≔ Neutral' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n64' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Pitman_Reset_to_Neutral_then_0' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n65' org.eventb.core.target='SET_AllBlinkersOff' />
-    <org.eventb.core.guard name='n66' org.eventb.core.label='grd00' org.eventb.core.predicate='pitmanArmUpDown≠Neutral' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n67' org.eventb.core.label='grd01' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off∧remaining_blinks=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n68' org.eventb.core.assignment='pitmanArmUpDown ≔ Neutral' org.eventb.core.label='act00' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n64' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Pitman_Tip_blinking_short_then_0' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n65' org.eventb.core.target='SET_BlinkersOn_then' />
+    <org.eventb.core.parameter name='n66' org.eventb.core.identifier='newPos' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n67' org.eventb.core.label='grd0' org.eventb.core.predicate='newPos∈PITMAN_TIP_BLINKING' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n68' org.eventb.core.label='grd1' org.eventb.core.predicate='newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n69' org.eventb.core.label='grd2' org.eventb.core.predicate='newPos∈PITMAN_TIP_BLINKING∧newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n70' org.eventb.core.label='grd3' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off∧engineOn=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n71' org.eventb.core.label='grd4' org.eventb.core.predicate='direction=pitman_direction(newPos)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n72' org.eventb.core.label='grd5' org.eventb.core.predicate='rem=3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n73' org.eventb.core.assignment='pitmanArmUpDown ≔ newPos' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n69' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Pitman_Tip_blinking_short_then_0' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n70' org.eventb.core.target='SET_BlinkersOn_then' />
-    <org.eventb.core.parameter name='n71' org.eventb.core.identifier='newPos' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n72' org.eventb.core.label='grd00' org.eventb.core.predicate='newPos∈PITMAN_TIP_BLINKING' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n73' org.eventb.core.label='grd01' org.eventb.core.predicate='newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n74' org.eventb.core.label='grd02' org.eventb.core.predicate='newPos∈PITMAN_TIP_BLINKING∧newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n75' org.eventb.core.label='grd03' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off∧engineOn=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n76' org.eventb.core.label='grd04' org.eventb.core.predicate='direction=pitman_direction(newPos)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n77' org.eventb.core.label='grd05' org.eventb.core.predicate='rem=3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n78' org.eventb.core.assignment='pitmanArmUpDown ≔ newPos' org.eventb.core.label='act00' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n74' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Pitman_Tip_blinking_short_then_1' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n75' org.eventb.core.target='SET_BlinkersOn_else' />
+    <org.eventb.core.parameter name='n76' org.eventb.core.identifier='newPos' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n77' org.eventb.core.label='grd0' org.eventb.core.predicate='newPos∈PITMAN_TIP_BLINKING' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n78' org.eventb.core.label='grd1' org.eventb.core.predicate='newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n79' org.eventb.core.label='grd2' org.eventb.core.predicate='newPos∈PITMAN_TIP_BLINKING∧newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n80' org.eventb.core.label='grd3' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off∧engineOn=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n81' org.eventb.core.label='grd4' org.eventb.core.predicate='direction=pitman_direction(newPos)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n82' org.eventb.core.label='grd5' org.eventb.core.predicate='rem=3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n83' org.eventb.core.assignment='pitmanArmUpDown ≔ newPos' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n79' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Pitman_Tip_blinking_short_then_1' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n80' org.eventb.core.target='SET_BlinkersOn_else' />
-    <org.eventb.core.parameter name='n81' org.eventb.core.identifier='newPos' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n82' org.eventb.core.label='grd00' org.eventb.core.predicate='newPos∈PITMAN_TIP_BLINKING' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n83' org.eventb.core.label='grd01' org.eventb.core.predicate='newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n84' org.eventb.core.label='grd02' org.eventb.core.predicate='newPos∈PITMAN_TIP_BLINKING∧newPos≠pitmanArmUpDown' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n85' org.eventb.core.label='grd03' org.eventb.core.predicate='hazardWarningSwitchOn=switch_off∧engineOn=TRUE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n86' org.eventb.core.label='grd04' org.eventb.core.predicate='direction=pitman_direction(newPos)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n87' org.eventb.core.label='grd05' org.eventb.core.predicate='rem=3' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n88' org.eventb.core.assignment='pitmanArmUpDown ≔ newPos' org.eventb.core.label='act00' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n84' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='TIME_Tip_blinking_Timeout_0' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n85' org.eventb.core.target='SET_RemainingBlinks' />
+    <org.eventb.core.guard name='n86' org.eventb.core.label='grd0' org.eventb.core.predicate='pitmanArmUpDown∈PITMAN_TIP_BLINKING∧remaining_blinks&gt;1∧active_blinkers={pitman_direction(pitmanArmUpDown)}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n87' org.eventb.core.label='grd1' org.eventb.core.predicate='rem=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n89' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='TIME_Tip_blinking_Timeout_0' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n90' org.eventb.core.target='SET_RemainingBlinks' />
-    <org.eventb.core.guard name='n91' org.eventb.core.label='grd00' org.eventb.core.predicate='pitmanArmUpDown∈PITMAN_TIP_BLINKING∧remaining_blinks&gt;1∧active_blinkers={pitman_direction(pitmanArmUpDown)}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n92' org.eventb.core.label='grd01' org.eventb.core.predicate='rem=−1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n88' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Hazard_blinking_select0_0' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n89' org.eventb.core.target='SET_AllBlinkersOn' />
+    <org.eventb.core.parameter name='n90' org.eventb.core.identifier='newSwitchPos' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n91' org.eventb.core.label='grd0' org.eventb.core.predicate='newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n92' org.eventb.core.label='grd1' org.eventb.core.predicate='newSwitchPos=switch_on' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n93' org.eventb.core.label='grd2' org.eventb.core.predicate='newSwitchPos∈SWITCH_STATUS∧newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n94' org.eventb.core.assignment='hazardWarningSwitchOn ≔ newSwitchPos' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n93' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Hazard_blinking_select0_0' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n94' org.eventb.core.target='SET_AllBlinkersOn' />
-    <org.eventb.core.parameter name='n95' org.eventb.core.identifier='newSwitchPos' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n96' org.eventb.core.label='grd00' org.eventb.core.predicate='newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n97' org.eventb.core.label='grd01' org.eventb.core.predicate='newSwitchPos=switch_on' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n98' org.eventb.core.label='grd02' org.eventb.core.predicate='newSwitchPos∈SWITCH_STATUS∧newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n99' org.eventb.core.assignment='hazardWarningSwitchOn ≔ newSwitchPos' org.eventb.core.label='act00' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n95' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Hazard_blinking_select1_cond0_0' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n96' org.eventb.core.target='SET_AllBlinkersOff' />
+    <org.eventb.core.parameter name='n97' org.eventb.core.identifier='newSwitchPos' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n98' org.eventb.core.label='grd0' org.eventb.core.predicate='newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n99' org.eventb.core.label='grd1' org.eventb.core.predicate='newSwitchPos=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n100' org.eventb.core.label='grd2' org.eventb.core.predicate='pitmanArmUpDown=Neutral ∨ engineOn=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n101' org.eventb.core.label='grd3' org.eventb.core.predicate='newSwitchPos∈SWITCH_STATUS∧newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n102' org.eventb.core.assignment='hazardWarningSwitchOn ≔ newSwitchPos' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n100' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Hazard_blinking_select1_cond0_0' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n101' org.eventb.core.target='SET_AllBlinkersOff' />
-    <org.eventb.core.parameter name='n102' org.eventb.core.identifier='newSwitchPos' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n103' org.eventb.core.label='grd00' org.eventb.core.predicate='newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n104' org.eventb.core.label='grd01' org.eventb.core.predicate='newSwitchPos=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n105' org.eventb.core.label='grd02' org.eventb.core.predicate='pitmanArmUpDown=Neutral ∨ engineOn=FALSE' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n106' org.eventb.core.label='grd03' org.eventb.core.predicate='newSwitchPos∈SWITCH_STATUS∧newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n107' org.eventb.core.assignment='hazardWarningSwitchOn ≔ newSwitchPos' org.eventb.core.label='act00' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n103' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Hazard_blinking_select1_cond1_0' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n104' org.eventb.core.target='SET_AllBlinkersOff' />
+    <org.eventb.core.parameter name='n105' org.eventb.core.identifier='newSwitchPos' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n106' org.eventb.core.label='grd0' org.eventb.core.predicate='newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n107' org.eventb.core.label='grd1' org.eventb.core.predicate='newSwitchPos=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n108' org.eventb.core.label='grd2' org.eventb.core.predicate='¬(pitmanArmUpDown=Neutral ∨ engineOn=FALSE)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n109' org.eventb.core.label='grd3' org.eventb.core.predicate='¬(pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n110' org.eventb.core.label='grd4' org.eventb.core.predicate='newSwitchPos∈SWITCH_STATUS∧newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n111' org.eventb.core.assignment='hazardWarningSwitchOn ≔ newSwitchPos' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n108' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Hazard_blinking_select1_cond1_0' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n109' org.eventb.core.target='SET_AllBlinkersOff' />
-    <org.eventb.core.parameter name='n110' org.eventb.core.identifier='newSwitchPos' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n111' org.eventb.core.label='grd00' org.eventb.core.predicate='newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n112' org.eventb.core.label='grd01' org.eventb.core.predicate='newSwitchPos=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n113' org.eventb.core.label='grd02' org.eventb.core.predicate='¬(pitmanArmUpDown=Neutral ∨ engineOn=FALSE)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n114' org.eventb.core.label='grd03' org.eventb.core.predicate='¬(pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n115' org.eventb.core.label='grd04' org.eventb.core.predicate='newSwitchPos∈SWITCH_STATUS∧newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n116' org.eventb.core.assignment='hazardWarningSwitchOn ≔ newSwitchPos' org.eventb.core.label='act00' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n112' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Hazard_blinking_select1_condelse_0' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n113' org.eventb.core.target='SET_BlinkersOn_then' />
+    <org.eventb.core.parameter name='n114' org.eventb.core.identifier='newSwitchPos' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n115' org.eventb.core.label='grd0' org.eventb.core.predicate='newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n116' org.eventb.core.label='grd1' org.eventb.core.predicate='newSwitchPos=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n117' org.eventb.core.label='grd2' org.eventb.core.predicate='¬(pitmanArmUpDown=Neutral ∨ engineOn=FALSE)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n118' org.eventb.core.label='grd3' org.eventb.core.predicate='¬(¬(pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n119' org.eventb.core.label='grd4' org.eventb.core.predicate='direction=pitman_direction(pitmanArmUpDown)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n120' org.eventb.core.label='grd5' org.eventb.core.predicate='rem=remaining_blinks' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n121' org.eventb.core.label='grd6' org.eventb.core.predicate='newSwitchPos∈SWITCH_STATUS∧newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n122' org.eventb.core.assignment='hazardWarningSwitchOn ≔ newSwitchPos' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n117' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Hazard_blinking_select1_condelse_0' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n118' org.eventb.core.target='SET_BlinkersOn_then' />
-    <org.eventb.core.parameter name='n119' org.eventb.core.identifier='newSwitchPos' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n120' org.eventb.core.label='grd00' org.eventb.core.predicate='newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n121' org.eventb.core.label='grd01' org.eventb.core.predicate='newSwitchPos=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n122' org.eventb.core.label='grd02' org.eventb.core.predicate='¬(pitmanArmUpDown=Neutral ∨ engineOn=FALSE)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n123' org.eventb.core.label='grd03' org.eventb.core.predicate='¬(¬(pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n124' org.eventb.core.label='grd04' org.eventb.core.predicate='direction=pitman_direction(pitmanArmUpDown)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n125' org.eventb.core.label='grd05' org.eventb.core.predicate='rem=remaining_blinks' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n126' org.eventb.core.label='grd06' org.eventb.core.predicate='newSwitchPos∈SWITCH_STATUS∧newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n127' org.eventb.core.assignment='hazardWarningSwitchOn ≔ newSwitchPos' org.eventb.core.label='act00' org.eventb.core.comment='' />
-  </org.eventb.core.event>
-  <org.eventb.core.event name='n128' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Hazard_blinking_select1_condelse_1' org.eventb.core.comment=''>
-    <org.eventb.core.refinesEvent name='n129' org.eventb.core.target='SET_BlinkersOn_else' />
-    <org.eventb.core.parameter name='n130' org.eventb.core.identifier='newSwitchPos' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n131' org.eventb.core.label='grd00' org.eventb.core.predicate='newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n132' org.eventb.core.label='grd01' org.eventb.core.predicate='newSwitchPos=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n133' org.eventb.core.label='grd02' org.eventb.core.predicate='¬(pitmanArmUpDown=Neutral ∨ engineOn=FALSE)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n134' org.eventb.core.label='grd03' org.eventb.core.predicate='¬(¬(pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n135' org.eventb.core.label='grd04' org.eventb.core.predicate='direction=pitman_direction(pitmanArmUpDown)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n136' org.eventb.core.label='grd05' org.eventb.core.predicate='rem=remaining_blinks' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n137' org.eventb.core.label='grd06' org.eventb.core.predicate='newSwitchPos∈SWITCH_STATUS∧newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n138' org.eventb.core.assignment='hazardWarningSwitchOn ≔ newSwitchPos' org.eventb.core.label='act00' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n123' org.eventb.core.convergence='0' org.eventb.core.extended='true' org.eventb.core.label='ENV_Hazard_blinking_select1_condelse_1' org.eventb.core.comment=''>
+    <org.eventb.core.refinesEvent name='n124' org.eventb.core.target='SET_BlinkersOn_else' />
+    <org.eventb.core.parameter name='n125' org.eventb.core.identifier='newSwitchPos' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n126' org.eventb.core.label='grd0' org.eventb.core.predicate='newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n127' org.eventb.core.label='grd1' org.eventb.core.predicate='newSwitchPos=switch_off' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n128' org.eventb.core.label='grd2' org.eventb.core.predicate='¬(pitmanArmUpDown=Neutral ∨ engineOn=FALSE)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n129' org.eventb.core.label='grd3' org.eventb.core.predicate='¬(¬(pitmanArmUpDown∈PITMAN_DIRECTION_BLINKING))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n130' org.eventb.core.label='grd4' org.eventb.core.predicate='direction=pitman_direction(pitmanArmUpDown)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n131' org.eventb.core.label='grd5' org.eventb.core.predicate='rem=remaining_blinks' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n132' org.eventb.core.label='grd6' org.eventb.core.predicate='newSwitchPos∈SWITCH_STATUS∧newSwitchPos≠hazardWarningSwitchOn' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n133' org.eventb.core.assignment='hazardWarningSwitchOn ≔ newSwitchPos' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
 </org.eventb.core.machineFile>
