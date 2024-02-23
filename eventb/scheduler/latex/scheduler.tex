@@ -18,6 +18,13 @@
 	\Invariant{inv6}{false}{$active=\emptyset{}\limp{}ready=\emptyset{}$}{}
 }
 \EVENTS{
+\INITIALISATION{false}{}{
+	\ACTIONS{false}{
+		\Action{init0}{$active \bcmeq{} \emptyset{}$}{true}{}
+		\Action{init1}{$ready \bcmeq{} \emptyset{}$}{true}{}
+		\Action{init2}{$waiting \bcmeq{} \emptyset{}$}{true}{}
+	}
+}
 \EVT{new}{false}{ordinary}{}{}{
 	\ANY{
 		\Param{pp}{true}{}
@@ -37,7 +44,7 @@
 		\Guard{grd0}{false}{$pp\in{}waiting$}{true}{}
 	}
 	\ACTIONS{true}{
-		\Action{act0}{$waiting \bcmeq{} waiting-\{pp\}$}{true}{}
+		\Action{act0}{$waiting \bcmeq{} waiting\setminus{}\{pp\}$}{true}{}
 	}
 }
 \EVT{ready\_then}{false}{ordinary}{}{}{
@@ -49,7 +56,7 @@
 		\Guard{grd1}{false}{$active=\emptyset{}$}{true}{}
 	}
 	\ACTIONS{true}{
-		\Action{act0}{$waiting \bcmeq{} waiting-\{rr\}$}{true}{}
+		\Action{act0}{$waiting \bcmeq{} waiting\setminus{}\{rr\}$}{true}{}
 		\Action{act1}{$active \bcmeq{} \{rr\}$}{true}{}
 	}
 }
@@ -62,7 +69,7 @@
 		\Guard{grd1}{false}{$\lnot{}(active=\emptyset{})$}{true}{}
 	}
 	\ACTIONS{true}{
-		\Action{act0}{$waiting \bcmeq{} waiting-\{rr\}$}{true}{}
+		\Action{act0}{$waiting \bcmeq{} waiting\setminus{}\{rr\}$}{true}{}
 		\Action{act1}{$ready \bcmeq{} ready\bunion{}\{rr\}$}{true}{}
 	}
 }
@@ -88,7 +95,7 @@
 	\ACTIONS{true}{
 		\Action{act0}{$waiting \bcmeq{} waiting\bunion{}active$}{true}{}
 		\Action{act1}{$active \bcmeq{} \{pp\}$}{true}{}
-		\Action{act2}{$ready \bcmeq{} ready-\{pp\}$}{true}{}
+		\Action{act2}{$ready \bcmeq{} ready\setminus{}\{pp\}$}{true}{}
 	}
 }
 }
