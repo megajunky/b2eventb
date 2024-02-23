@@ -5,20 +5,24 @@
   <org.eventb.core.variable name='n2' org.eventb.core.identifier='xx2' />
   <org.eventb.core.invariant name='n3' org.eventb.core.label='inv0' org.eventb.core.predicate='xx∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n4' org.eventb.core.label='inv1' org.eventb.core.predicate='xx2∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.event name='n5' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Set' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n6' org.eventb.core.identifier='xx' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n7' org.eventb.core.identifier='yy' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n8' org.eventb.core.identifier='zz' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n9' org.eventb.core.label='grd0' org.eventb.core.predicate='xx∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n10' org.eventb.core.label='grd1' org.eventb.core.predicate='yy∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n11' org.eventb.core.label='grd2' org.eventb.core.predicate='zz∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n12' org.eventb.core.label='grd3' org.eventb.core.predicate='zz=fun(xx↦yy)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n13' org.eventb.core.assignment='xx ≔ zz' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n5' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n6' org.eventb.core.assignment='xx ≔ fun(aa↦bb)' org.eventb.core.label='init0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n7' org.eventb.core.assignment='xx2 ≔ bb' org.eventb.core.label='init1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n14' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Set2' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n15' org.eventb.core.identifier='val' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n16' org.eventb.core.label='grd0' org.eventb.core.predicate='val∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n17' org.eventb.core.label='grd1' org.eventb.core.predicate='val=fun2(aa↦aa)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n18' org.eventb.core.assignment='xx2 ≔ val' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n8' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Set' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n9' org.eventb.core.identifier='xx' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n10' org.eventb.core.identifier='yy' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n11' org.eventb.core.identifier='zz' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n12' org.eventb.core.label='grd0' org.eventb.core.predicate='xx∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n13' org.eventb.core.label='grd1' org.eventb.core.predicate='yy∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n14' org.eventb.core.label='grd2' org.eventb.core.predicate='zz∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n15' org.eventb.core.label='grd3' org.eventb.core.predicate='zz=fun(xx↦yy)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n16' org.eventb.core.assignment='xx ≔ zz' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n17' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='Set2' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n18' org.eventb.core.identifier='val' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n19' org.eventb.core.label='grd0' org.eventb.core.predicate='val∈ID' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n20' org.eventb.core.label='grd1' org.eventb.core.predicate='val=fun2(aa↦aa)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n21' org.eventb.core.assignment='xx2 ≔ val' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
 </org.eventb.core.machineFile>

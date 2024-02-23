@@ -3,7 +3,10 @@
   <org.eventb.core.seesContext name='n0' org.eventb.core.target='SimpleConstants_ctx' />
   <org.eventb.core.variable name='n1' org.eventb.core.identifier='nn' />
   <org.eventb.core.invariant name='n2' org.eventb.core.label='inv0' org.eventb.core.predicate='nn∈mynumbers' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.event name='n3' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='get' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n4' org.eventb.core.assignment='cc ≔ nn' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n3' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n4' org.eventb.core.assignment='nn :∈ mynumbers' org.eventb.core.label='init0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n5' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='get' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n6' org.eventb.core.assignment='cc ≔ nn' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
 </org.eventb.core.machineFile>

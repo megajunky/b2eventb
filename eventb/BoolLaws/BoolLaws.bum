@@ -23,13 +23,16 @@
   <org.eventb.core.invariant name='n20' org.eventb.core.label='inv16' org.eventb.core.predicate='PP=TRUE⇔¬(¬(PP=TRUE))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n21' org.eventb.core.label='inv17' org.eventb.core.predicate='TT=TT' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n22' org.eventb.core.label='inv18' org.eventb.core.predicate='¬(TT=FF)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.event name='n23' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='set_pp' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n24' org.eventb.core.assignment='PP ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n23' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n24' org.eventb.core.assignment='PP,QQ,RR ≔ FALSE,FALSE,FALSE' org.eventb.core.label='init0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n25' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='set_qq' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n26' org.eventb.core.assignment='QQ ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n25' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='set_pp' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n26' org.eventb.core.assignment='PP ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n27' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='set_rr' org.eventb.core.comment=''>
-    <org.eventb.core.action name='n28' org.eventb.core.assignment='RR ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n27' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='set_qq' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n28' org.eventb.core.assignment='QQ ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n29' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='set_rr' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n30' org.eventb.core.assignment='RR ≔ TRUE' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
 </org.eventb.core.machineFile>

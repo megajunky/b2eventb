@@ -30,230 +30,243 @@
   <org.eventb.core.invariant name='n27' org.eventb.core.label='inv15' org.eventb.core.predicate='dom(user_hotel_bookings)=dom(user_rental_bookings)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n28' org.eventb.core.label='inv16' org.eventb.core.predicate='ran(session)⊆dom(user_hotel_bookings)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   <org.eventb.core.invariant name='n29' org.eventb.core.label='inv17' org.eventb.core.predicate='sess1∈dom(session)∧session_card(sess1)≠valid⇒session_response(sess1)=undef' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.event name='n30' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='login_select0' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n31' org.eventb.core.identifier='uu' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n32' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n33' org.eventb.core.label='grd0' org.eventb.core.predicate='uu∈USER' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n34' org.eventb.core.label='grd1' org.eventb.core.predicate='uu∈dom(user_hotel_bookings)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n35' org.eventb.core.label='grd2' org.eventb.core.predicate='sid∈SESSION∧¬(sid∈dom(session))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n36' org.eventb.core.assignment='session(sid) ≔ uu' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n37' org.eventb.core.assignment='session_response(sid) ≔ undef' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n38' org.eventb.core.assignment='session_card(sid) ≔ unknown' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n39' org.eventb.core.assignment='session_state(sid) ≔ s1' org.eventb.core.label='act3' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n40' org.eventb.core.assignment='session_request(sid) ≔ none' org.eventb.core.label='act4' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n41' org.eventb.core.assignment='sid_ ≔ sid' org.eventb.core.label='act5' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n30' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n31' org.eventb.core.assignment='session ≔ ∅' org.eventb.core.label='init0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n32' org.eventb.core.assignment='session_response ≔ ∅' org.eventb.core.label='init1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n33' org.eventb.core.assignment='session_card ≔ ∅' org.eventb.core.label='init2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n34' org.eventb.core.assignment='session_state ≔ ∅' org.eventb.core.label='init3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n35' org.eventb.core.assignment='session_request ≔ ∅' org.eventb.core.label='init4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n36' org.eventb.core.assignment='user_hotel_bookings ≔ ∅' org.eventb.core.label='init5' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n37' org.eventb.core.assignment='user_rental_bookings ≔ ∅' org.eventb.core.label='init6' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n38' org.eventb.core.assignment='rooms_hotel ≔ {h1a↦h1,h1b↦h1,h2b↦h2,h2a↦h2}' org.eventb.core.label='init7' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n39' org.eventb.core.assignment='cars_rental ≔ {c2a↦c2,c2b↦c2,c1b↦c1,c1a↦c1}' org.eventb.core.label='init8' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n40' org.eventb.core.assignment='global_room_bookings ≔ ∅' org.eventb.core.label='init9' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n41' org.eventb.core.assignment='global_car_bookings ≔ ∅' org.eventb.core.label='init10' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n42' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='login_select1' org.eventb.core.comment=''>
+  <org.eventb.core.event name='n42' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='login_select0' org.eventb.core.comment=''>
     <org.eventb.core.parameter name='n43' org.eventb.core.identifier='uu' org.eventb.core.comment='' />
     <org.eventb.core.parameter name='n44' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
     <org.eventb.core.guard name='n45' org.eventb.core.label='grd0' org.eventb.core.predicate='uu∈USER' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n46' org.eventb.core.label='grd1' org.eventb.core.predicate='¬(uu∈dom(user_hotel_bookings))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n46' org.eventb.core.label='grd1' org.eventb.core.predicate='uu∈dom(user_hotel_bookings)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
     <org.eventb.core.guard name='n47' org.eventb.core.label='grd2' org.eventb.core.predicate='sid∈SESSION∧¬(sid∈dom(session))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n48' org.eventb.core.assignment='user_hotel_bookings(uu) ≔ noHotel' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n49' org.eventb.core.assignment='user_rental_bookings(uu) ≔ noCarRent' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n50' org.eventb.core.assignment='session(sid) ≔ uu' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n51' org.eventb.core.assignment='session_response(sid) ≔ undef' org.eventb.core.label='act3' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n52' org.eventb.core.assignment='session_card(sid) ≔ unknown' org.eventb.core.label='act4' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n53' org.eventb.core.assignment='session_state(sid) ≔ s1' org.eventb.core.label='act5' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n54' org.eventb.core.assignment='session_request(sid) ≔ none' org.eventb.core.label='act6' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n55' org.eventb.core.assignment='sid_ ≔ sid' org.eventb.core.label='act7' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n48' org.eventb.core.assignment='session(sid) ≔ uu' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n49' org.eventb.core.assignment='session_response(sid) ≔ undef' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n50' org.eventb.core.assignment='session_card(sid) ≔ unknown' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n51' org.eventb.core.assignment='session_state(sid) ≔ s1' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n52' org.eventb.core.assignment='session_request(sid) ≔ none' org.eventb.core.label='act4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n53' org.eventb.core.assignment='sid_ ≔ sid' org.eventb.core.label='act5' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n56' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='bookRoom' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n57' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n58' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n59' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s1∧session_request(sid)=none' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n60' org.eventb.core.assignment='session_state(sid) ≔ s3' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n61' org.eventb.core.assignment='session_request(sid) ≔ br' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n54' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='login_select1' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n55' org.eventb.core.identifier='uu' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n56' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n57' org.eventb.core.label='grd0' org.eventb.core.predicate='uu∈USER' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n58' org.eventb.core.label='grd1' org.eventb.core.predicate='¬(uu∈dom(user_hotel_bookings))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n59' org.eventb.core.label='grd2' org.eventb.core.predicate='sid∈SESSION∧¬(sid∈dom(session))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n60' org.eventb.core.assignment='user_hotel_bookings(uu) ≔ noHotel' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n61' org.eventb.core.assignment='user_rental_bookings(uu) ≔ noCarRent' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n62' org.eventb.core.assignment='session(sid) ≔ uu' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n63' org.eventb.core.assignment='session_response(sid) ≔ undef' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n64' org.eventb.core.assignment='session_card(sid) ≔ unknown' org.eventb.core.label='act4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n65' org.eventb.core.assignment='session_state(sid) ≔ s1' org.eventb.core.label='act5' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n66' org.eventb.core.assignment='session_request(sid) ≔ none' org.eventb.core.label='act6' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n67' org.eventb.core.assignment='sid_ ≔ sid' org.eventb.core.label='act7' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n62' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='bookCar' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n63' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n64' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n65' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s1∧session_request(sid)=none' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n66' org.eventb.core.assignment='session_state(sid) ≔ s5' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n67' org.eventb.core.assignment='session_request(sid) ≔ bc' org.eventb.core.label='act1' org.eventb.core.comment='' />
-  </org.eventb.core.event>
-  <org.eventb.core.event name='n68' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='unbookRoom' org.eventb.core.comment=''>
+  <org.eventb.core.event name='n68' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='bookRoom' org.eventb.core.comment=''>
     <org.eventb.core.parameter name='n69' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
     <org.eventb.core.guard name='n70' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
     <org.eventb.core.guard name='n71' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s1∧session_request(sid)=none' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n72' org.eventb.core.assignment='session_state(sid) ≔ s2' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n73' org.eventb.core.assignment='session_request(sid) ≔ ur' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n72' org.eventb.core.assignment='session_state(sid) ≔ s3' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n73' org.eventb.core.assignment='session_request(sid) ≔ br' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n74' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='unbookCar' org.eventb.core.comment=''>
+  <org.eventb.core.event name='n74' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='bookCar' org.eventb.core.comment=''>
     <org.eventb.core.parameter name='n75' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
     <org.eventb.core.guard name='n76' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
     <org.eventb.core.guard name='n77' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s1∧session_request(sid)=none' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n78' org.eventb.core.assignment='session_state(sid) ≔ s4' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n79' org.eventb.core.assignment='session_request(sid) ≔ uc' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n78' org.eventb.core.assignment='session_state(sid) ≔ s5' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n79' org.eventb.core.assignment='session_request(sid) ≔ bc' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n80' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='enterCard' org.eventb.core.comment=''>
+  <org.eventb.core.event name='n80' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='unbookRoom' org.eventb.core.comment=''>
     <org.eventb.core.parameter name='n81' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n82' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n83' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n84' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)∈{s4,s5,s3,s2}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n85' org.eventb.core.label='grd2' org.eventb.core.predicate='cc∈CARD−{unknown}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n86' org.eventb.core.assignment='session_state(sid) ≔ s6' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n87' org.eventb.core.assignment='session_card(sid) ≔ cc' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n82' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n83' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s1∧session_request(sid)=none' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n84' org.eventb.core.assignment='session_state(sid) ≔ s2' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n85' org.eventb.core.assignment='session_request(sid) ≔ ur' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n88' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='retryCard' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n89' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n90' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n91' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n92' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6∧session_card(sid)=wrong' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n93' org.eventb.core.label='grd2' org.eventb.core.predicate='cc∈CARD−{unknown}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n94' org.eventb.core.assignment='session_card(sid) ≔ cc' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n86' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='unbookCar' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n87' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n88' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n89' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s1∧session_request(sid)=none' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n90' org.eventb.core.assignment='session_state(sid) ≔ s4' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n91' org.eventb.core.assignment='session_request(sid) ≔ uc' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n95' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select0_then' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n96' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n97' org.eventb.core.identifier='rr' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n98' org.eventb.core.identifier='hh' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n99' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n100' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n101' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=br∧user_hotel_bookings(session(sid))=noHotel' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n102' org.eventb.core.label='grd3' org.eventb.core.predicate='dom(global_room_bookings)⊂ROOM' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n103' org.eventb.core.label='grd4' org.eventb.core.predicate='rr∈ROOM−(dom(global_room_bookings))∧hh∈HOTEL∧rooms_hotel(rr)=hh' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n104' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n105' org.eventb.core.assignment='global_room_bookings(rr) ≔ session(sid)' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n106' org.eventb.core.assignment='user_hotel_bookings(session(sid)) ≔ hh' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n107' org.eventb.core.assignment='session_response(sid) ≔ done' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n92' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='enterCard' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n93' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n94' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n95' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n96' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)∈{s4,s5,s3,s2}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n97' org.eventb.core.label='grd2' org.eventb.core.predicate='cc∈CARD−{unknown}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n98' org.eventb.core.assignment='session_state(sid) ≔ s6' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n99' org.eventb.core.assignment='session_card(sid) ≔ cc' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n108' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select0_else' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n109' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n110' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n111' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n112' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=br∧user_hotel_bookings(session(sid))=noHotel' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n113' org.eventb.core.label='grd3' org.eventb.core.predicate='¬(dom(global_room_bookings)⊂ROOM)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n114' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n115' org.eventb.core.assignment='session_response(sid) ≔ impossible' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n100' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='retryCard' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n101' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n102' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n103' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n104' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6∧session_card(sid)=wrong' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n105' org.eventb.core.label='grd2' org.eventb.core.predicate='cc∈CARD−{unknown}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n106' org.eventb.core.assignment='session_card(sid) ≔ cc' org.eventb.core.label='act0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n116' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select1_then' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n117' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n118' org.eventb.core.identifier='rr' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n119' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n120' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n121' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=br∧user_hotel_bookings(session(sid))≠noHotel' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n122' org.eventb.core.label='grd3' org.eventb.core.predicate='(dom(global_room_bookings))∩(rooms_hotel∼[{user_hotel_bookings(session(sid))}])≠rooms_hotel∼[{user_hotel_bookings(session(sid))}]' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n123' org.eventb.core.label='grd4' org.eventb.core.predicate='rr∈ROOM−(dom(global_room_bookings))∧rooms_hotel(rr)=user_hotel_bookings(session(sid))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n124' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n125' org.eventb.core.assignment='global_room_bookings ≔ global_room_bookings∪{rr↦(session(sid))}' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n126' org.eventb.core.assignment='session_response(sid) ≔ done' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n107' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select0_then' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n108' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n109' org.eventb.core.identifier='rr' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n110' org.eventb.core.identifier='hh' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n111' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n112' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n113' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=br∧user_hotel_bookings(session(sid))=noHotel' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n114' org.eventb.core.label='grd3' org.eventb.core.predicate='dom(global_room_bookings)⊂ROOM' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n115' org.eventb.core.label='grd4' org.eventb.core.predicate='rr∈ROOM−(dom(global_room_bookings))∧hh∈HOTEL∧rooms_hotel(rr)=hh' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n116' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n117' org.eventb.core.assignment='global_room_bookings(rr) ≔ session(sid)' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n118' org.eventb.core.assignment='user_hotel_bookings(session(sid)) ≔ hh' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n119' org.eventb.core.assignment='session_response(sid) ≔ done' org.eventb.core.label='act3' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n127' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select1_else' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n128' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n129' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n130' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n131' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=br∧user_hotel_bookings(session(sid))≠noHotel' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n132' org.eventb.core.label='grd3' org.eventb.core.predicate='¬((dom(global_room_bookings))∩(rooms_hotel∼[{user_hotel_bookings(session(sid))}])≠rooms_hotel∼[{user_hotel_bookings(session(sid))}])' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n133' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n134' org.eventb.core.assignment='session_response(sid) ≔ impossible' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n120' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select0_else' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n121' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n122' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n123' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n124' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=br∧user_hotel_bookings(session(sid))=noHotel' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n125' org.eventb.core.label='grd3' org.eventb.core.predicate='¬(dom(global_room_bookings)⊂ROOM)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n126' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n127' org.eventb.core.assignment='session_response(sid) ≔ impossible' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n135' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select2_then' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n136' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n137' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n138' org.eventb.core.identifier='re' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n139' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n140' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n141' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=bc∧user_rental_bookings(session(sid))=noCarRent' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n142' org.eventb.core.label='grd3' org.eventb.core.predicate='dom(global_car_bookings)⊂CAR' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n143' org.eventb.core.label='grd4' org.eventb.core.predicate='cc∈CAR−(dom(global_car_bookings))∧re∈CAR_RENT∧cars_rental(cc)=re' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n144' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n145' org.eventb.core.assignment='global_car_bookings(cc) ≔ session(sid)' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n146' org.eventb.core.assignment='user_rental_bookings(session(sid)) ≔ re' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n147' org.eventb.core.assignment='session_response(sid) ≔ done' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n128' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select1_then' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n129' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n130' org.eventb.core.identifier='rr' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n131' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n132' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n133' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=br∧user_hotel_bookings(session(sid))≠noHotel' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n134' org.eventb.core.label='grd3' org.eventb.core.predicate='(dom(global_room_bookings))∩(rooms_hotel∼[{user_hotel_bookings(session(sid))}])≠rooms_hotel∼[{user_hotel_bookings(session(sid))}]' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n135' org.eventb.core.label='grd4' org.eventb.core.predicate='rr∈ROOM−(dom(global_room_bookings))∧rooms_hotel(rr)=user_hotel_bookings(session(sid))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n136' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n137' org.eventb.core.assignment='global_room_bookings ≔ global_room_bookings∪{rr↦(session(sid))}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n138' org.eventb.core.assignment='session_response(sid) ≔ done' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n148' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select2_else' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n149' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n150' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n151' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n152' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=bc∧user_rental_bookings(session(sid))=noCarRent' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n153' org.eventb.core.label='grd3' org.eventb.core.predicate='¬(dom(global_car_bookings)⊂CAR)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n154' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n155' org.eventb.core.assignment='session_response(sid) ≔ impossible' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n139' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select1_else' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n140' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n141' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n142' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n143' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=br∧user_hotel_bookings(session(sid))≠noHotel' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n144' org.eventb.core.label='grd3' org.eventb.core.predicate='¬((dom(global_room_bookings))∩(rooms_hotel∼[{user_hotel_bookings(session(sid))}])≠rooms_hotel∼[{user_hotel_bookings(session(sid))}])' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n145' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n146' org.eventb.core.assignment='session_response(sid) ≔ impossible' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n156' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select3_then' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n157' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n158' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n159' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n160' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n161' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=bc∧user_rental_bookings(session(sid))≠noCarRent' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n162' org.eventb.core.label='grd3' org.eventb.core.predicate='(dom(global_car_bookings))∩(cars_rental∼[{user_rental_bookings(session(sid))}])≠cars_rental∼[{user_rental_bookings(session(sid))}]' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n163' org.eventb.core.label='grd4' org.eventb.core.predicate='cc∈CAR−(dom(global_car_bookings))∧cars_rental(cc)=user_rental_bookings(session(sid))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n164' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n165' org.eventb.core.assignment='global_car_bookings(cc) ≔ session(sid)' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n166' org.eventb.core.assignment='session_response(sid) ≔ done' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n147' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select2_then' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n148' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n149' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n150' org.eventb.core.identifier='re' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n151' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n152' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n153' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=bc∧user_rental_bookings(session(sid))=noCarRent' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n154' org.eventb.core.label='grd3' org.eventb.core.predicate='dom(global_car_bookings)⊂CAR' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n155' org.eventb.core.label='grd4' org.eventb.core.predicate='cc∈CAR−(dom(global_car_bookings))∧re∈CAR_RENT∧cars_rental(cc)=re' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n156' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n157' org.eventb.core.assignment='global_car_bookings(cc) ≔ session(sid)' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n158' org.eventb.core.assignment='user_rental_bookings(session(sid)) ≔ re' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n159' org.eventb.core.assignment='session_response(sid) ≔ done' org.eventb.core.label='act3' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n167' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select3_else' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n168' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n169' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n170' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n171' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=bc∧user_rental_bookings(session(sid))≠noCarRent' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n172' org.eventb.core.label='grd3' org.eventb.core.predicate='¬((dom(global_car_bookings))∩(cars_rental∼[{user_rental_bookings(session(sid))}])≠cars_rental∼[{user_rental_bookings(session(sid))}])' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n173' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n174' org.eventb.core.assignment='session_response(sid) ≔ impossible' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n160' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select2_else' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n161' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n162' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n163' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n164' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=bc∧user_rental_bookings(session(sid))=noCarRent' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n165' org.eventb.core.label='grd3' org.eventb.core.predicate='¬(dom(global_car_bookings)⊂CAR)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n166' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n167' org.eventb.core.assignment='session_response(sid) ≔ impossible' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n175' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select4_then_then' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n176' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n177' org.eventb.core.identifier='rr' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n178' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n179' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n180' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=ur' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n181' org.eventb.core.label='grd3' org.eventb.core.predicate='session(sid)∈ran(global_room_bookings)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n182' org.eventb.core.label='grd4' org.eventb.core.predicate='rr∈dom(global_room_bookings)∧global_room_bookings(rr)=session(sid)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n183' org.eventb.core.label='grd5' org.eventb.core.predicate='{xx1∣xx1∈dom(global_room_bookings)∧global_room_bookings(xx1)=session(sid)}={rr}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n184' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n185' org.eventb.core.assignment='global_room_bookings ≔ {rr}⩤global_room_bookings' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n186' org.eventb.core.assignment='session_response(sid) ≔ done' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n187' org.eventb.core.assignment='user_hotel_bookings(session(sid)) ≔ noHotel' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n168' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select3_then' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n169' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n170' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n171' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n172' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n173' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=bc∧user_rental_bookings(session(sid))≠noCarRent' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n174' org.eventb.core.label='grd3' org.eventb.core.predicate='(dom(global_car_bookings))∩(cars_rental∼[{user_rental_bookings(session(sid))}])≠cars_rental∼[{user_rental_bookings(session(sid))}]' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n175' org.eventb.core.label='grd4' org.eventb.core.predicate='cc∈CAR−(dom(global_car_bookings))∧cars_rental(cc)=user_rental_bookings(session(sid))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n176' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n177' org.eventb.core.assignment='global_car_bookings(cc) ≔ session(sid)' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n178' org.eventb.core.assignment='session_response(sid) ≔ done' org.eventb.core.label='act2' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n188' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select4_else' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n189' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n179' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select3_else' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n180' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n181' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n182' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n183' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=bc∧user_rental_bookings(session(sid))≠noCarRent' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n184' org.eventb.core.label='grd3' org.eventb.core.predicate='¬((dom(global_car_bookings))∩(cars_rental∼[{user_rental_bookings(session(sid))}])≠cars_rental∼[{user_rental_bookings(session(sid))}])' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n185' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n186' org.eventb.core.assignment='session_response(sid) ≔ impossible' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n187' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select4_then_then' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n188' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n189' org.eventb.core.identifier='rr' org.eventb.core.comment='' />
     <org.eventb.core.guard name='n190' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
     <org.eventb.core.guard name='n191' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
     <org.eventb.core.guard name='n192' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=ur' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n193' org.eventb.core.label='grd3' org.eventb.core.predicate='¬(session(sid)∈ran(global_room_bookings))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n194' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n195' org.eventb.core.assignment='session_response(sid) ≔ impossible' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n193' org.eventb.core.label='grd3' org.eventb.core.predicate='session(sid)∈ran(global_room_bookings)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n194' org.eventb.core.label='grd4' org.eventb.core.predicate='rr∈dom(global_room_bookings)∧global_room_bookings(rr)=session(sid)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n195' org.eventb.core.label='grd5' org.eventb.core.predicate='{xx1∣xx1∈dom(global_room_bookings)∧global_room_bookings(xx1)=session(sid)}={rr}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n196' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n197' org.eventb.core.assignment='global_room_bookings ≔ {rr}⩤global_room_bookings' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n198' org.eventb.core.assignment='session_response(sid) ≔ done' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n199' org.eventb.core.assignment='user_hotel_bookings(session(sid)) ≔ noHotel' org.eventb.core.label='act3' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n196' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select5_then_then' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n197' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.parameter name='n198' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n199' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n200' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n201' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=uc' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n202' org.eventb.core.label='grd3' org.eventb.core.predicate='session(sid)∈ran(global_car_bookings)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n203' org.eventb.core.label='grd4' org.eventb.core.predicate='cc∈dom(global_car_bookings)∧global_car_bookings(cc)=session(sid)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n204' org.eventb.core.label='grd5' org.eventb.core.predicate='{xx2∣xx2∈dom(global_car_bookings)∧global_car_bookings(xx2)=session(sid)}={cc}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n205' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n206' org.eventb.core.assignment='global_car_bookings ≔ {cc}⩤global_car_bookings' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n207' org.eventb.core.assignment='session_response(sid) ≔ done' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n208' org.eventb.core.assignment='user_rental_bookings(session(sid)) ≔ noCarRent' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n200' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select4_else' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n201' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n202' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n203' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n204' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=ur' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n205' org.eventb.core.label='grd3' org.eventb.core.predicate='¬(session(sid)∈ran(global_room_bookings))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n206' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n207' org.eventb.core.assignment='session_response(sid) ≔ impossible' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n209' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select5_else' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n210' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n208' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select5_then_then' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n209' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.parameter name='n210' org.eventb.core.identifier='cc' org.eventb.core.comment='' />
     <org.eventb.core.guard name='n211' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
     <org.eventb.core.guard name='n212' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
     <org.eventb.core.guard name='n213' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=uc' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n214' org.eventb.core.label='grd3' org.eventb.core.predicate='¬(session(sid)∈ran(global_car_bookings))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n215' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n216' org.eventb.core.assignment='session_response(sid) ≔ impossible' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n214' org.eventb.core.label='grd3' org.eventb.core.predicate='session(sid)∈ran(global_car_bookings)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n215' org.eventb.core.label='grd4' org.eventb.core.predicate='cc∈dom(global_car_bookings)∧global_car_bookings(cc)=session(sid)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n216' org.eventb.core.label='grd5' org.eventb.core.predicate='{xx2∣xx2∈dom(global_car_bookings)∧global_car_bookings(xx2)=session(sid)}={cc}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n217' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n218' org.eventb.core.assignment='global_car_bookings ≔ {cc}⩤global_car_bookings' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n219' org.eventb.core.assignment='session_response(sid) ≔ done' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n220' org.eventb.core.assignment='user_rental_bookings(session(sid)) ≔ noCarRent' org.eventb.core.label='act3' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n217' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='again' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n218' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n219' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n220' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s7' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n221' org.eventb.core.assignment='session_state(sid) ≔ s1' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n222' org.eventb.core.assignment='session_request(sid) ≔ none' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n223' org.eventb.core.assignment='session_response(sid) ≔ undef' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n224' org.eventb.core.assignment='session_card(sid) ≔ unknown' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n221' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='response_select5_else' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n222' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n223' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n224' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s6' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n225' org.eventb.core.label='grd2' org.eventb.core.predicate='session_request(sid)=uc' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n226' org.eventb.core.label='grd3' org.eventb.core.predicate='¬(session(sid)∈ran(global_car_bookings))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n227' org.eventb.core.assignment='session_state(sid) ≔ s7' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n228' org.eventb.core.assignment='session_response(sid) ≔ impossible' org.eventb.core.label='act1' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n225' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='logout' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n226' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n227' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n228' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)∈{s7,s6}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n229' org.eventb.core.assignment='session ≔ {sid}⩤session' org.eventb.core.label='act0' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n230' org.eventb.core.assignment='session_response ≔ {sid}⩤session_response' org.eventb.core.label='act1' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n231' org.eventb.core.assignment='session_card ≔ {sid}⩤session_card' org.eventb.core.label='act2' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n232' org.eventb.core.assignment='session_state ≔ {sid}⩤session_state' org.eventb.core.label='act3' org.eventb.core.comment='' />
-    <org.eventb.core.action name='n233' org.eventb.core.assignment='session_request ≔ {sid}⩤session_request' org.eventb.core.label='act4' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n229' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='again' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n230' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n231' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n232' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)=s7' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n233' org.eventb.core.assignment='session_state(sid) ≔ s1' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n234' org.eventb.core.assignment='session_request(sid) ≔ none' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n235' org.eventb.core.assignment='session_response(sid) ≔ undef' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n236' org.eventb.core.assignment='session_card(sid) ≔ unknown' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n237' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='logout' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n238' org.eventb.core.identifier='sid' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n239' org.eventb.core.label='grd0' org.eventb.core.predicate='sid∈SESSION' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n240' org.eventb.core.label='grd1' org.eventb.core.predicate='sid∈dom(session)∧session_state(sid)∈{s7,s6}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n241' org.eventb.core.assignment='session ≔ {sid}⩤session' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n242' org.eventb.core.assignment='session_response ≔ {sid}⩤session_response' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n243' org.eventb.core.assignment='session_card ≔ {sid}⩤session_card' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n244' org.eventb.core.assignment='session_state ≔ {sid}⩤session_state' org.eventb.core.label='act3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n245' org.eventb.core.assignment='session_request ≔ {sid}⩤session_request' org.eventb.core.label='act4' org.eventb.core.comment='' />
   </org.eventb.core.event>
 </org.eventb.core.machineFile>

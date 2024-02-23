@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<org.eventb.core.machineFile org.eventb.core.configuration='org.eventb.core.fwd' version='5' org.eventb.core.comment=''>
+  <org.eventb.core.seesContext name='n0' org.eventb.core.target='train_1_ctx' />
+  <org.eventb.core.variable name='n1' org.eventb.core.identifier='LBT' />
+  <org.eventb.core.variable name='n2' org.eventb.core.identifier='TRK' />
+  <org.eventb.core.variable name='n3' org.eventb.core.identifier='frm' />
+  <org.eventb.core.variable name='n4' org.eventb.core.identifier='OCC' />
+  <org.eventb.core.variable name='n5' org.eventb.core.identifier='resbl' />
+  <org.eventb.core.variable name='n6' org.eventb.core.identifier='resrt' />
+  <org.eventb.core.variable name='n7' org.eventb.core.identifier='rsrtbl' />
+  <org.eventb.core.invariant name='n8' org.eventb.core.label='inv0' org.eventb.core.predicate='TRK∈BLOCKS⤔BLOCKS' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n9' org.eventb.core.label='inv1' org.eventb.core.predicate='frm⊆resrt' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n10' org.eventb.core.label='inv2' org.eventb.core.predicate='rsrtbl[OCC]⊆frm' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n11' org.eventb.core.label='inv3' org.eventb.core.predicate='(∀r·r∈resrt∖frm⇒rtbl▷{r}=rsrtbl▷{r})' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n12' org.eventb.core.label='inv4' org.eventb.core.predicate='(∀x,y·x∈BLOCKS∧y∈BLOCKS∧x↦y∈TRK⇒(∃r·r∈ROUTES∧x↦y∈nxt(r)))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n13' org.eventb.core.label='inv5' org.eventb.core.predicate='(∀r·r∈frm⇒rsrtbl∼[{r}]◁nxt(r)=rsrtbl∼[{r}]◁TRK)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n14' org.eventb.core.label='inv6' org.eventb.core.predicate='LBT⊆OCC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n15' org.eventb.core.label='inv7' org.eventb.core.predicate='(∀a,b·b∈LBT∧b∈ran(nxt(rsrtbl(b)))∧a=nxt(rsrtbl(b))∼(b)∧a∈dom(rsrtbl)⇒rsrtbl(a)≠rsrtbl(b))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n16' org.eventb.core.label='inv8' org.eventb.core.predicate='rsrtbl∈resbl→resrt' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n17' org.eventb.core.label='inv9' org.eventb.core.predicate='rsrtbl⊆rtbl' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n18' org.eventb.core.label='inv10' org.eventb.core.predicate='OCC⊆resbl' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n19' org.eventb.core.label='inv11' org.eventb.core.predicate='(∀r·r∈ROUTES⇒(nxt(r)[(rtbl∼[{r}])∖(rsrtbl∼[{r}])])∩((rsrtbl∼[{r}])∖OCC)=∅)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n20' org.eventb.core.label='inv12' org.eventb.core.predicate='(∀r·r∈ROUTES⇒nxt(r)[rsrtbl∼[{r}]]⊆rsrtbl∼[{r}])' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.invariant name='n21' org.eventb.core.label='inv13' org.eventb.core.predicate='(∀r·r∈ROUTES⇒nxt(r)[(rsrtbl∼[{r}])∖OCC]⊆(rsrtbl∼[{r}])∖OCC)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n22' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n23' org.eventb.core.assignment='resrt ≔ ∅' org.eventb.core.label='init0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n24' org.eventb.core.assignment='resbl ≔ ∅' org.eventb.core.label='init1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n25' org.eventb.core.assignment='rsrtbl ≔ ∅' org.eventb.core.label='init2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n26' org.eventb.core.assignment='OCC ≔ ∅' org.eventb.core.label='init3' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n27' org.eventb.core.assignment='TRK ≔ ∅' org.eventb.core.label='init4' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n28' org.eventb.core.assignment='frm ≔ ∅' org.eventb.core.label='init5' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n29' org.eventb.core.assignment='LBT ≔ ∅' org.eventb.core.label='init6' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n30' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='route_reservation' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n31' org.eventb.core.identifier='r' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n32' org.eventb.core.label='grd0' org.eventb.core.predicate='¬(r∈resrt)∧(rtbl∼[{r}])∩resbl=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n33' org.eventb.core.assignment='resrt ≔ resrt∪{r}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n34' org.eventb.core.assignment='rsrtbl ≔ rsrtbl∪(rtbl▷{r})' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n35' org.eventb.core.assignment='resbl ≔ resbl∪(rtbl∼[{r}])' org.eventb.core.label='act2' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n36' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='route_freeing' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n37' org.eventb.core.identifier='r' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n38' org.eventb.core.label='grd0' org.eventb.core.predicate='r∈resrt∖(ran(rsrtbl))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n39' org.eventb.core.assignment='resrt ≔ resrt∖{r}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n40' org.eventb.core.assignment='frm ≔ frm∖{r}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n41' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='FRONT_MOVE_1' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n42' org.eventb.core.identifier='r' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n43' org.eventb.core.label='grd0' org.eventb.core.predicate='r∈frm∧fst(r)∈resbl∖OCC∧rsrtbl(fst(r))=r' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n44' org.eventb.core.assignment='OCC ≔ OCC∪{fst(r)}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n45' org.eventb.core.assignment='LBT ≔ LBT∪{fst(r)}' org.eventb.core.label='act1' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n46' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='FRONT_MOVE_2' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n47' org.eventb.core.identifier='b' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n48' org.eventb.core.label='grd0' org.eventb.core.predicate='b∈OCC∧b∈dom(TRK)∧¬(TRK(b)∈OCC)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n49' org.eventb.core.assignment='OCC ≔ OCC∪{TRK(b)}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n50' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='BACK_MOVE_1' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n51' org.eventb.core.identifier='b' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n52' org.eventb.core.label='grd0' org.eventb.core.predicate='b∈LBT∧¬(b∈dom(TRK))' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n53' org.eventb.core.assignment='OCC ≔ OCC∖{b}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n54' org.eventb.core.assignment='rsrtbl ≔ {b}⩤rsrtbl' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n55' org.eventb.core.assignment='resbl ≔ resbl∖{b}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n56' org.eventb.core.assignment='LBT ≔ LBT∖{b}' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n57' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='BACK_MOVE_2' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n58' org.eventb.core.identifier='b' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n59' org.eventb.core.label='grd0' org.eventb.core.predicate='b∈LBT∧b∈dom(TRK)∧TRK(b)∈OCC' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n60' org.eventb.core.assignment='OCC ≔ OCC∖{b}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n61' org.eventb.core.assignment='rsrtbl ≔ {b}⩤rsrtbl' org.eventb.core.label='act1' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n62' org.eventb.core.assignment='resbl ≔ resbl∖{b}' org.eventb.core.label='act2' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n63' org.eventb.core.assignment='LBT ≔ (LBT∖{b})∪{TRK(b)}' org.eventb.core.label='act3' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n64' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='point_positionning' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n65' org.eventb.core.identifier='r' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n66' org.eventb.core.label='grd0' org.eventb.core.predicate='r∈resrt∖frm' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n67' org.eventb.core.assignment='TRK ≔ (dom(nxt(r))⩤TRK⩥ran(nxt(r)))∪(nxt(r))' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n68' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='route_formation' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n69' org.eventb.core.identifier='r' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n70' org.eventb.core.label='grd0' org.eventb.core.predicate='r∈resrt∖frm∧rsrtbl∼[{r}]◁nxt(r)=rsrtbl∼[{r}]◁TRK' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.action name='n71' org.eventb.core.assignment='frm ≔ frm∪{r}' org.eventb.core.label='act0' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+</org.eventb.core.machineFile>

@@ -3,46 +3,49 @@
   <org.eventb.core.seesContext name='n0' org.eventb.core.target='Sets_ctx' />
   <org.eventb.core.variable name='n1' org.eventb.core.identifier='xx' />
   <org.eventb.core.invariant name='n2' org.eventb.core.label='inv0' org.eventb.core.predicate='xx∈ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-  <org.eventb.core.event name='n3' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='all' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n4' org.eventb.core.identifier='ss' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n5' org.eventb.core.label='grd0' org.eventb.core.predicate='ss∩xx=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n6' org.eventb.core.label='grd1' org.eventb.core.predicate='ss∈ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n7' org.eventb.core.label='grd2' org.eventb.core.predicate='card(ss)=1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n3' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='INITIALISATION' org.eventb.core.comment=''>
+    <org.eventb.core.action name='n4' org.eventb.core.assignment='xx ≔ {x1,x2}' org.eventb.core.label='init0' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n8' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='not_in21a' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n9' org.eventb.core.identifier='ss' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n10' org.eventb.core.label='grd0' org.eventb.core.predicate='xx−ss={x1,x2}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n11' org.eventb.core.label='grd1' org.eventb.core.predicate='ss∈ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n12' org.eventb.core.label='grd2' org.eventb.core.predicate='card(ss)=1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n5' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='all' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n6' org.eventb.core.identifier='ss' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n7' org.eventb.core.label='grd0' org.eventb.core.predicate='ss∩xx=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n8' org.eventb.core.label='grd1' org.eventb.core.predicate='ss∈ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n9' org.eventb.core.label='grd2' org.eventb.core.predicate='card(ss)=1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n13' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='not_in21b' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n14' org.eventb.core.identifier='ss' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n15' org.eventb.core.label='grd0' org.eventb.core.predicate='xx−ss={x1,x2}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n16' org.eventb.core.label='grd1' org.eventb.core.predicate='ss∈ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n17' org.eventb.core.label='grd2' org.eventb.core.predicate='card(ss)=1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n10' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='not_in21a' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n11' org.eventb.core.identifier='ss' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n12' org.eventb.core.label='grd0' org.eventb.core.predicate='xx−ss={x1,x2}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n13' org.eventb.core.label='grd1' org.eventb.core.predicate='ss∈ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n14' org.eventb.core.label='grd2' org.eventb.core.predicate='card(ss)=1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n18' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='inter_testa' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n19' org.eventb.core.identifier='ss' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n20' org.eventb.core.label='grd0' org.eventb.core.predicate='xx∩ss={x1,x2}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n21' org.eventb.core.label='grd1' org.eventb.core.predicate='ss∈ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n22' org.eventb.core.label='grd2' org.eventb.core.predicate='card(ss)=2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n15' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='not_in21b' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n16' org.eventb.core.identifier='ss' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n17' org.eventb.core.label='grd0' org.eventb.core.predicate='xx−ss={x1,x2}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n18' org.eventb.core.label='grd1' org.eventb.core.predicate='ss∈ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n19' org.eventb.core.label='grd2' org.eventb.core.predicate='card(ss)=1' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n23' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='inter_testb' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n24' org.eventb.core.identifier='ss' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n25' org.eventb.core.label='grd0' org.eventb.core.predicate='xx∩ss={x1,x2}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n26' org.eventb.core.label='grd1' org.eventb.core.predicate='ss∈ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n27' org.eventb.core.label='grd2' org.eventb.core.predicate='card(ss)=2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n20' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='inter_testa' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n21' org.eventb.core.identifier='ss' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n22' org.eventb.core.label='grd0' org.eventb.core.predicate='xx∩ss={x1,x2}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n23' org.eventb.core.label='grd1' org.eventb.core.predicate='ss∈ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n24' org.eventb.core.label='grd2' org.eventb.core.predicate='card(ss)=2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n28' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='rem_testa' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n29' org.eventb.core.identifier='sss' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n30' org.eventb.core.label='grd0' org.eventb.core.predicate='sss⊆ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n31' org.eventb.core.label='grd1' org.eventb.core.predicate='sss−{xx}=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n32' org.eventb.core.label='grd2' org.eventb.core.predicate='sss={{x1,x2}}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n25' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='inter_testb' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n26' org.eventb.core.identifier='ss' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n27' org.eventb.core.label='grd0' org.eventb.core.predicate='xx∩ss={x1,x2}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n28' org.eventb.core.label='grd1' org.eventb.core.predicate='ss∈ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n29' org.eventb.core.label='grd2' org.eventb.core.predicate='card(ss)=2' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   </org.eventb.core.event>
-  <org.eventb.core.event name='n33' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='rem_testb' org.eventb.core.comment=''>
-    <org.eventb.core.parameter name='n34' org.eventb.core.identifier='sss' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n35' org.eventb.core.label='grd0' org.eventb.core.predicate='sss⊆ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n36' org.eventb.core.label='grd1' org.eventb.core.predicate='sss−{xx}=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
-    <org.eventb.core.guard name='n37' org.eventb.core.label='grd2' org.eventb.core.predicate='sss={{x1,x2}}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  <org.eventb.core.event name='n30' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='rem_testa' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n31' org.eventb.core.identifier='sss' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n32' org.eventb.core.label='grd0' org.eventb.core.predicate='sss⊆ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n33' org.eventb.core.label='grd1' org.eventb.core.predicate='sss−{xx}=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n34' org.eventb.core.label='grd2' org.eventb.core.predicate='sss={{x1,x2}}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+  </org.eventb.core.event>
+  <org.eventb.core.event name='n35' org.eventb.core.convergence='0' org.eventb.core.extended='false' org.eventb.core.label='rem_testb' org.eventb.core.comment=''>
+    <org.eventb.core.parameter name='n36' org.eventb.core.identifier='sss' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n37' org.eventb.core.label='grd0' org.eventb.core.predicate='sss⊆ℙ(setX)' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n38' org.eventb.core.label='grd1' org.eventb.core.predicate='sss−{xx}=∅' org.eventb.core.theorem='false' org.eventb.core.comment='' />
+    <org.eventb.core.guard name='n39' org.eventb.core.label='grd2' org.eventb.core.predicate='sss={{x1,x2}}' org.eventb.core.theorem='false' org.eventb.core.comment='' />
   </org.eventb.core.event>
 </org.eventb.core.machineFile>
